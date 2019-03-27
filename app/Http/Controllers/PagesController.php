@@ -46,25 +46,14 @@ class PagesController extends Controller
 
             if (!isset($error_msg)){
                 $decodedResponse = json_decode($response, true);
-
-
-                $renderData = "";
-                foreach($decodedResponse['results'] as $value) {
-                    $renderData .= "<a href='https://www.themoviedb.org/movie/{$value['id']}'>";
-                    $renderData .= "<h4>{$value['title']} ({$value['release_date']})</h4>";
-                    $renderData .= "<img src='https://image.tmdb.org/t/p/w1280/{$value['poster_path']}' style='height: 180px;'/>";
-                    $renderData .= "<a/>";
-                }
-
-                // echo $renderData;
             }
         } else {
-            $error_msg = "No data in input box.";
+            $error_msg = "No data in input box";
         }
         if (isset($error_msg)) {
             return view('pages.searchResults')->with('error_msg', $error_msg);
         } else {
-            return view('pages.searchResults')->with('renderData' ,$renderData);
+            return view('pages.searchResults')->with('data', $decodedResponse['results']);
         }
     }
 

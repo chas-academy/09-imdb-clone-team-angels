@@ -86,7 +86,7 @@
         <nav>
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo center" style="display: inline-block; height: 100%; ">
-                    <img src="./images/cineoWhite.png" style="display: inline-block; height: 100%; padding: 0.25vw 0">
+                    <img src="{{ asset('images/cineoWhite.png') }}" style="display: inline-block; height: 100%; padding: 0.25vw 0">
                 </a>
 
                 <ul id="nav-mobile" class="left">
