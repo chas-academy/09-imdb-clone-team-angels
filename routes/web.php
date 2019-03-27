@@ -11,6 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PagesController@index');
+Route::get('/home', 'PagesController@index');
+Route::post('/searchresults', 'PagesController@searchResults');
+
+
+Auth::routes();
+Route::get('/dashboard', 'PagesController@dashboard');
