@@ -279,10 +279,12 @@ footer {
     width: auto;
     height: 47vh;
     overflow-x: scroll;
-    background: darkgray;
+    /* background: darkgray; */
+    margin-top: 120px;
 
 }
 
+header > a > h1 {margin-top: 250px;}
 ::-webkit-scrollbar { 
     display: none; 
 }
@@ -298,13 +300,14 @@ footer {
 }
 .results>a>img{
     width: auto;
-    height: 350px !important;
-    box-shadow: 3px 3px 2px gray;
+    height: 300px !important;
+    box-shadow: 3px 3px 2px black;
 }
 
 .results>a>h4{
    height: 20px;
-   color: black;
+   /* color: black; */
+   color: white;
    text-align: center;
    font-family: helvetica neue;
    font-weight: 200;
@@ -482,7 +485,15 @@ and (-webkit-device-pixel-ratio : 2) {
       </div>
 
     </nav>
-    <div class="results">
+    
+                    </div>
+                </div>
+            </div>    
+            <main>
+      
+      <header id="back" class="overlay">
+        <a href="#top5"><h1>Top 5 Movies</h1></a>
+        <div class="results">
     <?php
                         if(isset($_GET["action"])) {
                             if(isset($_GET["movieName"]) && !empty($_GET["movieName"])) {
@@ -526,15 +537,8 @@ and (-webkit-device-pixel-ratio : 2) {
                         }
                     ?>
                     </div>
-                    </div>
-                </div>
-            </div>    
-            <main>
-      
-      <header id="back" class="overlay">
-        <a href="#top5"><h1>Top 5 Movies</h1></a>
       </header>
-
+     
       <div id="top5" class="top-5-container">
 
         <div class="container-background mov1">
