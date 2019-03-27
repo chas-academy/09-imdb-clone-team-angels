@@ -14,7 +14,7 @@
 Route::get('/', 'PagesController@index');
 Route::get('/home', 'PagesController@index');
 Route::post('/searchresults', 'PagesController@searchResults');
-
+Route::get('/details/{id}', 'PagesController@movieDetail');
 
 Auth::routes();
 Route::get('/dashboard', 'PagesController@dashboard');

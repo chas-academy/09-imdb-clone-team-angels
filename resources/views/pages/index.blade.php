@@ -2,11 +2,10 @@
 
 @section('content')
 
-
         <div class="card grey lighten-3">
             <div class="card-content white-text">
                 <div class="row center-align">
-                    <form class="col col s6 offset-s3" action="{{url('/searchresults')}}" method="POST">
+                    <form class="col s6 offset-s3" action="{{url('/searchresults')}}" method="POST">
                         @csrf
                     
                         <div class="input-field">
@@ -25,6 +24,4 @@
             </div>    
         </div>
 
-
- 
 @endsection

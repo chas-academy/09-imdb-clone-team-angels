@@ -2,9 +2,6 @@
 
 @section('content')
 
-{{-- {{ echo  isset($error_msg) ? {echo $error_msg} : {echo $renderData} }} --}}
-
-
 <div class="card grey lighten-4">
     <div class="card-content">
         {{-- @php
@@ -15,7 +12,9 @@
             <ul class="collection">
                 @foreach($data as $value)
                     <li class="collection-item">
-                        <a href='https://www.themoviedb.org/movie/{{$value['id']}}'>
+                        {{-- <a href='https://www.themoviedb.org/movie/{{$value['id']}}'> --}}
+                        <a href='{{ url('details/' . $value['id']) }}'>
+                            
                             <span class="title">
                                 <h5>
                                     {{$value['title']}} 
