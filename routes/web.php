@@ -17,4 +17,4 @@ Route::post('/searchresults', 'PagesController@searchResults');
 Route::get('/details/{id}', 'PagesController@movieDetail');
 
 Auth::routes();
-Route::get('/dashboard', 'PagesController@dashboard');
+Route::get('/dashboard', 'PagesController@dashboard')->middleware('auth');
