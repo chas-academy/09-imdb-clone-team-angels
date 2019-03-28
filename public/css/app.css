@@ -146,7 +146,7 @@ input#search-input {
     background-color: rgb(255, 255, 255);
     text-align: center;
     display: flex;
-    flex-flow: column;
+    flex-direction: column;
     justify-content: space-around;
     /* background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg'); */
     /* background-size: 100vw; */
@@ -157,7 +157,7 @@ input#search-input {
 
 .mov-content{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
     height: 100vh;
 }
