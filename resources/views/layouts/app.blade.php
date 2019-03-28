@@ -112,8 +112,8 @@
                         </li>
 
                         <li>
-                            <a href="/dashboard">
-                                Dashboard
+                            <a href="/profile">
+                                Profile
                             </a>
                         </li>
 

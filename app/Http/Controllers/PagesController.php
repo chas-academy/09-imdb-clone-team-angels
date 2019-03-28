@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Watchlist;
 
 class PagesController extends Controller
 {
@@ -97,8 +99,10 @@ class PagesController extends Controller
         }
     }
 
-    public function dashboard()
+    public function profile()
     {
-        return view('pages.dashboard');
+        $watchlists = Auth::user()->watchlists()->get();
+
+        return view('pages.profile')->with("watchlists", $watchlists);
     }
 }

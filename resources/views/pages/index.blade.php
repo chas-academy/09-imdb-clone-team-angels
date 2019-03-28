@@ -2,8 +2,6 @@
 
 @section('content')
 
-hello
-
         <div class="card grey lighten-3">
             <div class="card-content white-text">
                 <div class="row center-align">

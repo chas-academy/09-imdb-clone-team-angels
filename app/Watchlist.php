@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WatchList extends Model
+class Watchlist extends Model
 {
     //
 }
