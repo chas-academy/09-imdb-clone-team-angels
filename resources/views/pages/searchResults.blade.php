@@ -29,9 +29,13 @@
                             </p>
                              
                             @if(strlen($value['release_date']) > 1)
-                                <p class="result-release">{{$value['release_date']}}</p>
+                                <p class="result-release">
+                                    {{substr($value['release_date'], 0 ,-6)}}
+                                </p>
                             @endif
-                              
+                      
+
+                                
                         </a>
                     </div>  
         @endforeach
