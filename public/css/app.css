@@ -535,7 +535,7 @@ footer{
 
 
 
-#similar-container{
+.similar-container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -544,13 +544,13 @@ footer{
     height: 80vh;
 }
 
-#similar-content {
+.similar-content {
     width: 90vw;
     margin: auto;
     /* margin-top: 10vh; */
 }
 
-#similar-content >h1{
+.similar-content >h1{
     font-size: 20px;
     color: #232222;
     text-align: left;
@@ -719,3 +719,112 @@ margin: auto;
 
     margin-top: 250px;
 }
+
+
+
+/*_____________*/
+
+
+
+.review-link {
+    background: #efefef;
+    margin-bottom: 8px;
+    color: black;
+    padding: 7px;
+    border-radius: 5px;
+    font-size: 12px;
+}
+.review-link:hover {
+    background: #bcbcbc;
+   
+}
+
+.review-con{
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.review-container{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    width: 100vw;   
+    height: 300px;
+    overflow-y: scroll;
+
+}
+
+.review {
+    width: 50vw;
+    margin: 10px auto 0 auto;
+    /* margin-top: 10vh; */
+}
+
+.review-title >h1{
+    font-size: 20px;
+    color: #232222;
+    text-align: left;
+    text-transform: capitalize;
+    border-bottom: 2px solid black;
+    width: 50vw;
+    margin: 0 auto 0 auto;
+    overflow-y: scroll;
+}
+
+
+
+.review-header {
+    display: flex;
+    /* box-shadow: inset 0px 9px 30px 1px #aaaaaa; */
+    width: 90vw;
+    overflow: scroll;
+    height: auto;
+    padding-top: 2px;
+    /* margin-bottom: 40px; */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    width: 49vw; 
+}
+
+.review-header > h3 {
+   margin: auto 0 auto 0;
+}
+
+.review-content > p {
+    padding-left: 10px;
+ }
+
+ .review-content > h4 {
+    padding-left: 10px;
+ }
+.review-header> .reviwe-item > a> img{
+    width: 150px;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 220.88px;
+}
+
+
+.review-header> .reviwe-item >a >img:hover{
+
+    box-shadow: 1px 1px 10px #000000;
+
+}
+.review-header> .result-title >p{
+    width: 120px;
+    font-size: 13px;
+    color: #000000;
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+}
+
+.rew-star{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    font-size: 20px;
+}
+
+

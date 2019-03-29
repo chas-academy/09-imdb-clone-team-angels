@@ -36,10 +36,17 @@
                             
                         </div>
 
+                        <a href="#review">
+                            <div class="review-link">
+                                Reviews
+                            </div>
+                        </a>
+                        
                         <button>
                             <i class="fas fa-plus"></i>
                             Add to watchlist
                         </button>
+                      
                     </div>
                 </div>
 
@@ -86,8 +93,8 @@
 
                     
                  
-    <div id="similar-container">
-        <div id="similar-content">
+    <div class="similar-container">
+        <div class="similar-content">
         <h1>Similar Movies</h1>
             <div class="similar-flex">
             @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
@@ -105,6 +112,65 @@
         </div>
     </div>
 
+
+    <div class="review-title" id="review">
+    <h1>Reviews</h1>
+    <div class="review-con">
+  
+    <div class="review-container">
+      
+        <div class="review">
+            <div class="review-header">
+                <div class="rew-star">
+                    <i class="fas fa-star yellowstar"></i>
+                    <i class="fas fa-star yellowstar"></i>
+                    <i class="fas fa-star yellowstar"></i>
+                    <i class="fas fa-star yellowstar"></i>
+                    <i class="fas fa-star yellowstar"></i>
+                </div>
+                <div class="review-header">
+                    <h3>Best movie ever!</h3>
+                </div>
+            </div>
+            <div class="review-content">
+                <h4>Lorem Ipsum</h4>
+            </div>
+            <div class="review-content">
+                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
+            <div style="width: 40vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
+        </div>
+
+
+        <div class="review">
+            <div class="review-header">
+                <div class="rew-star">
+                    <i class="fas fa-star yellowstar"></i>
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                    <i class="fas fa-star "></i>
+                </div>
+                <div class="review-header">
+                    <h3>Ok</h3>
+                </div>
+            </div>
+            <div class="review-content">
+                <h4>Anonym User</h4>
+            </div>
+            <div class="review-content">
+                <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+            </div>
+            <div style="width: 40vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
+        </div>
+
+        </div>
+    </div>
+
+
+    
+    </div>
+    </div>
 
 
     <footer>
