@@ -531,14 +531,14 @@ and (max-device-width : 414px){
 .similar-flex> .similar-mov{
     margin: 8px;
 }
-.similar-flex> .similar-mov >img{
+.similar-flex> .similar-mov > a> img{
     width: 150px;
     box-shadow: 1px 1px 10px #aaaaaa;
     height: 220.88px;
 }
 
 
-.similar-flex> .similar-mov >img:hover{
+.similar-flex> .similar-mov >a >img:hover{
 
     box-shadow: 1px 1px 10px #000000;
 

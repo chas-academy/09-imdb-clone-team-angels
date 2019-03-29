@@ -114,7 +114,9 @@
     @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
         @foreach($data['similar']['results'] as $related)
         <div class="similar-mov">
+        <a href='{{ url('details/' . $related['id']) }}'>
         <img src="https://image.tmdb.org/t/p/w500/{{ $related['poster_path'] }}">
+        </a>
         <p>{{ $related['title'] }}</p>
         <p>{{ substr($related['release_date'], 0 ,-6)}}</p> 
       
