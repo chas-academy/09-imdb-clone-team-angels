@@ -328,10 +328,32 @@ header > a > h1:hover {
 
 /*______Search search-results_____*/
 
+.search-r-image{
+    /* padding: 10px; */
+
+}
+
+.search-r-image >p{
+    color:transparent;
+    height: 280px;
+    overflow-y: hidden;
+    word-break: break-all;
+
+}
+.search-r-image>p:hover{
+    background: #1f1f1fb8;
+    color: white;
+    padding: 10px;
+
+}
+
+
+
+
 .result-title{
     width: 120px;
     font-size: 15px;
-    color: #000000;
+   
     text-shadow: none;
     text-align: center;
     margin: auto;
@@ -341,7 +363,7 @@ header > a > h1:hover {
 .result-release {
     width: 120px;
     font-size: 13px;
-    color: #000000;
+    
     text-shadow: none;
     text-align: center;
     margin: auto;
@@ -423,14 +445,17 @@ header > a > h1:hover {
 .search-results> .search-result-item{
     margin: 8px;
 }
-.search-results> .search-result-item >img{
-    width: 150px;
+.search-results> .search-result-item >a >img{
+    /* width: 150px;
     box-shadow: 1px 1px 10px #aaaaaa;
-    height: 220.88px;
+    height: 220.88px; */
+    width: auto;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 300px;
 }
 
 
-.search-results> .search-result-item >img:hover{
+.search-results> .search-result-item > a> img:hover{
 
     box-shadow: 1px 1px 10px #000000;
 
@@ -438,10 +463,11 @@ header > a > h1:hover {
 .search-results> .search-result-item >p{
     width: 120px;
     font-size: 13px;
-    color: #000000;
+    /* color: #000000; */
     text-shadow: none;
     text-align: center;
     margin: auto;
+    color: #ffffff;
 }
 
 
@@ -624,3 +650,57 @@ margin: auto;
 margin: auto;
 }
 /*______________*/
+.dash{
+    width: 100vw;
+    margin-top: 30vw;
+}
+
+.dash-header,.dash-body {
+    text-align: center;
+    width: 50vw;
+    margin: auto; 
+}
+.dash-header{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.dash-body {
+    text-align: center;
+    background: #aaaaaa;
+    width: 50vw;
+    margin: auto;
+    padding: 40px;
+    border-radius: 30px;
+}
+
+
+
+
+.s-results-container {
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+    /* background-size: 100vw; */
+    /* height: 70vh; */
+    box-shadow: inset 5px 6px 80px #000;
+    background-size: cover;
+}
+
+.s-results-container > h1 {
+    /* font-size: 65px; */
+    font-size: 5vw;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.3em;
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 9px #717171;
+    width: 90vw;
+    margin: auto !important;
+
+    margin-top: 250px;
+}

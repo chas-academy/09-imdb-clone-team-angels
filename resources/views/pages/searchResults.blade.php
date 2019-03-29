@@ -8,6 +8,11 @@
             dd($data);
         @endphp --}}
         
+
+        <div class="s-results-container">
+                
+
+
         @if(isset($data) && count($data) > 0)
             <div class="search-results-container">
                 <div class="search-results-content">
@@ -19,9 +24,15 @@
                         <a href='{{ url('details/' . $value['id']) }}'>
                             
                             @if(isset($value['poster_path']))
-                                <img src='https://image.tmdb.org/t/p/w1280/{{$value['poster_path']}}' style='height: 180px;'/>
+                                {{--<img src='https://image.tmdb.org/t/p/w1280/{{$value['poster_path']}}'/>--}}
+                                <div class="search-r-image" style="background: url('https://image.tmdb.org/t/p/w1280/{{$value['poster_path']}}'); height: 300px; width: 200px; background-size: cover;">
+                               
+                                    @if(isset($value['overview']))
+                                    <p> <span style="font-weight: bold; font-size: 18px;"> {{$value['title']}} </span><br/><br/>{{ $value['overview'] }}</p>
+                                    @endif
+                                </div>
                             @else
-                                <img src='{{ asset('images/posterPlaceholder.png') }}' style='height: 180px;'/>
+                                <img src='{{ asset('images/posterPlaceholder.png') }}' style='height: 300px;'/>
                             @endif
                 
                             <p class="result-title">
@@ -42,6 +53,14 @@
                 </div>
             </div>
         </div>
+
+
+
+
+        </div>
+
+
+
         @elseif(isset($error_msg))
             <h3>
                 {{$error_msg}}
