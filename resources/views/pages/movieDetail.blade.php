@@ -91,16 +91,63 @@
                         @endforeach 
                         @endif
                         </div>
+                       
 
+
+                     
                     </div>
-                
+                    
 
-                   
+</div>
+                    
+  
 
-                  
                     
                  
+<div id="similar-container">
+
+    <div id="similar-content">
+
+    <h1>Similar Movies</h1>
+
+    <div class="similar-flex">
+    @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
+        @foreach($data['similar']['results'] as $related)
+        <div class="similar-mov">
+        <img src="https://image.tmdb.org/t/p/w500/{{ $related['poster_path'] }}">
+        <p>{{ $related['title'] }}</p>
+        <p>{{ substr($related['release_date'], 0 ,-6)}}</p> 
+      
+        </div>
+        @endforeach 
+@endif
+    </div>
+
+</div>
+
+
+
+<div class="foot">
+                            <div class="one">
+                                    <p>The cineo Group</p>
+                                    <p>Contact</p>
+                                    <p>Support</p>
+                                    <p>The cineo Group</p>
+                            </div>
+                            <div class="one">
+                                <div id="linee">
+                                    <i class="fab fa-twitter"></i>
+                                    <i class="fab fa-twitter"></i>
+                                    <i class="fab fa-twitter"></i>
+                                    <i class="fab fa-twitter"></i>
+                                </div>
+                                    <div style="height:10px;"></div>
+                                    <p>Nowhere</p>
+                                    <p>23728 NW</p>
+                                    <p>NWAS</p>
+                            </div>
                           
+                        </div>
          
         @elseif(isset($error_msg))
             <h3>

@@ -128,7 +128,7 @@ input#search-input {
 }
 .lo-inout:hover{
     /* background: gray;
-    border-radius: 20px;  
+    border-radius: 20px;
     padding: 5px;   */
     color: gray;
 }
@@ -159,7 +159,10 @@ input#search-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    height: 100vh;
+    /* height: 100vh; */
+
+    width: 100vw;
+    margin-top: 20vw;
 }
 
 
@@ -428,7 +431,7 @@ header > a > h1:hover {
 
 
 .search-results> .search-result-item >img:hover{
-   
+
     box-shadow: 1px 1px 10px #000000;
 
 }
@@ -464,9 +467,27 @@ and (max-device-width : 414px){
 
 /*______FOOTER______*/
 
-footer {
-    height: 40vh;
-    background-color: rgb(67, 67, 67);
+
+
+.foot{
+    display: flex;
+    justify-content: space-around;
+    background:black;
+    color:white;
+    padding: 40px;
+ 
+}
+
+.one {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: start;
+}
+
+#linee{
+    display: flex;
+    justify-content: space-around
 }
 
 
@@ -475,15 +496,58 @@ footer {
 
 
 
+#similar-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100vw;   
+}
+
+#similar-content {
+    width: 90vw;
+    margin: auto;
+    /* margin-top: 10vh; */
+}
+
+#similar-content >h1{
+    font-size: 20px;
+    color: #232222;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.similar-flex {
+    display: flex;
+    /* box-shadow: inset 0px 9px 30px 1px #aaaaaa; */
+    width: 90vw;
+    overflow: scroll;
+    height: auto;
+    padding-top: 2px;
+    /* margin-bottom: 40px; */
+    border-radius: 5px;
+
+}
+
+.similar-flex> .similar-mov{
+    margin: 8px;
+}
+.similar-flex> .similar-mov >img{
+    width: 150px;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 220.88px;
+}
 
 
+.similar-flex> .similar-mov >img:hover{
 
+    box-shadow: 1px 1px 10px #000000;
 
-
-
-
-
-
-
-
-
+}
+.similar-flex> .similar-mov >p{
+    width: 120px;
+    font-size: 13px;
+    color: #000000;
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+}
