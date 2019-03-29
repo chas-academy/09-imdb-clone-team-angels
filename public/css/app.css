@@ -260,7 +260,9 @@ input#search-input {
 }
 
 .mov-flex-cast> .actor >img{
-    width: 100px;
+    /* width: 100px; */
+    width: auto !important;
+    height: 150px !important;
 }
 
 .mov-flex-cast> .actor >p{

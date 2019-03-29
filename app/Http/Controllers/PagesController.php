@@ -67,7 +67,7 @@ class PagesController extends Controller
         if(isset($id) && !empty($id)) {
 
             $api = env('TMDB_API_KEY');
-            $url = "https://api.themoviedb.org/3/movie/{$id}?api_key={$api}";
+            $url = "https://api.themoviedb.org/3/movie/{$id}?api_key={$api}&append_to_response=videos,credits";
 
             $ch = curl_init();
 

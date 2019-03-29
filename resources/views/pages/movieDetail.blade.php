@@ -33,6 +33,10 @@
                                 <i class="fas fa-star "></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
+                                <div style="font-size:15px; margin: auto;"> @if(isset($data['vote_average']))
+                                &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;/&nbsp;10
+                                 @endif</div>
+                               
                             </div>
 
                             <button>
@@ -50,17 +54,19 @@
                             @if(strlen($data['release_date']) > 1)
                                 {{substr($data['release_date'], 0 ,-6)}}
                             @endif
-
+                            |
                             @if(isset($data['genres']) && count($data['genres']) > 0)
                                 @foreach($data['genres'] as $genre)
-                                | {{ $genre['name'] }}@if (!$loop->last),@endif
+                                 {{ $genre['name'] }}@if (!$loop->last),@endif
                                 @endforeach 
                             @endif
 
                             @if(isset($data['runtime']))
                                 | {{ $data['runtime'] }} m
                             @endif
+
                         </h5>
+
 
                      
                         @if(isset($data['overview']))
@@ -70,48 +76,20 @@
                      
 
                         <div class="mov-flex-cast">
-                             
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BNzg3MTgwOTgzMV5BMl5BanBnXkFtZTgwODIxMTUwMjE@._V1_UX214_CR0,0,214,317_AL_.jpg">
-                                <p>Chris Pratt</p>
-                                <p class="cast-role">Peter Quill</p>
-                            </div>
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMjA4NDk1NTA1OV5BMl5BanBnXkFtZTcwMTIzMjQ4Ng@@._V1_UY317_CR8,0,214,317_AL_.jpg">
-                                <p>Zoe Saldana</p>
-                                <p class="cast-role">Gamora</p>
-                            </div>
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMjI4NjQ5NDA5M15BMl5BanBnXkFtZTgwNDE0MjQzMjE@._V1_UY317_CR142,0,214,317_AL_.jpg">
-                                <p>Dave Bautista</p>
-                                <p class="cast-role">Drax</p>
-                            </div>
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMjExNzA4MDYxN15BMl5BanBnXkFtZTcwOTI1MDAxOQ@@._V1_UY317_CR7,0,214,317_AL_.jpg">
-                                <p>Vin Diesel</p>
-                                <p class="cast-role">Groot</p>
-                            </div>
 
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMjM0OTIyMzY1M15BMl5BanBnXkFtZTgwMTg0OTE0NzE@._V1_UX214_CR0,0,214,317_AL_.jpg">
-                                <p>Bradley Cooper</p>
-                                <p class="cast-role">Rocket</p>
-                            </div>
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMzk2NjE4NDgzNl5BMl5BanBnXkFtZTcwNTI3NTEzMQ@@._V1_UY317_CR16,0,214,317_AL_.jpg">
-                                <p>Lee Pace</p>
-                                <p class="cast-role">Ronan</p>
-                            </div>
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMTkwNDI5MjQ5MF5BMl5BanBnXkFtZTYwMjI1MTgz._V1_UY317_CR22,0,214,317_AL_.jpg">
-                                <p>Michael Rooker</p>
-                                <p class="cast-role">Yondu Udonta</p>
-                            </div>
-                            <div class="actor">
-                                <img src="https://m.media-amazon.com/images/M/MV5BMTQwMDQ0NDk1OV5BMl5BanBnXkFtZTcwNDcxOTExNg@@._V1_UY317_CR2,0,214,317_AL_.jpg">
-                                <p>Karen Gillan</p>
-                                <p class="cast-role">Nebula</p>
-                            </div>
+
+                        @if(isset($data['credits']['cast']) && count($data['credits']['cast']) > 0)
+                                @foreach($data['credits']['cast'] as $cast)
+                        <div class="actor">
+                   
+                                <img src="https://image.tmdb.org/t/p/w500/{{ $cast['profile_path'] }}">
+                                <p>{{ $cast['name'] }}</p>
+                                <p class="cast-role">{{ $cast['character'] }}</p> 
+                                <!-- @if (!$loop->last),@endif -->
+                          
+                        </div>
+                        @endforeach 
+                        @endif
                         </div>
 
                     </div>
