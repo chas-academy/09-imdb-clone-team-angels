@@ -609,4 +609,18 @@ and (max-device-width : 414px){
     margin: 10px auto 10px auto;
 }
 
+
+.reg-forgot{
+    font-size: 12px;
+    color: #484848;
+}
+.reg-check{
+margin: auto;
+}
+.reg-check-label{
+ font-size: 15px;
+}
+.reg-check-input{
+margin: auto;
+}
 /*______________*/
