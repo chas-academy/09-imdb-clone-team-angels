@@ -20,9 +20,23 @@
                 <h3>Watchlists</h3>
                 <ul>
                     @foreach($watchlists as $watchlist)
-                    <li>{{$watchlist['title']}}</li>
+                    <li>
+                        <a href="/watchlists/{{ $watchlist['id'] }}">
+                        {{ $watchlist['title'] }}
+                        </a>
+                    </li>
                     @endforeach
                 </ul>
+
+                <h4>Add Watchlist</h4>
+
+                <form method="POST" action="/watchlists">
+                    {{ csrf_field() }}
+
+                    <label for="title">Title</label>
+                    <input name="title" />
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </div>

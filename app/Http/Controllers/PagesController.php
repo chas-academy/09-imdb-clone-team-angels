@@ -94,9 +94,11 @@ class PagesController extends Controller
         }
         if (isset($error_msg)) {
             return view('pages.movieDetail')->with('error_msg', $error_msg);
-        } else {
-            return view('pages.movieDetail')->with('data', $decodedResponse);
         }
+
+        $watchlists = Auth::user()->watchlists()->get();
+
+        return view('pages.movieDetail')->with('watchlists', $watchlists)->with('data', $decodedResponse);
     }
 
     public function profile()

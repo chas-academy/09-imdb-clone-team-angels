@@ -2,6 +2,10 @@
 
 @section('content')
 
+@if(Session::has('message'))
+<p>{{ Session::get('message') }}</p>
+@endif
+
 <div class="card grey lighten-4">
     <div class="card-content">
         {{-- @php
@@ -46,7 +50,23 @@
                             @endforeach 
                         </span>
                     @endif
-                    
+
+                    <form method="POST" action="/watchlists/item">
+                        {{ csrf_field() }}
+
+                        <div class="input-field col s12">
+                            <select size=1 name="watchlist_id">
+                            @foreach($watchlists as $watchlist)
+                             <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                            @endforeach
+                            </select>
+                            <label>Watchlist</label>
+                        </div>
+                        <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
+                        <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
+                        <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
+                        <button type="submit">Add to watchlist</button>
+                    </form>
                 
                 </li>
             </ul>

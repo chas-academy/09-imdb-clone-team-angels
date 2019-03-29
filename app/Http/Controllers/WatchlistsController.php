@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\WatchList;
+use App\Watchlist;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
-class WatchListsController extends Controller
-{
+class WatchlistsController extends Controller
+{   
     /**
      * Display a listing of the resource.
      *
@@ -35,18 +37,36 @@ class WatchListsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Auth::user()->watchlists()->create(Input::all());
+
+        return redirect('/profile');
+    }
+
+    public function storeItem(Request $request)
+    {
+        $request->session()->flash('message', 'Added!');
+        $watchlist_id = $request['watchlist_id'];
+        Auth::user()->watchlists()->findOrFail($watchlist_id)->items()->create(Input::all());
+
+        $redirectTo = $request['redirect_to'];
+        if (isset($redirectTo)) {
+            return redirect($redirectTo);
+        } else {
+            return redirect('/profile');
+        }
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\WatchList  $watchList
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(WatchList $watchList)
+    public function show(int $id)
     {
-        //
+        $watchlist = Auth::user()->watchlists()->findOrFail($id);
+        
+        return view('pages.watchlist')->with("watchlist", $watchlist);
     }
 
     /**
