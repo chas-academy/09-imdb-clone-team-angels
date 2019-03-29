@@ -243,19 +243,21 @@ input#search-input {
     font-size: 15px;
     margin-top: 21px;
     text-shadow: none;
-    width: 55vw;
+    /* width: 55vw; */
     color: black;
     height: 80px;
     overflow-y: scroll;
     /* margin: auto; */
+    width: 50vw;
 }
 
 
 .mov-flex-cast {
     display: flex;
     margin-top: 18px;
-    width: 58vw;
+    /* width: 58vw; */
     overflow: scroll;
+    width: 50vw
 }
 
 .mov-flex-cast> .actor{
@@ -495,25 +497,36 @@ and (max-device-width : 414px){
 
 
 
-.foot{
+footer{
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
     background:black;
     color:white;
-    padding: 40px;
- 
+   height: 350px;
+
 }
 
-.one {
+.box {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    margin: auto;
     text-align: start;
 }
 
-#linee{
+.box-line{
     display: flex;
     justify-content: space-around
+}
+
+.soi-footer{
+    color: white;
+    font-size: 20px;
+    text-decoration: underline;
+}
+.soi-footer:hover{
+    color: gray;
+    font-size: 20px;
 }
 
 
@@ -527,6 +540,8 @@ and (max-device-width : 414px){
     flex-direction: column;
     justify-content: space-around;
     width: 100vw;   
+
+    height: 80vh;
 }
 
 #similar-content {
