@@ -262,7 +262,7 @@ input#search-input {
     margin: 8px;
 }
 
-.mov-flex-cast> .actor >img{
+.mov-flex-cast> .actor >a>img{
     /* width: 100px; */
     width: auto !important;
     height: 150px !important;
@@ -551,3 +551,62 @@ and (max-device-width : 414px){
     text-align: center;
     margin: auto;
 }
+
+
+
+/*_____REGISTER_____*/
+
+.reg {
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+    background: gray;
+    height: 100vh;
+    margin: auto;
+}
+.reg-header{
+    margin:20vw auto 20px auto;
+    font-size: 30px;
+    text-align: center;
+    /* text-decoration: underline; */
+}
+
+.reg-body{
+    border: 3px solid #aaaaaa;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    border-radius: 10px;
+    background: #aaaaaa;
+}
+
+.reg-form{
+    margin: 10px;
+}
+
+.reg-form-control{
+    width: 50vw;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    text-indent: 8px;
+}
+.reg-label{
+    text-transform: capitalize
+    font-size: 14px;
+  
+  
+}
+.reg-btn {
+    background: #ececec;
+    border-radius: 7px;
+    padding: 5px;
+    font-size: 12px;
+
+}
+
+.reg-btn-cnt{
+    width: fit-content;
+    margin: 10px auto 10px auto;
+}
+
+/*______________*/
