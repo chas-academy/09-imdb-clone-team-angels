@@ -232,7 +232,8 @@ input#search-input {
     /* font-size: 45px;*/
     /* font-size: 10vw; */
     font-size: 3vw;
-    margin-bottom: 15px;
+    margin-bottom: 0 !important;
+    /* margin-bottom: 15px; */
 }
 
 .mov-content > .mov-flex-2 >p {
@@ -241,7 +242,7 @@ input#search-input {
     text-shadow: none;
     width: 55vw;
     color: black;
-    height: 40px;
+    height: 80px;
     overflow-y: scroll;
     /* margin: auto; */
 }

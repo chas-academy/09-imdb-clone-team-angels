@@ -43,18 +43,31 @@
                     </div>
 
                     <div class="mov-flex-2">
-                        <h3>
-                            @if(strlen($data['release_date']) > 1)
-                                {{$data['release_date']}}
-                            @endif
-                        </h3>
-
+                          
                         <h1>{{$data['original_title']}}</h1>
 
+                        <h5>
+                            @if(strlen($data['release_date']) > 1)
+                                {{substr($data['release_date'], 0 ,-6)}}
+                            @endif
+
+                            @if(isset($data['genres']) && count($data['genres']) > 0)
+                                @foreach($data['genres'] as $genre)
+                                | {{ $genre['name'] }}@if (!$loop->last),@endif
+                                @endforeach 
+                            @endif
+
+                            @if(isset($data['runtime']))
+                                | {{ $data['runtime'] }} m
+                            @endif
+                        </h5>
+
+                     
                         @if(isset($data['overview']))
                             <p>{{ $data['overview'] }}</p>
                         @endif
 
+                     
 
                         <div class="mov-flex-cast">
                              
@@ -108,14 +121,7 @@
 
                   
                     
-                    <!-- @if(isset($data['genres']) && count($data['genres']) > 0)
-                        <span>
-                            Genres:
-                            @foreach($data['genres'] as $genre)
-                                {{ $genre['name'] }}@if (!$loop->last),@endif
-                            @endforeach 
-                        </span>
-                    @endif -->
+                 
                           
          
         @elseif(isset($error_msg))
