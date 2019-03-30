@@ -14,8 +14,9 @@
                 <div class="reg-form">
                     <label for="name" class="reg-label">{{ __('Name') }}</label>
 
-                    <div>
-                        <input id="name" type="text" class="reg-form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                    <div class="reg-form-line">
+                    <div class="fas fa-user icon-log"></div>
+                        <input placeholder="Name" id="name" type="text" class="reg-form-control reg-reg{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
                         @if ($errors->has('name'))
                             <span class="invalid-feedback" role="alert">
@@ -28,8 +29,9 @@
                 <div class="reg-form">
                     <label for="email" class="reg-label">{{ __('E-Mail Address') }}</label>
 
-                    <div>
-                        <input id="email" type="email" class="reg-form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                    <div class="reg-form-line">
+                    <div class="fas fa-envelope icon-log"></div>
+                        <input placeholder="e-mail Address" id="email" type="email" class="reg-form-control reg-reg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                         @if ($errors->has('email'))
                             <span class="invalid-feedback" role="alert">
@@ -42,8 +44,9 @@
                 <div class="reg-form">
                     <label for="password" class="reg-label">{{ __('Password') }}</label>
 
-                    <div>
-                        <input id="password" type="password" class="reg-form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                    <div class="reg-form-line">
+                    <div class="fas fa-lock icon-log"></div>
+                        <input placeholder="Password" id="password" type="password" class="reg-form-control reg-reg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                         @if ($errors->has('password'))
                             <span class="invalid-feedback" role="alert">
@@ -54,10 +57,12 @@
                 </div>
 
                 <div class="reg-form">
+                
                     <label for="password-confirm" class="reg-label">{{ __('Confirm Password') }}</label>
 
-                    <div>
-                        <input id="password-confirm" type="password" class="reg-form-control" name="password_confirmation" required>
+                    <div class="reg-form-line">
+                    <div class="fas fa-lock icon-log"></div>
+                        <input placeholder="Confirm Password "id="password-confirm" type="password" class="reg-form-control reg-reg" name="password_confirmation" required>
                     </div>
                 </div>
 

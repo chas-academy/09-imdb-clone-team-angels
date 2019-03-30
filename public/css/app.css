@@ -607,43 +607,78 @@ footer{
     margin: auto;
 }
 .reg-header{
-    margin:20vw auto 20px auto;
+    margin:20vw auto 15px auto;
     font-size: 30px;
     text-align: center;
     /* text-decoration: underline; */
 }
 
 .reg-body{
-    border: 3px solid #aaaaaa;
+    
     justify-content: center;
     margin: 0 auto 0 auto;
     border-radius: 10px;
-    background: #aaaaaa;
+    box-shadow: 0px 3px 8px #4e4d4d;
+    background: #cac7c7bf;
+    padding: 30px 15px 30px 15px;
 }
 
 .reg-form{
     margin: 10px;
+    
+}
+.reg-login-btn {
+    float: right;
+    display: flex;
+    flex-direction: column;
+}
+
+.reg-form-line{
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 20px 0;
+}
+
+
+.reg-form-line >.reg-form-control{
+    margin: 0;
+}
+
+.reg-line-form{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .reg-form-control{
-    width: 50vw;
-    height: 25px;
-    border-radius: 5px;
+    width: 350px;
+    height: 35px;
+    /* border-radius: 5px; */
     border: none;
     text-indent: 8px;
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    border-radius: 0px 5px 5px 0;
 }
+
 .reg-label{
-    text-transform: capitalize
-    font-size: 14px;
-  
-  
+    text-transform: capitalize;
+    font-size: 13px;
+    margin: 10px 0 0 0;
 }
+
 .reg-btn {
     background: #ececec;
     border-radius: 7px;
     padding: 5px;
     font-size: 12px;
 
+    margin-bottom: 4px;
+
+}
+.reg-reg{
+    margin:3px 0 0 0;
 }
 
 .reg-btn-cnt{
@@ -657,14 +692,54 @@ footer{
     color: #484848;
 }
 .reg-check{
-margin: auto;
+/* margin: auto; */
+display: flex;
+flex-direction: row;
+float: left;
+margin: 4px 0 0 2px;
+
+
+
+
 }
 .reg-check-label{
- font-size: 15px;
+ font-size: 12px;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+height: 20px;
+margin-left: 3px;
+
 }
 .reg-check-input{
-margin: auto;
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    /* padding: 9px; */
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
 }
+
+
+
+.reg-check-input:checked {
+	background-color: #e9ecee;
+
+	color: #99a1a7;
+}
+.reg-check-input:checked:after {
+	content: '\2714';
+	font-size: 18px;
+	top: 0px;
+    left: 3px;
+    padding: 2px;
+	color: #99a1a7;
+}
+
+
+
+
 /*______________*/
 .dash{
     width: 100vw;
@@ -839,3 +914,10 @@ margin: auto;
     justify-content: center;
 }
 
+.icon-log {
+    background: #717171;;
+    padding: 9.5px;
+    line-height: 16px;
+    vertical-align: middle;
+    border-radius: 5px 0 0 5px;
+}
