@@ -87,9 +87,14 @@ class WatchlistsController extends Controller
      * @param  \App\WatchList  $watchList
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WatchList $watchList)
+    public function update(Request $request)
     {
-        //
+        $watchlist_id = $request['id'];
+        $watchlist = Auth::user()->watchlists()->findOrFail($watchlist_id);
+        $watchlist->fill(Input::all());
+        $watchlist->save();
+
+        return redirect('/watchlists/' . $watchlist_id);
     }
 
     /**
@@ -98,8 +103,12 @@ class WatchlistsController extends Controller
      * @param  \App\WatchList  $watchList
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WatchList $watchList)
+    public function destroy(int $id)
     {
-        //
+        $watchlist = Auth::user()->watchlists()->findOrFail($id);
+        $watchlist->items()->delete();
+        $watchlist->delete();
+
+        return redirect('/profile');
     }
 }

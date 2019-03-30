@@ -2,7 +2,12 @@
 
 @section('content')
 
-<h1>{{ $watchlist['title'] }} </h1>
+<form method="POST" action="/watchlists/{{ $watchlist['id'] }}">
+@csrf
+
+<input name="title" type="text" value="{{ $watchlist['title'] }}">
+<button type="submit">Submit</button>
+</form>
 
 @foreach($watchlist->items()->get() as $item)
 <li>

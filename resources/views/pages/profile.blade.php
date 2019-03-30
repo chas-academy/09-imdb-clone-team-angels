@@ -21,9 +21,14 @@
                 <ul>
                     @foreach($watchlists as $watchlist)
                     <li>
-                        <a href="/watchlists/{{ $watchlist['id'] }}">
-                        {{ $watchlist['title'] }}
-                        </a>
+                        <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
+                            @csrf
+
+                            <a href="/watchlists/{{ $watchlist['id'] }}">
+                                {{ $watchlist['title'] }}
+                            </a>
+                            <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
+                        </form>
                     </li>
                     @endforeach
                 </ul>
@@ -31,7 +36,7 @@
                 <h4>Add Watchlist</h4>
 
                 <form method="POST" action="/watchlists">
-                    {{ csrf_field() }}
+                    @csrf
 
                     <label for="title">Title</label>
                     <input name="title" />

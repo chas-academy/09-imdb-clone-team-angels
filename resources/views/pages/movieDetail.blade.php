@@ -52,7 +52,7 @@
                     @endif
 
                     <form method="POST" action="/watchlists/item">
-                        {{ csrf_field() }}
+                        @csrf
 
                         <div class="input-field col s12">
                             <select size=1 name="watchlist_id">
