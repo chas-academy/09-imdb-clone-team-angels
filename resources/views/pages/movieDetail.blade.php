@@ -69,6 +69,16 @@
                         @endif
                     </h5>
 
+                    <h5>
+                        @if(isset($data['credits']['crew']) && count($data['credits']['crew']) > 0)
+                            @foreach($data['credits']['crew'] as $crew)
+                               @if ($loop->first)
+                               Director: {{ $crew['name'] }}
+                               @endif
+                            @endforeach 
+                        @endif
+                    </h5>
+
                     @if(isset($data['overview']))
                         <p>{{ $data['overview'] }}</p>
                     @endif
