@@ -829,3 +829,13 @@ margin: auto;
 }
 
 
+.trailer-comtainer{
+    width: 65vw;
+    height:300px;
+    float: right;
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+}
+

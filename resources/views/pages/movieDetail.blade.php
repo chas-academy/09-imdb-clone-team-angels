@@ -67,6 +67,8 @@
                         @if(isset($data['runtime']))
                             | {{ $data['runtime'] }} m
                         @endif
+
+                      
                     </h5>
 
                     <h5>
@@ -96,12 +98,24 @@
                         @endforeach 
                     @endif
                     </div> 
+
+
+                
                 </div>
                 
         </div>              
     </div>
 
-                    
+             <div class="trailer-comtainer">
+                 <h3>Trailer</h3>
+             @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
+                            @foreach($data['videos']['results'] as $trailer)
+                               @if ($loop->first)
+                               <iframe  width="550" height="250" src="https://www.youtube.com/embed?v={{ $trailer['key'] }}" frameborder="0"></iframe> 
+                               @endif
+                            @endforeach 
+                        @endif
+             </div>       
                  
     <div class="similar-container">
         <div class="similar-content">
@@ -176,6 +190,14 @@
 
         </div>
     </div>
+
+
+
+
+
+
+
+
 
 
     
