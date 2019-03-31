@@ -11,7 +11,7 @@
         @foreach($data['tagged_images']['results'] as $backdrop)
         @if ($loop->first)
         <div class="mov-detail" 
-            style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$backdrop['file_path']}}');   
+            style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$backdrop['media']['backdrop_path']}}');   
             width: 100vw;
             background-size: 100vw;
             background-repeat: no-repeat;
@@ -39,15 +39,17 @@
                     @else
                         <img src='{{ asset('images/posterPlaceholder.png') }}' />
                     @endif
+               
     
-                    <h4>
-                        @if(isset($data['known_for_department']))
-                            Known for:{{ $data['known_for_department'] }}
-                        @endif
-                        <br/>
-                        @if(isset($data['place_of_birth']))
+                    <h4 style="margin: 10px auto 4px auto;">
+                    @if(isset($data['place_of_birth']))
                         {{ $data['place_of_birth'] }}
                         @endif
+                        <br/>
+                        @if(isset($data['known_for_department']))
+                            {{ $data['known_for_department'] }}
+                        @endif
+                      
                     </h4>
                 </div>
             </div>
@@ -67,17 +69,15 @@
                     {{ $data['place_of_birth'] }}
                     @endif
                 
-                @if(isset($data['biography']))
-                    <p>{{ $data['biography'] }}</p>
-                @endif
-
+             
                 
-                <div class="mov-flex-cast">
+                <div class="mov-flex-cast" style="height: 220px !important;">
                 @if(isset($data['movie_credits']['cast']) && count($data['movie_credits']['cast']) > 0)
                     @foreach($data['movie_credits']['cast'] as $credits)
                     <div class="actor">
-                        
+                        @if(isset($credits['release_date']))
                         <p>{{ substr($credits['release_date'], 0 ,-6)}}</p> 
+                        @endif
                         <a href='{{ url('details/' . $credits['id']) }}'>
                             @if(isset($credits['poster_path']))
                                 <img src='https://image.tmdb.org/t/p/w500/{{$credits['poster_path']}}'/>
@@ -107,8 +107,11 @@
                     </div>
                     @endforeach 
                 @endif
-                </div> --}}
+                </div>--}}
 
+                @if(isset($data['biography']))
+                    <p>{{ $data['biography'] }}</p>
+                @endif
 
                 
             </div>
@@ -116,6 +119,36 @@
     
                     
     </div>       
+
+    <div class="similar-container">
+            <div class="similar-content">
+            <h1>Photos</h1>
+                <div class="similar-flex">
+                @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
+                    @foreach($data['tagged_images']['results'] as $caste)
+                    <div class="similar-mov">
+                        <a href='{{ url('details/' . $caste['media']['id']) }}'>
+                        @if(isset($caste['file_path']))
+                                <img style="width: auto !important;" src='https://image.tmdb.org/t/p/w500/{{$caste['file_path']}}'/>
+                            @else
+                                <img src='{{ asset('images/castPlaceholder.png') }}' />
+                            @endif
+                        </a>
+                     
+                        {{ $caste['media']['title'] }}
+
+                         {{-- @if(isset($caste['media']['release_date']))
+                        {{ substr($caste['media']['release_date'], 0 ,-6)}}
+                        @endif--}} 
+                    </div>
+                 
+                    
+                    @endforeach 
+                @endif
+                </div>
+            
+            </div>
+        </div>
 
 
     @elseif(isset($error_msg))
