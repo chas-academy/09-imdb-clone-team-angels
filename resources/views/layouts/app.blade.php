@@ -28,6 +28,13 @@
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <script>
+        // TODO remove me
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems, {});
+        });
+    </script>
 
 </head>
 <body>
@@ -112,8 +119,8 @@
                         </li>
 
                         <li>
-                            <a href="/dashboard">
-                                Dashboard
+                            <a href="/profile">
+                                Profile
                             </a>
                         </li>
 

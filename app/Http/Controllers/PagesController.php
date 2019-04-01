@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Watchlist;
 
 class PagesController extends Controller
 {
@@ -92,13 +94,24 @@ class PagesController extends Controller
         }
         if (isset($error_msg)) {
             return view('pages.movieDetail')->with('error_msg', $error_msg);
-        } else {
-            return view('pages.movieDetail')->with('data', $decodedResponse);
         }
+
+        $watchlists = Auth::user()->watchlists()->get();
+
+        return view('pages.movieDetail')->with('watchlists', $watchlists)->with('data', $decodedResponse);
     }
 
-    public function dashboard()
+    public function profile()
     {
-        return view('pages.dashboard');
+        $watchlists = Auth::user()->watchlists()->get();
+
+        return view('pages.profile')->with("watchlists", $watchlists);
+    }
+
+    public function watchlist()
+    {
+        $watchlists = Auth::user()->watchlists()->get();
+
+        return view('pages.watchlist')->with("watchlists", $watchlists);
     }
 }

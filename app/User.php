@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Watchlist;
 
 class User extends Authenticatable
 {
@@ -29,8 +30,8 @@ class User extends Authenticatable
     ];
 
 
-    public function watchLists()
+    public function watchlists()
     {
-        return $this->hasMany(WatchList::class);
+        return $this->hasMany(Watchlist::class);
     }
 }
