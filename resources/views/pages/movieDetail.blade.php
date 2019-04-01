@@ -70,6 +70,26 @@
                 
                 </li>
             </ul>
+            <form method="POST" action="/review/store">
+                @csrf
+                <select name="rating">
+                        <option value="1">Positive</option>
+                        <option value="2" selected>Neutral</option>
+                        <option value="3">Negative</option>
+                </select>
+
+                <input type="text" placeholder="Headline" name="headline" />
+                <textarea cols="30" rows="10" name="content" placeholder="Content..."></textarea>
+
+                <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+
+                <button type="submit">Add review</button>
+            </form>
+            @if(isset($reviews))
+                @foreach($reviews as $review)
+                <p>{{ $review }}</p>
+                @endforeach
+            @endif
         @elseif(isset($error_msg))
             <h3>
                 {{$error_msg}}
@@ -79,4 +99,4 @@
     </div>
 </div>
     
-@endsection
+@endsection 

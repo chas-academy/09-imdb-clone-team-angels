@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class ReviewsController extends Controller
 {
@@ -35,7 +37,20 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->session()->flash('message', 'Added!');
+        $tmdb_id = $request['tmdb_id'];
+        $headline = $request['headline'];
+        $content = $request['content'];
+        $rating = $request['rating'];
+        Auth::user()->reviews()->create(Input::all());
+
+        $redirectTo = $request['redirect_to'];
+        if (isset($redirectTo)) {
+            return redirect($redirectTo);
+        } else {
+            return redirect('/profile');
+        }
+        
     }
 
     /**
