@@ -19,6 +19,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/movieDetail.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/eschas.css') }}" rel="stylesheet">
 
     <!-- Compiled and minified Materialize CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
@@ -91,8 +92,8 @@
             </div>
         </nav> --}}
 
-    <nav>
-        <div class="nav-flex-1">
+    <nav class="flex-row sp-be">
+        <div class="nav-flex-1 flex-col sp-ar">
             <div>
                 <i class="fas fa-bars"></i>
             </div>
@@ -105,14 +106,14 @@
             </div>
         </div>
 
-        <div class="nav-flex-3">
-            <div class="inline">
+        <div class="nav-flex-3 flex-col sp-ar">
+            <div class="inline flex-row">
 
                <div class="search">
                     <form class="searchform" action="{{url('/searchresults')}}" method="POST">
                         @csrf
                         <div class="search-input-field">
-                            <input id="search-input" name="movieName" type="text" placeholder="Search">
+                            <input id="search-input" name="movieName" type="text" placeholder="Search" required>
                             <button class="item1" type="submit" name="action">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -126,7 +127,7 @@
                     <form class="searchform" action="{{url('/searchresults')}}" method="POST">
                         @csrf
                         <div class="search-input-field">
-                            <input id="search-input" name="movieName2" type="text" placeholder="Search">
+                            <input id="search-input" name="movieName2" type="text" placeholder="Search" required>
                             <button class="item1" type="submit" name="action">
                                 <i class="fas fa-search"></i>
                             </button>
@@ -140,7 +141,7 @@
                     <form class="searchform" action="{{url('/searchresultsgenre')}}" method="POST">
                         @csrf
                         <div class="search-input-field style-selected">
-                            <select id="search-input" name="movieGenre" placeholder="See Movies By Genre">
+                            <select id="search-input" name="movieGenre" placeholder="See Movies By Genre" required>
                             <option value="" disabled selected>Movies By Genre</option> 
                                 <option value="28">Action</option>
                                 <option value="12">Adventure</option>
