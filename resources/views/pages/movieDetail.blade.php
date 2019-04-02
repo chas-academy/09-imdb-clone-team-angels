@@ -229,7 +229,7 @@
 
 
 
-
+        @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
         <div class="trailer-container flex-col sp-ce">
                 <h3>Trailer</h3>
                 @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
@@ -240,6 +240,7 @@
                     @endforeach 
                 @endif
             </div>       
+        @endif
                 
        
             
