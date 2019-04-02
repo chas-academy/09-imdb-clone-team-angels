@@ -2,7 +2,7 @@
 
 @section('content')
   
-    <header id="back" class="overlay">
+    <header id="back" class="flex-col sp-ar overlay">
 
     
     <a href="#top5">

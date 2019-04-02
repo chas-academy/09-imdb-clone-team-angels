@@ -10,7 +10,7 @@
     @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
         @foreach($data['tagged_images']['results'] as $backdrop)
         @if ($loop->first)
-        <div class="mov-detail" 
+        <div class="mov-detail flex-col" 
             style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$backdrop['media']['backdrop_path']}}');   
             width: 100vw;
             background-size: 100vw;
@@ -20,7 +20,7 @@
         @endif
         @endforeach
         @else
-        <div class="mov-detail"
+        <div class="mov-detail flex-col"
             style="background: url({{ asset('images/backdropPlaceholder.png') }});
             width: 100vw;
             background-size: 100vw;
@@ -30,7 +30,7 @@
 
       
       
-        <div class="mov-content">
+        <div class="mov-content flex-row">
         
             <div class="mov-flex-1"> 
                 <div class="mov-poster">
@@ -76,7 +76,7 @@
                 </div>
             </div>
         
-            <div class="mov-flex-2">
+            <div class="mov-flex-2 flex-col">
         
                 <h1>{{$data['name']}}</h1>
 
@@ -97,7 +97,7 @@
                 
              
                 
-                <div class="mov-flex-cast" style="height: 220px !important;">
+                <div class="mov-flex-cast flex-row" style="height: 220px !important;">
                 @if(isset($data['movie_credits']['cast']) && count($data['movie_credits']['cast']) > 0)
                     @foreach($data['movie_credits']['cast'] as $credits)
                     <div class="actor">
@@ -118,7 +118,7 @@
                 @endif
                 </div> 
 
-                {{--<div class="mov-flex-cast">
+                {{--<div class="mov-flex-cast flex-row">
                 @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
                     @foreach($data['tagged_images']['results'] as $caste)
                     <div class="actor">
@@ -146,12 +146,12 @@
                     
     </div>       
     @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
-    <div class="similar-container">
+    <div class="similar-container flex-col">
             <div class="similar-content">
           
             <h1>Photos</h1>
            
-                <div class="similar-flex">
+                <div class="similar-flex flex-row">
                 @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
                     @foreach($data['tagged_images']['results'] as $caste)
                     <div class="similar-mov">

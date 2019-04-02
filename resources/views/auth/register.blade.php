@@ -3,7 +3,7 @@
 @section('content')
 
 
-     <div class="reg">
+     <div class="reg flex-col">
 
         <div class="reg-header">{{ __('Register') }}</div>
 

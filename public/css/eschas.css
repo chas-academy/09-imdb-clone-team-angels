@@ -1,0 +1,25 @@
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+
+
+.sp-ar{
+    justify-content: space-around;
+}
+.sp-be{
+    justify-content: space-between;
+}
+.sp-ev{
+    justify-content: space-evenly;
+}
+
+.sp-ce{
+    justify-content: center;
+}

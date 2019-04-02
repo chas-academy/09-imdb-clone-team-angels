@@ -3,16 +3,16 @@
     height: 800px;
     background-color: rgb(255, 255, 255);
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     justify-content: space-around;
     background-size: 100vw;
     background-repeat: no-repeat;
 }
 
 .mov-content{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-between;
     width: 100vw;
     margin-top: 20vw;
@@ -45,15 +45,15 @@
     background: #ececec;
 }
 .rew-star{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-around;
     padding: 10px;
     font-size: 20px;
 }
 .mov-star{
-    display: flex;
-    flex-direction: row;
+    /* display: flex;
+    flex-direction: row; */
     justify-content: space-around;
     width: 10vw;
     margin: auto;
@@ -72,8 +72,8 @@
 .mov-flex-2{
     width: 65vw;
     height: 620px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     text-align: start;
     color: #fff;
     text-shadow: 1px 1px 4px black;
@@ -95,7 +95,7 @@
         width: 50vw;
     }
 .mov-flex-cast {
-    display: flex;
+    /* display: flex; */
     margin-top: 18px;
     /* width: 58vw; */
     overflow: scroll;
