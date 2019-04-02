@@ -60,7 +60,10 @@
                             Add to watchlist
                         </button> --}}
 
+<<<<<<< HEAD
                         @if(isset($watchlists))
+=======
+>>>>>>> a7462c1bec39cafdc5129533943d91223fabaade
                         <div class="watchlists-container">
                             <form method="POST" action="/watchlists/item">
                                 @csrf
@@ -80,7 +83,10 @@
                                 <button type="submit">Add to watchlist</button>
                             </form>
                         </div>
+<<<<<<< HEAD
                         @endif
+=======
+>>>>>>> a7462c1bec39cafdc5129533943d91223fabaade
                     </div>
                 </div>
 
