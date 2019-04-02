@@ -5,21 +5,19 @@
 
 <div class="page-content">   
 
-@if(Session::has('message'))
-    <p>{{ Session::get('message') }}</p>
-@endif
+
 
 @if(isset($data) && count($data) > 0)
 
     @if(isset($data['backdrop_path']))
-    <div class="mov-detail" 
+    <div class="mov-detail flex-col" 
         style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}');   
         width: 100vw;
         background-size: 100vw;
         background-repeat: no-repeat;
     "/>
     @else
-    <div class="mov-detail"
+    <div class="mov-detail flex-col"
         style="background: url({{ asset('images/backdropPlaceholder.png') }});
         width: 100vw;
         background-size: 100vw;
@@ -27,7 +25,7 @@
     "/>
     @endif
 
-            <div class="mov-content">
+            <div class="mov-content flex-row">
 
                 <div class="mov-flex-1"> 
                     <div class="mov-poster">
@@ -64,27 +62,37 @@
                             <form method="POST" action="/watchlists/item">
                                 @csrf
                 
-                                <div>
-                                    <label>Watchlist</label>
-                                    <select size=1 name="watchlist_id">
-                                    @foreach($watchlists as $watchlist)
+                                <div class="list-select">
+                                    <!-- <label>Watchlist</label> -->
+                                    <select size=1 name="watchlist_id" required>
+                                   
+                                    @if(Session::has('message'))
+                                    <option value="" disabled selected>{{ Session::get('message') }}</option> 
+                                    @else 
                                     <option value="" disabled selected>My watch lists</option> 
+                                    @endif
+                                    @foreach($watchlists as $watchlist)
                                         <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
                                         lmao
                                     @endforeach
                                     </select>
+                                    <!-- @if(Session::has('message'))
+                                <p style="margin-top: 5px; font-size: 13px; color: lightgreen;">{{ Session::get('message') }}</p>
+                                @endif -->
                                 </div>
                                 <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
                                 <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
                                 <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
                                 <button type="submit">Add to watchlist</button>
+                              
                             </form>
+                        
                         </div>
 
                     </div>
                 </div>
 
-                    <div class="mov-flex-2">
+                    <div class="mov-flex-2 flex-col">
                         <h1>{{$data['original_title']}}</h1>
                  
                         <h5 style="display: flex; flex-direction: row;">
@@ -174,7 +182,7 @@
                             <p>{{ $data['overview'] }}</p>
                         @endif
 
-                        <div class="mov-flex-cast">
+                        <div class="mov-flex-cast flex-row">
                         @if(isset($data['credits']['cast']) && count($data['credits']['cast']) > 0)
                             @foreach($data['credits']['cast'] as $cast)
                             <div class="actor">
@@ -200,7 +208,7 @@
 
 {{--
 
-        <div class="trailer-container">
+        <div class="trailer-container flex-col sp-ce">
             <h3>Trailer</h3>
             @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
                 @foreach($data['videos']['results'] as $trailer)
@@ -213,10 +221,10 @@
             
         --}}
 
-        <div class="similar-container">
+        <div class="similar-container flex-col">
             <div class="similar-content">
             <h1>Similar Movies</h1>
-                <div class="similar-flex">
+                <div class="similar-flex flex-row">
                 @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
                     @foreach($data['similar']['results'] as $related)
                     <div class="similar-mov">
@@ -236,17 +244,17 @@
         <div class="review-title" id="review">
             <h1>Reviews</h1>
             <div class="review-con">
-                <div class="review-container">
+                <div class="review-container flex-col">
                     <div class="review">
-                        <div class="review-header">
-                            <div class="rew-star">
+                        <div class="review-header flex-row">
+                            <div class="rew-star flex-row">
                                 <i class="fas fa-star yellowstar"></i>
                                 <i class="fas fa-star yellowstar"></i>
                                 <i class="fas fa-star yellowstar"></i>
                                 <i class="fas fa-star yellowstar"></i>
                                 <i class="fas fa-star yellowstar"></i>
                             </div>
-                            <div class="review-header">
+                            <div class="review-header flex-row">
                                 <h3>Best movie ever!</h3>
                             </div>
                         </div>
@@ -261,15 +269,15 @@
 
 
                     <div class="review">
-                        <div class="review-header">
-                            <div class="rew-star">
+                        <div class="review-header flex-row">
+                            <div class="rew-star flex-row">
                                 <i class="fas fa-star yellowstar"></i>
                                 <i class="fas fa-star "></i>
                                 <i class="fas fa-star "></i>
                                 <i class="fas fa-star "></i>
                                 <i class="fas fa-star "></i>
                             </div>
-                            <div class="review-header">
+                            <div class="review-header flex-row">
                                 <h3>Ok</h3>
                             </div>
                         </div>
@@ -289,8 +297,8 @@
     </div>
 
 
-    <footer>
-        <div class="box">
+    <footer class="flex-row">
+        <div class="box flex-col">
             <div>
             @guest
                     <button class="item1"><a class="soi-footer" href="{{ route('login') }}">Login</a></button>
@@ -338,8 +346,8 @@
 
         </div>
 
-        <div class="box">
-            <div class="box-line">
+        <div class="box flex-col">
+            <div class="box-line flex-row">
                 <a href="/">
                     <i class="fab fa-twitter"></i>
                 </a>
