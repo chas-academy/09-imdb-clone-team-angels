@@ -94,7 +94,7 @@
         <div class="nav-flex-2">
             <div class="title-logo">
                 <!-- <img src="{{ asset('images/cineoWhite.png') }}"> -->
-                <h1 style="color:white">cineo</h1>
+                <a href="/"><h1 style="color:white">cineo</h1></a>
             </div>
         </div>
 
