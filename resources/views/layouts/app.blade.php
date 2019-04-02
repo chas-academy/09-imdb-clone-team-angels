@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/movieDetail.css') }}" rel="stylesheet">
 
     <!-- Compiled and minified Materialize CSS -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
@@ -100,14 +101,14 @@
         <div class="nav-flex-2">
             <div class="title-logo">
                 <!-- <img src="{{ asset('images/cineoWhite.png') }}"> -->
-                <h1 style="color:white">cineo</h1>
+                <a href="/"><h1 style="color:white">cineo</h1></a>
             </div>
         </div>
 
         <div class="nav-flex-3">
             <div class="inline">
 
-                <div class="search">
+               <div class="search">
                     <form class="searchform" action="{{url('/searchresults')}}" method="POST">
                         @csrf
                         <div class="search-input-field">
@@ -120,6 +121,54 @@
                         <!-- <div class="row"></div> -->
                     </form>
                 </div>
+
+                {{--<div class="search">
+                    <form class="searchform" action="{{url('/searchresults')}}" method="POST">
+                        @csrf
+                        <div class="search-input-field">
+                            <input id="search-input" name="movieName2" type="text" placeholder="Search">
+                            <button class="item1" type="submit" name="action">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            &nbsp;
+                        </div>
+                        <!-- <div class="row"></div> -->
+                    </form>
+                </div>--}}
+
+                <div class="search">
+                    <form class="searchform" action="{{url('/searchresultsgenre')}}" method="POST">
+                        @csrf
+                        <div class="search-input-field style-selected">
+                            <select id="search-input" name="movieGenre" placeholder="See Movies By Genre">
+                            <option value="" disabled selected>Movies By Genre</option> 
+                                <option value="28">Action</option>
+                                <option value="12">Adventure</option>
+                                <option value="16">Animation</option>
+                                <option value="35">Comedy</option>
+                                <option value="80">Crime</option>
+                                <option value="99">Documentary</option>
+                                <option value="18">Drama</option>
+                                <option value="10751">Family</option>
+                                <option value="14">Fantasy</option>
+                                <option value="36">History</option>
+                                <option value="27">Horror</option>
+                                <option value="9640">Mystery</option>
+                                <option value="878">Science Fiction</option>
+                                <option value="10752">War</option>
+                                <option value="37">Western</option>
+                            </select>
+                            <button class="item1" type="submit" name="action">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            &nbsp;
+                        </div>
+                        <!-- <div class="row"></div> -->
+                    </form>
+                </div>
+
+
+
 
                 <div class="s-up-in">
                     @guest

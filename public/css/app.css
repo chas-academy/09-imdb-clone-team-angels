@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Comfortaa|Montserrat|Raleway');
 @import url('https://use.fontawesome.com/releases/v5.7.2/css/all.css');
 
+
+/*___________________GLOBAL___________________*/
 * {
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    /* overflow-x: hidden; */
 }
 
 body {
@@ -23,7 +24,8 @@ a   {
 } */
 
 
-/*________NAVIGATION BAR___________________*/
+
+/*___________________NAV BAR___________________*/
 nav {
     width: 95vw;
     display: flex;
@@ -38,7 +40,7 @@ nav {
 }
 
 
-/*___________Signup signin_______________*/
+/*___________________SIGN UP & IN FORM___________________*/
 nav >.nav-flex-3 > .inline >.s-up-in >button {
     padding: 3px 8px;
     font-family: 'Montserrat', sans-serif;
@@ -48,7 +50,7 @@ nav >.nav-flex-3 > .inline >.s-up-in >button {
     border: none;
 }
 
-/*____________search button_________________*/
+/*___________________search button___________________*/
 nav >.nav-flex-3 > .inline >.search > button {
     border: none;
     margin-right: 10px;
@@ -59,7 +61,7 @@ nav >.nav-flex-3 > .inline >.search > button {
 nav >.nav-flex-3 > .inline >.search > button:hover {
     color:gray;
 }
-/*___search input__*/
+/*___________________search input___________________*/
 nav >.nav-flex-3 > .inline > .search > input {
     border: none;
     width: 80px;
@@ -137,159 +139,14 @@ input#search-input {
    font-size: 12px;
    /* margin: 0px 0px 0px 5px; */
 }
-/*------------------------------------------*/
-
-
-/*-----------MOVIE INFO CONTENT-------------------------------*/
-.mov {
-    height: 800px;
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    /* background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/bHarw8xrmQeqf3t8HpuMY7zoK4x.jpg'); */
-    /* background-size: 100vw; */
-    /* height: 70vh; */
-    background-size: 100vw;
-    background-repeat: no-repeat;
-}
-
-.mov-content{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* height: 100vh; */
-
-    width: 100vw;
-    margin-top: 20vw;
-}
-
-
-.mov-flex-1{
-    margin: auto;
-    width: 30vw;
-}
-
-.mov-poster{
-    display: flex;
-    flex-direction: column;
-    float: right;
-}
-
-.mov-content>.mov-flex-1 >.mov-poster>img {
-    /* margin: auto; */
-    width: 10vw;
-    float: right;
-    height: 400px;
-    width: 270px;
-    box-shadow: 1px 1px 10px #000000;
-    margin-top: 70px;
-}
-
-.mov-poster>button{
-    padding: 15px;
-    border-radius: 10px;
-    width: 270px;
-}
-
-
-.mov-poster>button:hover{
-    background: #ececec;
-}
-
-.mov-star{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    width: 10vw;
-    margin: auto;
-    padding: 10px;
-    font-size: 20px;
-}
-.mov-star:hover{
-    color: gold;
-}
-
-.yellowstar{
-    color: gold;
-}
-
-
-.mov-flex-2{
-    width: 65vw;
-    height: 620px;
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    color: #fff;
-    text-shadow: 1px 1px 4px black;
-    /* padding-top: 260px; */
-    /* padding-top: 20px; */
-    justify-content: flex-end;
-}
-
-
-.mov-content > .mov-flex-2 >h1 {
-    /* font-size: 30px; */
-    /* font-size: 45px;*/
-    /* font-size: 10vw; */
-    font-size: 3vw;
-    margin-bottom: 0 !important;
-    /* margin-bottom: 15px; */
-}
-
-.mov-content > .mov-flex-2 >p {
-    font-size: 15px;
-    margin-top: 21px;
-    text-shadow: none;
-    /* width: 55vw; */
-    color: black;
-    height: 80px;
-    overflow-y: scroll;
-    /* margin: auto; */
-    width: 50vw;
-}
-
-
-.mov-flex-cast {
-    display: flex;
-    margin-top: 18px;
-    /* width: 58vw; */
-    overflow: scroll;
-    width: 50vw
-}
-
-.mov-flex-cast> .actor{
-    margin: 8px;
-}
-
-.mov-flex-cast> .actor >a>img{
-    /* width: 100px; */
-    width: auto !important;
-    height: 150px !important;
-    border-radius: 3px;
-}
-
-.mov-flex-cast> .actor >p{
-    width: 120px;
-    font-size: 12px;
-    color: #000000;
-    text-shadow: none;
-}
-
-.mov-flex-cast> .actor >.cast-role{
-    width: 120px;
-    font-size: 12px;
-    color: #686868;
-    text-shadow: none;
-}
+/*______________________________________*/
 
 
 
-/*_________HEADER______*/
 
 
+
+/*___________________index HEADER___________________*/
 header {
     height: 100vh;
     background-color: rgb(255, 255, 255);
@@ -314,64 +171,45 @@ header > a > h1 {
     text-shadow: 2px 2px 9px #717171;
     width: 90vw;
     margin: auto !important;
-
     margin-top: 250px;
 }
 
 header > a > h1:hover {
     text-shadow: 2px 2px 9px #717171;
 }
-
-/*_________*/
-
+/*______________________________________*/
 
 
 
 
-
-/*______Search search-results_____*/
-
-.search-r-image{
-    /* padding: 10px; */
-
-}
-
-.search-r-image >p{
-    color:transparent;
-    height: 280px;
-    overflow-y: hidden;
-    word-break: break-all;
-
-}
-.search-r-image>p:hover{
-    background: #1f1f1fb8;
-    color: white;
-    padding: 10px;
-
-}
-
-
-
-
-.result-title{
-    width: 120px;
-    font-size: 15px;
-   
-    text-shadow: none;
+/*___________________Search search-results___________________*/
+.s-results-container {
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
     text-align: center;
-    margin: auto;
-    font-weight: bold;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
+    /* background-size: 100vw; */
+    /* height: 70vh; */
+    box-shadow: inset 5px 6px 80px #000;
+    background-size: cover;
 }
 
-.result-release {
-    width: 120px;
-    font-size: 13px;
-    
-    text-shadow: none;
-    text-align: center;
-    margin: auto;
-}
+.s-results-container > h1 {
+    /* font-size: 65px; */
+    font-size: 5vw;
+    color: rgb(255, 255, 255);
+    letter-spacing: 0.3em;
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Montserrat', sans-serif;
+    text-shadow: 2px 2px 9px #717171;
+    width: 90vw;
+    margin: auto !important;
 
+    margin-top: 250px;
+}
 
 .search-results-container{
     height: 50vh;
@@ -385,6 +223,7 @@ header > a > h1:hover {
     margin: auto;
     /* margin-top: 10vh; */
 }
+
 
 .search-results-content >h1{
     font-size: 20px;
@@ -401,10 +240,7 @@ header > a > h1:hover {
     padding-top: 2px;
     /* margin-bottom: 40px; */
     border-radius: 5px;
-
 }
-
-/*_?_*/
 
 
 .search-results>a{
@@ -412,8 +248,6 @@ header > a > h1:hover {
     display: flex;
   flex-direction: column-reverse;
   margin: 8px;
-  inner
-
 
 }
 .search-results>a>img{
@@ -421,7 +255,6 @@ header > a > h1:hover {
     height: 300px !important;
     box-shadow: 3px 3px 2px black;
 }
-
 .search-results>a>h4{
    height: 20px;
    /* color: black; */
@@ -432,7 +265,70 @@ header > a > h1:hover {
    margin: 4px;
 }
 
-/*_?_*/
+
+.search-results> .search-result-item{
+    margin: 8px;
+}
+.search-results> .search-result-item >a >img{
+    /* width: 150px;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 220.88px; */
+    width: auto;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 300px;
+}
+.search-results> .search-result-item > a> img:hover{
+    box-shadow: 1px 1px 10px #000000;
+}
+.search-results> .search-result-item >p{
+    width: 120px;
+    font-size: 13px;
+    /* color: #000000; */
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+    color: #ffffff;
+}
+
+
+.search-r-image{
+    /* padding: 10px; */
+}
+.search-r-image >p{
+    color:transparent;
+    height: 280px;
+    overflow-y: hidden;
+    word-break: break-all;
+}
+.search-r-image>p:hover{
+    background: #1f1f1fb8;
+    color: white;
+    padding: 10px;
+}
+
+.result-title{
+    width: 120px;
+    font-size: 15px;
+   
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+    font-weight: bold;
+}
+.result-release {
+    width: 120px;
+    font-size: 13px;
+    
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+}
+/*______________________________________*/
+
+
+
+
+/*___________________?___________________*/
 
 .searchinput {
     width: 100vw;
@@ -445,33 +341,7 @@ header > a > h1:hover {
     font-size: 30px;
     background: white;
 }
-.search-results> .search-result-item{
-    margin: 8px;
-}
-.search-results> .search-result-item >a >img{
-    /* width: 150px;
-    box-shadow: 1px 1px 10px #aaaaaa;
-    height: 220.88px; */
-    width: auto;
-    box-shadow: 1px 1px 10px #aaaaaa;
-    height: 300px;
-}
 
-
-.search-results> .search-result-item > a> img:hover{
-
-    box-shadow: 1px 1px 10px #000000;
-
-}
-.search-results> .search-result-item >p{
-    width: 120px;
-    font-size: 13px;
-    /* color: #000000; */
-    text-shadow: none;
-    text-align: center;
-    margin: auto;
-    color: #ffffff;
-}
 
 
 /*___________________*/
@@ -494,10 +364,7 @@ and (max-device-width : 414px){
 
 
 
-/*______FOOTER______*/
-
-
-
+/*___________________FOOTER___________________*/
 footer{
     display: flex;
     flex-direction: row;
@@ -505,21 +372,21 @@ footer{
     background:black;
     color:white;
    height: 350px;
-
 }
-
 .box {
     display: flex;
     flex-direction: column;
     margin: auto;
     text-align: start;
 }
-
 .box-line{
     display: flex;
-    justify-content: space-around
+    font-size: 20px;
+    justify-content: space-between;
 }
-
+.box-line>p{
+  font-size: 25px;
+}
 .soi-footer{
     color: white;
     font-size: 20px;
@@ -529,19 +396,16 @@ footer{
     color: gray;
     font-size: 20px;
 }
+/*______________________________________*/
 
 
 
-
-
-
-
+/*___________________Related/Similar movies___movieDetails.blade___________________*/
 .similar-container{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     width: 100vw;   
-
     height: 80vh;
 }
 
@@ -579,12 +443,10 @@ footer{
     height: 220.88px;
 }
 
-
 .similar-flex> .similar-mov >a >img:hover{
-
     box-shadow: 1px 1px 10px #000000;
-
 }
+
 .similar-flex> .similar-mov >p{
     width: 120px;
     font-size: 13px;
@@ -593,11 +455,11 @@ footer{
     text-align: center;
     margin: auto;
 }
+/*______________________________________*/
 
 
 
-/*_____REGISTER_____*/
-
+/*___________________REGISTER - LOGIN REGISTER RESET___________________*/
 .reg {
     width:100vw;
     display: flex;
@@ -768,33 +630,6 @@ margin-left: 3px;
 
 
 
-.s-results-container {
-    height: 100vh;
-    background-color: rgb(255, 255, 255);
-    text-align: center;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-around;
-    background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80");
-    /* background-size: 100vw; */
-    /* height: 70vh; */
-    box-shadow: inset 5px 6px 80px #000;
-    background-size: cover;
-}
-
-.s-results-container > h1 {
-    /* font-size: 65px; */
-    font-size: 5vw;
-    color: rgb(255, 255, 255);
-    letter-spacing: 0.3em;
-    /* font-family: 'Raleway', sans-serif; */
-    font-family: 'Montserrat', sans-serif;
-    text-shadow: 2px 2px 9px #717171;
-    width: 90vw;
-    margin: auto !important;
-
-    margin-top: 250px;
-}
 
 
 
@@ -895,13 +730,6 @@ margin-left: 3px;
     margin: auto;
 }
 
-.rew-star{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 10px;
-    font-size: 20px;
-}
 
 
 .trailer-container{
@@ -920,4 +748,17 @@ margin-left: 3px;
     line-height: 16px;
     vertical-align: middle;
     border-radius: 5px 0 0 5px;
+}
+
+
+
+
+
+select {
+    -webkit-appearance: none;   
+    border: none;
+    text-align: center;
+    background: transparent;
+    color: white;
+    width: 92px;
 }

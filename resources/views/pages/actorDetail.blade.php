@@ -41,16 +41,38 @@
                     @endif
                
     
-                    <h4 style="margin: 10px auto 4px auto;">
+                    <h4 style="margin: 10px auto 4px auto; with:260px;display: flex; flex-flow: row; flex-wrap: wrap; width: 265px; text-align: center;">
                     @if(isset($data['place_of_birth']))
                         {{ $data['place_of_birth'] }}
                         @endif
                         <br/>
-                        @if(isset($data['known_for_department']))
-                            {{ $data['known_for_department'] }}
-                        @endif
+                        </h4>
+                <h5>
+                    @if(isset($data['place_of_birth']))
+                    {{ $data['place_of_birth'] }}
+                    @endif
+                       
+                </h5>
+                <br/>
+                <h5>
+                    @if(strlen($data['birthday']) > 1)
+                        {{$data['birthday']}}
+                    @endif
+                </h5>
+                <br/>
+                <h5>
+                   
+                    @if(strlen($data['deathday']) > 1)
+                        Died:{{$data['deathday']}}
+                    @endif
+                       
+                </h5>
+
+                
+          
+                
                       
-                    </h4>
+                   
                 </div>
             </div>
         
@@ -61,6 +83,10 @@
                 <h5>
                     @if(strlen($data['birthday']) > 1)
                         {{$data['birthday']}}
+                    @endif
+                    <br/>
+                    @if(strlen($data['deathday']) > 1)
+                        Died:{{$data['deathday']}}
                     @endif
                 </h5>
 
@@ -119,10 +145,12 @@
     
                     
     </div>       
-
+    @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
     <div class="similar-container">
             <div class="similar-content">
+          
             <h1>Photos</h1>
+           
                 <div class="similar-flex">
                 @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
                     @foreach($data['tagged_images']['results'] as $caste)
@@ -134,8 +162,9 @@
                                 <img src='{{ asset('images/castPlaceholder.png') }}' />
                             @endif
                         </a>
-                     
+                        @if(isset($caste['media']['release_date']))
                         {{ $caste['media']['title'] }}
+                        @endif
 
                          {{-- @if(isset($caste['media']['release_date']))
                         {{ substr($caste['media']['release_date'], 0 ,-6)}}
@@ -148,6 +177,7 @@
                 </div>
             
             </div>
+            @endif
         </div>
 
 

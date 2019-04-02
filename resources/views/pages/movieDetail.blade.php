@@ -202,7 +202,7 @@
             @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
                 @foreach($data['videos']['results'] as $trailer)
                     @if ($loop->first)
-                        <iframe  width="550" height="250" src="https://www.youtube.com/embed?v={{ $trailer['key'] }}" frameborder="0"></iframe> 
+                        <iframe  width="650" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
                     @endif
                 @endforeach 
             @endif
@@ -220,7 +220,7 @@
                             <img src="https://image.tmdb.org/t/p/w500/{{ $related['poster_path'] }}">
                         </a>
                         <p>{{ $related['title'] }}</p>
-                        <p>{{ substr($related['release_date'], 0 ,-6)}}</p> 
+                        <p>{{ substr($related['release_date'], 0 ,-6) }}</p> 
                     </div>
                     @endforeach 
                 @endif
