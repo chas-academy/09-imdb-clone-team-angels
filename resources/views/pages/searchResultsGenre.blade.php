@@ -11,6 +11,13 @@
         @if(isset($data) && count($data) > 0)
             <div class="search-results-container genre-results-container">
                 <div class="search-results-content genre-results-content">
+
+                @if(isset($searchGenre))
+                        <div style="color: black; text-align: start; float: left; font-size: 30px;" class="result-title">
+                            {{ $searchGenre }} 
+                        </div>
+                    @endif
+
                     <div class="search-results genre-results">
                     @foreach($data as $value)
                     

@@ -2,23 +2,28 @@
 
 @section('content')
 
-<div class="card grey lighten-4">
-    <div class="card-content">
-        {{-- @php
-            dd($data);
-        @endphp --}}
-        
-
-        <div class="s-results-container">
-                
 
 
+<div class="page-content">
+
+
+    <div class="s-results-container">     
         @if(isset($data) && count($data) > 0)
             <div class="search-results-container">
                 <div class="search-results-content">
+                @if(isset($searchTerm))
+                        <div style="color: white; text-align: start; float: left; font-size: 30px;" class="result-title">
+                            {{ $searchTerm }}
+                        </div>
+                    @endif
                     <div class="search-results">
+
+
+                  
+
+                 
                     @foreach($data as $value)
-                    
+
                     <div class="search-result-item">
                         {{-- <a href='https://www.themoviedb.org/movie/{{$value['id']}}'> --}}
                         <a href='{{ url('details/' . $value['id']) }}'>
@@ -32,7 +37,7 @@
                                     @endif
                                 </div>
                             @else
-                                <img src='{{ asset('images/posterPlaceholder.png') }}' style='height: 300px;'/>
+                                <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
                             @endif
                 
                             <p class="result-title">
