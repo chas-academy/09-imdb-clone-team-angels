@@ -206,20 +206,7 @@
                 </div>              
         </div>
 
-{{--
 
-        <div class="trailer-container flex-col sp-ce">
-            <h3>Trailer</h3>
-            @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
-                @foreach($data['videos']['results'] as $trailer)
-                    @if ($loop->first)
-                        <iframe  width="650" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
-                    @endif
-                @endforeach 
-            @endif
-        </div>       
-            
-        --}}
 
         <div class="similar-container flex-col">
             <div class="similar-content">
@@ -240,6 +227,22 @@
             </div>
         </div>
 
+
+
+
+        <div class="trailer-container flex-col sp-ce">
+                <h3>Trailer</h3>
+                @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
+                    @foreach($data['videos']['results'] as $trailer)
+                        @if ($loop->first)
+                            <iframe  width="650" height="315" src="https://www.youtube.com/embed/{{ $trailer['key'] }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> 
+                        @endif
+                    @endforeach 
+                @endif
+            </div>       
+                
+       
+            
 
         <div class="review-title" id="review">
             <h1>Reviews</h1>
@@ -297,73 +300,6 @@
     </div>
 
 
-    <footer class="flex-row">
-        <div class="box flex-col">
-            <div>
-            @guest
-                    <button class="item1"><a class="soi-footer" href="{{ route('login') }}">Login</a></button>
-                    {{-- @if (Route::has('register')) --}}
-                    <button class="item1"><a class="soi-footer" href="{{ route('register') }}">&nbsp;Register</a></button>
-                    {{-- @endif --}}
-                @else
-                    
-                <a class="" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();
-                    ">
-                    &nbsp;Logout
-                </a>
-                    
-
-                <a class="soi-footer" href="/dashboard">
-                &nbsp; Dash
-                </a>
-                
-
-                <button class="item1">
-                    <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span> {{-- Dashboard on click --}}
-                </button>
-
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-            @endguest
-            </div>
-            
-            
-            <a href="/">
-                <p>The cineo Group</p>
-            </a>
-            <a href="/">
-                <p>Contact</p>
-            </a>
-            <a href="/">
-                <p>Support</p>
-            </a>
-            <a href="/">
-                <p>About us</p>
-            </a>
-
-        </div>
-
-        <div class="box flex-col">
-            <div class="box-line flex-row">
-                <a href="/">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="/">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="/">
-                    <i class="fab fa-facebook-square"></i>
-                </a>
-            </div>
-                <div style="height:10px;"></div>
-                <p>Nowhere</p>
-                <p>23728 NW</p>
-                <p>NWAS</p>
-            </div>              
-    </footer>
 
 
          

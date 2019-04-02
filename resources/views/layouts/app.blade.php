@@ -48,7 +48,7 @@
                         <form class="searchform" action="{{url('/searchresults')}}" method="POST">
                             @csrf
                             <div class="search-input-field">
-                                <input id="search-input" name="movieName" type="text" placeholder="Search" required>
+                                <input id="search-input"  style="width: 200px !important; border-radius: 10px; padding: 3px; border: none;  "name="movieName" type="text" placeholder="Search" required>
                                 <button class="item1" type="submit" name="action">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -155,11 +155,11 @@
                     </a>
                         
                     <a class="soi-footer" href="/dashboard">
-                    &nbsp; Dash
+                    &nbsp;   <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                     </a>
                     
                     <button class="item1">
-                        <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span> {{-- Dashboard on click --}}
+                        {{-- <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span> Dashboard on click --}}
                     </button>
     
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
