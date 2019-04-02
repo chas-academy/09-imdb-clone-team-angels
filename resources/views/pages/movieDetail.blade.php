@@ -79,15 +79,25 @@
                 </select>
 
                 <input type="text" placeholder="Headline" name="headline" />
-                <textarea cols="30" rows="10" name="content" placeholder="Content..."></textarea>
-
+            <textarea cols="30" rows="10" name="content" placeholder="Content..."></textarea>
+                
                 <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
 
                 <button type="submit">Add review</button>
             </form>
             @if(isset($reviews))
-                @foreach($reviews as $review)
-                <p>{{ $review }}</p>
+            @foreach($reviews as $review)
+            <form method="POST" action="/reviews/{{ $review['id'] }}/delete">
+                @csrf
+                <ul>
+                    <li>{{ $review['rating'] }}</li>
+                    <li>{{ $review['headline'] }}</li>
+                    <li>{{ $review['content'] }}</li>
+                    <li>{{ $review['created_at'] }}</li>
+                    <li></li>
+                    <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
+                </ul>
+            </form>
                 @endforeach
             @endif
         @elseif(isset($error_msg))

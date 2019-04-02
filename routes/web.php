@@ -16,6 +16,7 @@ Route::get('/home', 'PagesController@index');
 Route::post('/searchresults', 'PagesController@searchResults');
 Route::get('/details/{id}', 'PagesController@movieDetail');
 
+
 Auth::routes();
 Route::get('/profile', 'PagesController@profile')->middleware('auth');
 Route::get('/watchlists/{id}', 'WatchlistsController@show')->middleware('auth');
@@ -24,4 +25,5 @@ Route::post('/watchlists/item', 'WatchlistsController@storeItem')->middleware('a
 Route::post('/watchlists/{id}', 'WatchlistsController@update')->middleware('auth');
 Route::post('/watchlists/{id}/delete', 'WatchlistsController@destroy')->middleware('auth');
 
+Route::post('/reviews/{id}/delete', 'ReviewsController@destroy')->middleware('auth');
 Route::post('/review/store', 'ReviewsController@store')->middleware('auth');

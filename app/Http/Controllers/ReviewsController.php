@@ -37,7 +37,7 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->session()->flash('message', 'Added!');
+        $request->session()->flash('message', 'Comment Added!');
         $tmdb_id = $request['tmdb_id'];
         $headline = $request['headline'];
         $content = $request['content'];
@@ -48,7 +48,7 @@ class ReviewsController extends Controller
         if (isset($redirectTo)) {
             return redirect($redirectTo);
         } else {
-            return redirect('/profile');
+            return redirect()->back();
         }
         
     }
@@ -93,8 +93,12 @@ class ReviewsController extends Controller
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(int $id)
     {
-        //
+        $review = Auth::user()->reviews()->findOrFail($id);
+
+        $review->delete();
+
+        return redirect()->back();
     }
 }
