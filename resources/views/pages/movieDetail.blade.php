@@ -70,7 +70,7 @@
                 
                 </li>
             </ul>
-            <form method="POST" action="/review/store">
+            <form method="POST" action="/review/store/">
                 @csrf
                 <select name="rating">
                         <option value="1">Positive</option>
@@ -85,19 +85,58 @@
 
                 <button type="submit">Add review</button>
             </form>
+
             @if(isset($reviews))
-            @foreach($reviews as $review)
-            <form method="POST" action="/reviews/{{ $review['id'] }}/delete">
-                @csrf
-                <ul>
-                    <li>{{ $review['rating'] }}</li>
-                    <li>{{ $review['headline'] }}</li>
-                    <li>{{ $review['content'] }}</li>
-                    <li>{{ $review['created_at'] }}</li>
-                    <li></li>
-                    <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
-                </ul>
-            </form>
+                @php
+                    $totalPositive = 0;
+                    $totalNeutral = 0;
+                    $totalNegative = 0;
+                    foreach ($reviews as $review) {
+                        if($review['rating'] == 1){
+                            $totalPositive = $totalPositive+1;
+                        }
+                        if($review['rating'] == 2){
+                            $totalNeutral = $totalNeutral+1;
+                        }
+                        if($review['rating'] == 3){
+                            $totalNegative = $totalNegative+1;
+                        }
+                    }
+                    
+                @endphp
+
+                <div style="background: grey;">
+                    Positive: {{$totalPositive}}
+                    Neutral: {{$totalNeutral}}
+                    Negative: {{$totalNegative}}
+                </div>
+            @endif
+ 
+            @if(isset($reviews))
+                @foreach($reviews as $review)
+                <form method="POST" action="/reviews/{{ $review['id'] }}/delete">
+                    @csrf
+                    <h6>{{ $review->user()->get("email")[0]["email"]}}</h6>
+                    <ul>
+                        <li>
+                            @if($review['rating'] == 1)
+                            Positive
+                            @endif
+                            @if($review['rating'] == 2)
+                            Neutral
+                            @endif
+                            @if($review['rating'] == 3)
+                            Negative
+                            @endif
+                        </li>
+                    </ul>
+                    <h5>{{ $review['headline'] }}</h5>
+                    <p>{{ $review['content'] }}</p>
+                    <b>{{ $review['created_at'] }}</b>
+                    @if (Auth::user() && (Auth::user()->id == $review->user_id))
+                        <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
+                    @endif
+                    </form>
                 @endforeach
             @endif
         @elseif(isset($error_msg))

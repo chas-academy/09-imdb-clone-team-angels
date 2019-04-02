@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Watchlist;
 use App\Review;
+use App\User;
 
 class PagesController extends Controller
 {
@@ -111,8 +112,9 @@ class PagesController extends Controller
     public function profile()
     {
         $watchlists = Auth::user()->watchlists()->get();
+        $reviews = Auth::user()->reviews()->get();
 
-        return view('pages.profile')->with("watchlists", $watchlists);
+        return view('pages.profile')->with("watchlists", $watchlists)->with("reviews", $reviews);
     }
 
     public function watchlist()

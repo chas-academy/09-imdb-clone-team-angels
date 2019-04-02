@@ -61,7 +61,7 @@ class ReviewsController extends Controller
      */
     public function show(Review $review)
     {
-        //
+      //
     }
 
     /**
