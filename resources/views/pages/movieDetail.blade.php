@@ -69,6 +69,7 @@
                                     <select size=1 name="watchlist_id">
                                     @foreach($watchlists as $watchlist)
                                         <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                                        lmao
                                     @endforeach
                                     </select>
                                 </div>
