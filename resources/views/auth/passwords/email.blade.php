@@ -2,7 +2,7 @@
 
 @section('content')
 
-            <div class="reg">
+            <div class="reg flex-col">
                 <div class="reg-header">{{ __('Reset Password') }}</div>
 
                 <div class="reg-body">
