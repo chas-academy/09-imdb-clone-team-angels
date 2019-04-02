@@ -112,11 +112,13 @@ button.item1 {
     border:none;
 }
 
-input#search-input {
+input >#search-input {
     border-radius: 30px;
     text-indent: 5px;
     border: none;
     padding: 5px;
+
+   
 }
 .lo-inout:hover{
     /* background: gray;
@@ -718,16 +720,16 @@ margin-left: 3px;
 
 
 
-/* 
 
-select {
+
+select#search-input{
     -webkit-appearance: none;   
     border: none;
     text-align: center;
     background: transparent;
     color: white; 
     width: 92px;
-} */
+}
 
 
 
