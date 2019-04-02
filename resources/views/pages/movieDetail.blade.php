@@ -68,6 +68,7 @@
                                     <label>Watchlist</label>
                                     <select size=1 name="watchlist_id">
                                     @foreach($watchlists as $watchlist)
+                                    <option value="" disabled selected>My watch lists</option> 
                                         <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
                                         lmao
                                     @endforeach
@@ -79,6 +80,7 @@
                                 <button type="submit">Add to watchlist</button>
                             </form>
                         </div>
+
                     </div>
                 </div>
 
@@ -196,7 +198,7 @@
                 </div>              
         </div>
 
-
+{{--
 
         <div class="trailer-container">
             <h3>Trailer</h3>
@@ -209,6 +211,7 @@
             @endif
         </div>       
             
+        --}}
 
         <div class="similar-container">
             <div class="similar-content">
