@@ -17,13 +17,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Compiled and minified Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 
     <!-- Compiled and minified Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> --}}
 
     <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -90,57 +90,78 @@
             </div>
         </nav> --}}
 
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center" style="display: inline-block; height: 100%; ">
-                    <img src="{{ asset('images/cineoWhite.png') }}" style="display: inline-block; height: 100%; padding: 0.25vw 0">
-                </a>
+    <nav>
+        <div class="nav-flex-1">
+            <div>
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
 
-                <ul id="nav-mobile" class="left">
-                    <li><a href="/">Home</a></li>
-                </ul>
+        <div class="nav-flex-2">
+            <div class="title-logo">
+                <!-- <img src="{{ asset('images/cineoWhite.png') }}"> -->
+                <h1 style="color:white">cineo</h1>
+            </div>
+        </div>
 
+        <div class="nav-flex-3">
+            <div class="inline">
 
-                <ul id="nav-mobile" class="right">
+                <div class="search">
+                    <form class="searchform" action="{{url('/searchresults')}}" method="POST">
+                        @csrf
+                        <div class="search-input-field">
+                            <input id="search-input" name="movieName" type="text" placeholder="Search">
+                            <button class="item1" type="submit" name="action">
+                                <i class="fas fa-search"></i>
+                            </button>
+                            &nbsp;
+                        </div>
+                        <!-- <div class="row"></div> -->
+                    </form>
+                </div>
 
+                <div class="s-up-in">
                     @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        {{-- @if (Route::has('register')) --}}
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        {{-- @endif --}}
+                      <button class="item1"><a class="lo-inout" href="{{ route('login') }}">Login</a></button>
+                      {{-- @if (Route::has('register')) --}}
+                      <button class="item1"><a class="lo-inout" href="{{ route('register') }}">Register</a></button>
+                      {{-- @endif --}}
                     @else
-                        <li>
-                            <a href="{{ route('logout') }}"
+                     
+                            <a class="lo-inout" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();
                                 ">
-                                Logout
+                                &nbsp;Logout
                             </a>
-                        </li>
-
-                        <li>
-                            <a href="/profile">
-                                Profile
+                      
+                            <a class="lo-inout" href="/profile">
+                            &nbsp; Profile
                             </a>
-                        </li>
+                    
 
-                        <li>
-                            <span>Current User: <b>{{ Auth::user()->name }}</b>&nbsp;</span> {{-- Dashboard on click --}}
-                        </li>
+                        <button class="item1">
+                            <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span> {{-- Dashboard on click --}}
+                        </button>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     @endguest
-                </ul>
+                
+                </div>
             </div>
-        </nav>
+        </div>
+
+
+        </div>
+     </nav>
 
         <main>
             <div class="row">
-                <div class="col s12 m6 offset-m3 offset-l3">
                     @yield('content')
-                </div>    
+                
             </div>
         </main>
     </div>
