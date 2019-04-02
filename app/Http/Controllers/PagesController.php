@@ -8,87 +8,77 @@ use App\Watchlist;
 
 class PagesController extends Controller
 {
+    private $api = null;
+    public function __construct()
+    {
+        $this->api = env("TMDB_API_KEY");
+    }
 
-    // Needs you to be logged in
+    public function apiCall($path, $params = "") {
+        $url = "https://api.themoviedb.org/3".$path."?api_key=".$this->api.$params."&language=en-US&page=1&include_adult=false";
+        
+        $ch = curl_init();
 
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_FAILONERROR, true);
 
+        $response = curl_exec($ch);
+
+        // if (curl_error($ch)) {
+        //     $error_msg = curl_error($ch);
+        // }
+
+        curl_close($ch);
+
+        if (!isset($error_msg)){
+            return json_decode($response, true);
+        }
+    
+    }
 
     public function index()
     {
-        return view('pages.index');
+        //Popular
+        $popularResponse = $this->apiCall("/movie/popular");
+
+        //trending this week but same year
+        $trendingResponse = $this->apiCall("/trending/movie/week");
+        $cleanTrending = [];
+        foreach ($trendingResponse['results'] as $value){
+            if (substr($value['release_date'], 0 ,-6) == date("Y")) { 
+                array_push($cleanTrending, $value);
+            }
+        }
+
+        if (isset($error_msg)) {
+            return view('pages.index')->with('error_msg', $error_msg);
+        } else {
+            return view('pages.index')->with('popular', $popularResponse['results'])->with('trending', $cleanTrending);
+        }
+
     }
 
     public function searchResults(Request $request)
     {
-        // dd($request->all());
-        // dd($request->action);
-
         if(isset($request->movieName) && !empty($request->movieName)) {
-            
-            $api = env('TMDB_API_KEY');
             $searchedMovieName = $request->movieName;
-            $url = "https://api.themoviedb.org/3/search/movie?api_key={$api}&language=en-US&query={$searchedMovieName}&page=1&include_adult=false";
-
-            $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FAILONERROR, true);
-
-            $response = curl_exec($ch);
-
-            if (curl_error($ch)) {
-                $error_msg = curl_error($ch);
-            }
-
-            curl_close($ch);
-
-            if (!isset($error_msg)){
-                $decodedResponse = json_decode($response, true);
-            }
+            $resultsResponse = $this->apiCall("/search/movie", "&query={$searchedMovieName}");
         } else {
             $error_msg = "No data in input box";
         }
         if (isset($error_msg)) {
             return view('pages.searchResults')->with('error_msg', $error_msg);
         } else {
-            return view('pages.searchResults')->with('data', $decodedResponse['results']);
+            return view('pages.searchResults')->with('data', $resultsResponse['results'])->with('searchTerm', $request->movieName);
         }
     }
 
     public function movieDetail($id)
     {
-        // dd($request->all());
-        // dd($request->action);
-
         if(isset($id) && !empty($id)) {
-
-            $api = env('TMDB_API_KEY');
-            $url = "https://api.themoviedb.org/3/movie/{$id}?api_key={$api}";
-
-            $ch = curl_init();
-
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_URL, $url);
-            curl_setopt($ch, CURLOPT_FAILONERROR, true);
-
-            $response = curl_exec($ch);
-
-            if (curl_error($ch)) {
-                $error_msg = curl_error($ch);
-            }
-
-            curl_close($ch);
-
-            if (!isset($error_msg)){
-                $decodedResponse = json_decode($response, true);
-            }
+            $detailResponse = $this->apiCall("/movie/{$id}recommendations", "&append_to_response=videos,credits,similar");
         } else {
             $error_msg = "No id";
         }
@@ -96,9 +86,15 @@ class PagesController extends Controller
             return view('pages.movieDetail')->with('error_msg', $error_msg);
         }
 
-        $watchlists = Auth::user()->watchlists()->get();
+        if (Auth::user()) {
+            $watchlists = Auth::user()->watchlists()->get();
+        }
 
-        return view('pages.movieDetail')->with('watchlists', $watchlists)->with('data', $decodedResponse);
+        if(isset($watchlists)){
+            return view('pages.movieDetail')->with('watchlists', $watchlists)->with('data', $detailResponse);
+        } else{
+            return view('pages.movieDetail')->with('data', $detailResponse);
+        }
     }
 
     public function profile()
@@ -108,10 +104,42 @@ class PagesController extends Controller
         return view('pages.profile')->with("watchlists", $watchlists);
     }
 
-    public function watchlist()
+
+    public function actorDetail($id)
+    {
+        if(isset($id) && !empty($id)) {
+            $actorResponse = $this->apiCall("/person/{$id}", "&append_to_response=tagged_images,movie_credits");
+        } else {
+            $error_msg = "No id";
+        }
+        if (isset($error_msg)) {
+            return view('pages.actorDetail')->with('error_msg', $error_msg);
+        } else {
+            return view('pages.actorDetail')->with('data', $actorResponse);
+        }
+    }
+
+    public function watchlist()    
     {
         $watchlists = Auth::user()->watchlists()->get();
 
         return view('pages.watchlist')->with("watchlists", $watchlists);
     }
+
+
+    public function searchResultsGenre(Request $request)
+    {
+        if(isset($request->movieGenre) && !empty($request->movieGenre)) {
+            $searchedMovieGenre = $request->movieGenre;
+            $resultsResponse = $this->apiCall("/discover/movie", "&with_genres={$searchedMovieGenre}");
+        } else {
+            $error_msg = "No data in input box";
+        }
+        if (isset($error_msg)) {
+            return view('pages.searchResultsGenre')->with('error_msg', $error_msg);
+        } else {
+            return view('pages.searchResultsGenre')->with('data', $resultsResponse['results'])->with('searchGenre', $request->movieGenre);
+        }
+    }
+
 }
