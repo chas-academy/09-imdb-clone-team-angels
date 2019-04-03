@@ -2,111 +2,98 @@
 
 @section('content')
 
-    <div class="profile-card flex-col">
-    {{-- <div class="profile-header"><span>&nbsp;<b>{{ Auth::user()->name }}'s</b></span> profile  </div> --}}
-    <div class="profile-header"><h2>{{ Auth::user()->name }}</h2></div>
 
-         <div class="container-profile" style="width: 100vw; height: 100vw; justify-content: space-evenly; display: flex;">
+<div class="profile-page flex-col">
 
-          
-            <!-- <div class="profile-status">
-                @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                @endif
 
-                You are logged in!
-            </div> -->
-        
+    <div class="profile-header flex-col">
+        <div class="profile-user-name flex-col sp-ce">
+            {{ Auth::user()->name }}
+        </div>
+    </div>
+
+
+    <div class="profile-body flex-row sp-ev">
             
-            <div class="watch-lists flex-col sp-be">
-                <div>
-                    <h3>Welcome {{ Auth::user()->name }}!</h3>
-                    <ul>
-                        <div>
-                            <h4>Name: {{ Auth::user()->name }}</h4>
-                        </div>
-                        <div>  
-                            <h4>Email: {{ Auth::user()->email }}</h4>
-                        </div>
-                    </ul>
+
+        <div class="profile-card flex-col sp-be">
+            <div>
+                <h3 class="profile-card-title">
+                    Welcome {{ Auth::user()->name }}!
+                </h3>
+                <div class="user-detail">
+                    <div class="user-detail-item">
+                        <h4>
+                            <span>Name:</span>
+                            &nbsp;{{ Auth::user()->name }}
+                        </h4>
+                    </div>
+                    <div class="user-detail-item">  
+                        <h4>
+                            <span>E-mail:</span>
+                            &nbsp;{{ Auth::user()->email }}
+                        </h4>
+                    </div>  
                 </div>
-           
-                {{-- <div class="add-new"> 
-                 
-                </div> --}}
             </div>
+        </div>
        
 
-
-            <div class="watch-lists flex-col sp-be">
-                    <div>
-                <h3>Your Watch Lists</h3>
+        <div class="profile-card flex-col sp-be">
+            <div>
+                <h3 class="profile-card-title">
+                    Your Watch Lists
+                </h3>
                 <ul>
                     @foreach($watchlists as $watchlist)
-                    <div class="formform">
-                        <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
+                    <div class="profile-form">
+                        <form class="flex-row sp-be" method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
                             @csrf
     
                             <a href="/watchlists/{{ $watchlist['id'] }}">
-                            <span style="color: black;">●</span> {{ $watchlist['title'] }}
+                                {{ $watchlist['title'] }}
                             </a>
-                            <button class="list-del-btn" type="submit">✖</button>
+                            <button class="del-list-btn" type="submit">✖</button>
                         </form>
                     </div>
                     @endforeach
                 </ul>
-                </div>
-                    <div class="add-new"> 
-                        <h4>Add New Watchlist</h4>
-    
-                        <form method="POST" action="/watchlists">
+            </div>
+            <div class="new-list"> 
+                <form class="flex-row sp-ce"method="POST" action="/watchlists">
+                    @csrf
+                    <input placeholder="Add new watchlist..." name="title" />
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        </div>
+       
+
+        <div class="profile-card flex-col sp-be">
+            <div>
+                <h3 class="profile-card-title">
+                    Your Reviews
+                </h3>
+                <ul>
+                    @foreach($watchlists as $watchlist)
+                    <div class="profile-form">
+                        <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
                             @csrf
-    
-                            <!-- <label for="title">Title</label> -->
-                            <input placeholder="Watchlist Title..."name="title" />
-                            <button type="submit">Submit</button>
+
+                            <a href="/watchlists/{{ $watchlist['id'] }}">
+                                {{ $watchlist['title'] }}
+                            </a>
+                            <button class="del-list-btn" type="submit">✖</button>
                         </form>
                     </div>
-                </div>
-
-        <div class="watch-lists flex-col sp-be">
-            <div>
-            <h3>Your Reviews</h3>
-            <ul>
-                @foreach($watchlists as $watchlist)
-                <div class="formform">
-                    <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
-                        @csrf
-
-                        <a href="/watchlists/{{ $watchlist['id'] }}">
-                        <span style="color: black;">●</span> {{ $watchlist['title'] }}
-                        </a>
-                        <button class="list-del-btn" type="submit">✖</button>
-                    </form>
-                </div>
-                @endforeach
-            </ul>
-            </div>
-                {{-- <div class="add-new"> 
-                    <h4>Add New Watchlist</h4>
-
-                    <form method="POST" action="/watchlists">
-                        @csrf
-
-                        <!-- <label for="title">Title</label> -->
-                        <input placeholder="Watchlist Title..."name="title" />
-                        <button type="submit">Submit</button>
-                    </form>
-                </div> --}}
-            </div>
-
+                    @endforeach
+                </ul>
+            </div>   
         </div>
 
-
-
-        </div>
     </div>
+
+
+</div>
 
 @endsection
