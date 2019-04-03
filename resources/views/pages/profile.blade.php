@@ -5,7 +5,6 @@
 
 <div class="profile-page flex-col">
 
-
     <div class="profile-header flex-col">
         <div class="profile-user-name flex-col sp-ce">
             {{ Auth::user()->name }}
@@ -15,7 +14,6 @@
 
     <div class="profile-body flex-row sp-ev">
             
-
         <div class="profile-card flex-col sp-be">
             <div>
                 <h3 class="profile-card-title">
@@ -66,18 +64,6 @@
                     <button type="submit">Add</button>
                 </form>
             </div>
-
-            <h4>Reviews</h4>
-            @foreach($reviews as $review)
-            <form method="POST" action="/profile/{{ $review['id'] }}/delete">
-                @csrf
-                <h5>{{ $review['headline'] }}</h5>
-                <p>{{ $review['content'] }}</p>
-                <b>{{ $review['created_at'] }}</b>
-                <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
-            </form>
-            @endforeach
-             
         </div>
        
 
@@ -87,17 +73,18 @@
                     Your Reviews
                 </h3>
                 <ul>
-                    @foreach($watchlists as $watchlist)
-                    <div class="profile-form">
-                        <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
-                            @csrf
-
-                            <a href="/watchlists/{{ $watchlist['id'] }}">
-                                {{ $watchlist['title'] }}
-                            </a>
-                            <button class="del-list-btn" type="submit">✖</button>
-                        </form>
-                    </div>
+                    @foreach($reviews as $review)
+                        <div class="profile-form">
+                            <form method="POST" action="/profile/{{ $review['id'] }}/delete">
+                                @csrf
+                                <a href="/details/{{ $review['tmdb_id'] }}#review">
+                                    <h5>{{ $review['headline'] }}</h5>
+                                    {{-- <p>{{ $review['content'] }}</p> --}}
+                                    Created at: <b>{{ $review['created_at'] }}</b>
+                                </a>
+                                <button class="del-list-btn" type="submit">✖</button>
+                            </form>
+                        </div>
                     @endforeach
                 </ul>
             </div>   

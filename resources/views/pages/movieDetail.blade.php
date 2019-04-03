@@ -30,108 +30,99 @@
                 @endif
 
                 <div class="mov-star flex-row">
-                    {{-- <div class="emo">
-                            <i class="far fa-meh neg"></i>
-                            <i class="fas fa-thumbs-down neg"></i>
-                            <p>6</p>
+
+
+
+
+
+            {{-- <button>
+                    <i class="fas fa-plus"></i>
+                    Add to watchlist
+                </button> --}}
+
+                @if(isset($reviews) && count($reviews) > 0)
+                    <a href="#review">
+                        <div class="review-link">
+                            Reviews
                         </div>
-                
-                    @if(isset($reviews))
-                        @php
-                            $totalPositive = 0;
-                            $totalNeutral = 0;
-                            $totalNegative = 0;
-                            foreach ($reviews as $review) {
-                                if($review['rating'] == 1){
-                                    $totalPositive = $totalPositive+1;
-                                }
-                                if($review['rating'] == 2){
-                                    $totalNeutral = $totalNeutral+1;
-                                }
-                                if($review['rating'] == 3){
-                                    $totalNegative = $totalNegative+1;
-                                }
-                            }                 
-                        @endphp
-        
-                        <div style="background: grey;">
-                            Positive: {{$totalPositive}}
-                    Neutral: {{$totalNeutral}}
-                    Negative: {{$totalNegative}}
-                </div>
-                @endif
+                    </a>
 
-                <a href="#review">
-                    <div class="review-link">
-                        Reviews
-                    </div>
-                </a>
+                    @php
+                        $totalPositive = 0;
+                        $totalNeutral = 0;
+                        $totalNegative = 0;
+                        foreach ($reviews as $review) {
+                            if($review['rating'] == 1){
+                                $totalPositive = $totalPositive+1;
+                            }
+                            if($review['rating'] == 2){
+                                $totalNeutral = $totalNeutral+1;
+                            }
+                            if($review['rating'] == 3){
+                                $totalNegative = $totalNegative+1;
+                            }
+                        }                
+                    @endphp
 
-                {{-- <button>
-                            <i class="fas fa-plus"></i>
-                            Add to watchlist
-                        </button> --}}
-
-                @if(isset($watchlists))
                 <div class="watchlists-container">
-                    <form method="POST" action="/watchlists/item">
-                        @csrf
-                        <div class="emo">
-                            <i class="far fa-meh-blank neu"></i>
-                            <p>2</p>
-                        </div>
-                        <div class="emo">
-                            <i class="far fa-smile pos "></i>
-                            <i class="fas fa-thumbs-up pos"></i>
-                            <p>9</p>
-                        </div> --}}
+                    <div class="emo">
+                        <i class="fas fa-thumbs-up pos"></i>
+                        <p>{{$totalPositive}}</p>
+                    </div>
 
+                    <div class="emo">
+                        <i class="far fa-meh-blank neu"></i>  
+                        <p>{{$totalNeutral}}</p>
+                    </div>
 
-                        <div style="font-size:15px;">
-                            @if(isset($data['vote_average']))
+                    <div class="emo">
+                        <i class="fa fa-thumbs-down neg"></i>  
+                        <p>{{$totalNegative}}</p>
+                    </div>
+
+                    <div style="font-size:15px;">
+                        @if(isset($data['vote_average']))
                             &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;<b>/&nbsp;10</b>
-                            @endif</div>
-                </div>
-
-                <a href="#review">
-                    <div class="review-link">
-                        Reviews
+                        @endif
                     </div>
-                </a>
 
-                <div class="watchlists-container">
-                    <form method="POST" action="/watchlists/item">
-                        @csrf
-
-                        <div class="list-select">
-                            <select size=1 name="watchlist_id" required>
-                                {{-- @if(Session::has('message'))
-                                    <option value="" disabled selected>{{ Session::get('message') }}</option>
-                                @else
-                                <option value="" disabled selected>My watch lists</option>
-                                @endif --}}
-                                <option value="" disabled selected>My watch lists</option>
-
-                                @foreach($watchlists as $watchlist)
-                                <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
-                        <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
-                        <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
-                        <button type="submit">Add to watchlist</button>
-                    </form>
                 </div>
                 @endif
 
+                @if(isset($watchlists) && count($watchlists) > 0)
+                    <div class="watchlists-container">
+                        <form method="POST" action="/watchlists/item">
+                            @csrf
 
-                @if(Session::has('message'))
-                <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
-                @else
-                <button type="submit">Add to watchlist</button>
+                            <div class="list-select">
+                                <select size=1 name="watchlist_id" required>
+                                    {{-- @if(Session::has('message'))
+                                        <option value="" disabled selected>{{ Session::get('message') }}</option>
+                                    @else
+                                    <option value="" disabled selected>My watch lists</option>
+                                    @endif --}}
+                                    <option value="" disabled selected>My watch lists</option>
+
+                                    @foreach($watchlists as $watchlist)
+                                    <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
+                            <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
+                            <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
+        
+                            @if(Session::has('message'))
+                                <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                            @else
+                                <button type="submit">Add to watchlist</button>
+                            @endif
+                        
+                    </div>
+
+                    
                 @endif
-                {{-- <button type="submit">Add to watchlist</button>--}}
+
                 </form>
             </div>
         </div>
@@ -143,15 +134,8 @@
 
         <h5 style="display: flex; flex-direction: row;">
             @if(strlen($data['release_date']) > 1)
-            {{substr($data['release_date'], 0 ,-6)}} |
+                {{substr($data['release_date'], 0 ,-6)}} |
             @endif
-
-            {{-- @if(isset($data['genres']) && count($data['genres']) > 0)
-                            @foreach($data['genres'] as $genre)
-                                {{ $genre['name'] }}@if (!$loop->last),@endif
-            @endforeach
-            endif
-            --}}
 
             <div>
                 <form action="{{url('/searchresultsgenre')}}" method="POST">
