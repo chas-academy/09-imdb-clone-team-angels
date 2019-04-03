@@ -31,15 +31,26 @@
                         <img src='{{ asset('images/posterPlaceholder.png') }}' />
                     @endif
 
-                    <div class="mov-star">
-                        <i class="fas fa-star yellowstar"></i>
-                        <i class="fas fa-star yellowstar"></i>
-                        <i class="fas fa-star "></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <div style="font-size:15px; margin: auto;">
+                    <div class="mov-star flex-row">
+                        {{-- <div class="emo">
+                            <i class="far fa-meh neg"></i>
+                            <i class="fas fa-thumbs-down neg"></i>
+                            <p>6</p>
+                        </div>
+                        <div class="emo">
+                            <i class="far fa-meh-blank neu"></i>
+                            <p>2</p>
+                        </div>
+                        <div class="emo">
+                            <i class="far fa-smile pos "></i>
+                            <i class="fas fa-thumbs-up pos"></i>
+                            <p>9</p>
+                        </div> --}}
+                    
+                     
+                        <div style="font-size:15px;">
                         @if(isset($data['vote_average']))
-                            &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;/&nbsp;10
+                            &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;<b>/&nbsp;10</b>
                         @endif</div>
                     </div>
 
@@ -55,11 +66,12 @@
                 
                             <div class="list-select">
                                 <select size=1 name="watchlist_id" required>   
-                                    @if(Session::has('message'))
+                                    {{-- @if(Session::has('message'))
                                     <option value="" disabled selected>{{ Session::get('message') }}</option> 
                                     @else
                                     <option value="" disabled selected>My watch lists</option> 
-                                    @endif
+                                    @endif --}}
+                                    <option value="" disabled selected>My watch lists</option> 
 
                                     @foreach($watchlists as $watchlist)
                                         <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
@@ -69,7 +81,14 @@
                                 <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
                                 <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
                                 <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
-                                <button type="submit">Add to watchlist</button>        
+
+                        
+                                @if(Session::has('message'))
+                                    <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                                @else
+                                    <button type="submit">Add to watchlist</button>     
+                                @endif
+                                {{-- <button type="submit">Add to watchlist</button>--}}
                         </form>    
                     </div>
                 </div>

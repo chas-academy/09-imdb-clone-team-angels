@@ -3,7 +3,7 @@
 @section('content')
 
             <div class="reg flex-col">
-                <div class="reg-header">{{ __('User Login') }}</div>
+                <div class="reg-header">{{ __('Login') }}</div>
 
                 <div class="reg-body">
                     <form method="POST" action="{{ route('login') }}">

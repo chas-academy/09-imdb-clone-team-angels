@@ -449,15 +449,20 @@ footer{
 /*___________________REGISTER - LOGIN REGISTER RESET___________________*/
 .reg {
     width:100vw;
-    background: #808080;
+    /* background: #808080; */
     height: 100vh;
     margin: auto;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,0,0,1) 0%, rgba(64,64,64,1) 90.2% ) !important;
 }
 .reg-header{
-    margin:20vw auto 15px auto;
+    margin:250px auto 5px auto;
     font-size: 30px;
-    text-align: center;
+    /* text-align: center; */
     /* text-decoration: underline; */
+
+    text-align: start;
+    width: 400px;
+    color: white;
 }
 
 .reg-body{
@@ -466,8 +471,11 @@ footer{
     margin: 0 auto 0 auto;
     border-radius: 10px;
     box-shadow: 0px 3px 8px #4e4d4d;
-    background: #cac7c7bf;
+    /* background: #cac7c7bf; */
     padding: 30px 15px 30px 15px;
+
+
+    background: #8e8e8e;
 }
 
 .reg-form{
@@ -501,7 +509,8 @@ footer{
     text-indent: 8px;
     font-size: 15px;
     margin: 10px 0 0 0;
-    border-radius: 0px 5px 5px 0;
+    /* border-radius: 0px 5px 5px 0; */
+    border-radius: 0px 20px 20px 0;
 }
 
 .reg-label{
@@ -512,11 +521,13 @@ footer{
 
 .reg-btn {
     background: #ececec;
-    border-radius: 7px;
+    border-radius: 15px;
     padding: 5px;
     font-size: 12px;
-
+    border: none;
     margin-bottom: 4px;
+    letter-spacing: 2px;
+    box-shadow: 0px 1px 7px #616161;
 
 }
 .reg-reg{
@@ -531,7 +542,8 @@ footer{
 
 .reg-forgot{
     font-size: 12px;
-    color: #484848;
+    /* color: #484848; */
+    color: #000;
 }
 .reg-check{
 /* margin: auto; */
@@ -721,11 +733,14 @@ margin-left: 3px;
 }
 
 .icon-log {
-    background: #717171;;
-    padding: 9.5px;
+    /* background: #717171;; */
+    background: #ffffff;
+    /* padding: 9.5px; */
     line-height: 16px;
     vertical-align: middle;
-    border-radius: 5px 0 0 5px;
+    /* border-radius: 5px 0 0 5px; */
+    border-radius: 20px 0 0 20px;
+    padding: 9.5px 9.5px 9.5px 13.5px;
 }
 
 
@@ -827,6 +842,7 @@ justify-content: center;
     background: gray;
     color: white;
     text-indent: 3px;
+
   
   }
 
@@ -919,9 +935,12 @@ justify-content: center;
 
 .watchlists-container > form > button{
   border: none;
-  padding: 5px 6px 6px 5px;
+  /* padding: 5px 6px 6px 5px; */
   background: #aaaa;
   border-radius: 0px 5px 5px 0px;
+
+  padding: 5px 0 5px 0;
+  width: 100.23px;
   
 }
 
