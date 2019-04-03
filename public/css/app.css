@@ -627,6 +627,91 @@ margin-left: 3px;
 
 
 
+/*________________review_________*/
+
+.review-container{
+    width: 100vw;   
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.review-container > form{
+    width: 50vw;
+    margin: auto;
+
+    height: 13vw;
+    margin: auto;
+    box-shadow: inset 1px 0px 3px #aaaaaa;
+}
+
+
+.add-review{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: auto;
+    height: 120px;
+    border: 3px solid #ececec;
+    border-radius: 10px;
+}
+.add-review > form{
+    width: 50vw;
+    margin: auto;
+
+    height: 13vw;
+    margin: auto;
+}
+
+.review-header >h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.review-header > div > button {
+    padding: 0px 5px 4px 5px;
+    border: none;
+}
+
+
+
+.review-content > h6 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.add-review > form > div > textarea{
+    width: 50vw;
+    height: 40px;
+    margin: auto;
+}
+.add-review > form > div > button{
+
+    margin: auto;
+    float: right;
+}
+.add-review > form > div {
+
+width: 47vw;
+display: flex;
+margin: auto;
+}
+
+
+.review-header {
+  
+    /* box-shadow: inset 0px 9px 30px 1px #aaaaaa; */
+ 
+    overflow: scroll;
+    height: auto;
+    padding-top: 2px;
+    width: 49vw; 
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+
+
+
 .review-link {
     background: #efefef;
     margin-bottom: 8px;
@@ -645,17 +730,18 @@ margin-left: 3px;
     height: 400px;
 }
 
-.review-container{
-    width: 100vw;   
-    height: 300px;
-    overflow-y: scroll;
-}
+
 
 .review {
     width: 50vw;
     margin: 10px auto 0 auto;
+    display: flex;
+    flex-direction: column;
     /* margin-top: 10vh; */
 }
+
+
+
 
 .review-title >h1{
     font-size: 20px;
@@ -666,28 +752,14 @@ margin-left: 3px;
     width: 50vw;
     margin: 0 auto 0 auto;
     overflow-y: scroll;
-}
+} 
 
 
 
-.review-header {
-  
-    /* box-shadow: inset 0px 9px 30px 1px #aaaaaa; */
-    width: 90vw;
-    overflow: scroll;
-    height: auto;
-    padding-top: 2px;
-    /* margin-bottom: 40px; */
-    border-radius: 5px;
-    width: 49vw; 
-}
 
-.review-header > h3 {
-   margin: auto 0 auto 0;
-}
 
 .review-content > p {
-    padding-left: 10px;
+    /* padding-left: 10px; */
  }
 
  .review-content > h4 {
