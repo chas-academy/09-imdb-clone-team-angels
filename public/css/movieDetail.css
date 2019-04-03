@@ -136,6 +136,8 @@ button.genreButton {
     flex-wrap: wrap;
     max-width: 1080px;
     margin: auto;
+
+    justify-content: center;
 }
 .s-genre-container{
     /* background: none !important; */
