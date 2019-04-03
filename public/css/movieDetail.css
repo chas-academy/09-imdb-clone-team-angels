@@ -134,17 +134,32 @@ button.genreButton {
 .genre-results{
     overflow: unset !important;
     flex-wrap: wrap;
+    width: 1080px;
+    margin: auto;
 }
 .s-genre-container{
-    background: none !important;
+    /* background: none !important; */
     box-shadow: none !important;
+    width: 100vw;
+    background: url('https://images.unsplash.com/photo-1507924267304-e51febff7b1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80')
 }
 .genre-results-container{
     height: 100vh !important;
     justify-content: unset !important;
+    width: 100vw !important;
+    margin: auto;
 }
 .genre-results-content{
-    height: 80vh !important;
+    /* height: 80vh !important; */
+    /* width: 100vw;
+    margin: auto; */
+
+
+    max-width: 1150px;
+    margin: auto;
+    padding-top: 30px;
+    box-shadow: 0px 2px 8px #aaaaaa;
+    background: #ffffff;
 }
 .search-r-image{
     box-shadow: 1px 1px 10px #aaaaaa;
@@ -159,3 +174,7 @@ button.genreButton {
     font-weight: bold;
 }
 
+.s-genre-container {
+    height: 215vh;
+    width: 100vw;
+}
