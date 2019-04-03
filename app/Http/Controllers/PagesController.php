@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Watchlist;
+use App\Review;
+use App\User;
 
 class PagesController extends Controller
 {
@@ -83,18 +85,22 @@ class PagesController extends Controller
         if (Auth::user()) {
             $watchlists = Auth::user()->watchlists()->get();
         }
-
+        
+        $reviews = Review::where('tmdb_id', $id)->get();
+        
         if(isset($watchlists)){
-            return view('pages.movieDetail')->with('watchlists', $watchlists)->with('data', $detailResponse);
+            return view('pages.movieDetail')->with('watchlists', $watchlists)->with('data', $detailResponse)->with('reviews', $reviews);
         } else{
-            return view('pages.movieDetail')->with('data', $detailResponse);
+            return view('pages.movieDetail')->with('data', $detailResponse)->with('reviews', $reviews);
         }
+
     }
 
     public function profile(){
         $watchlists = Auth::user()->watchlists()->get();
+        $reviews = Auth::user()->reviews()->get();
 
-        return view('pages.profile')->with("watchlists", $watchlists);
+        return view('pages.profile')->with("watchlists", $watchlists)->with("reviews", $reviews);
     }
 
 

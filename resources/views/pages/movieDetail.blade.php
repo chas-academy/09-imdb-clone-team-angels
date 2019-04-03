@@ -48,6 +48,31 @@
                                 &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;/&nbsp;10
                             @endif</div>
                         </div>
+                
+                    @if(isset($reviews))
+                        @php
+                            $totalPositive = 0;
+                            $totalNeutral = 0;
+                            $totalNegative = 0;
+                            foreach ($reviews as $review) {
+                                if($review['rating'] == 1){
+                                    $totalPositive = $totalPositive+1;
+                                }
+                                if($review['rating'] == 2){
+                                    $totalNeutral = $totalNeutral+1;
+                                }
+                                if($review['rating'] == 3){
+                                    $totalNegative = $totalNegative+1;
+                                }
+                            }                 
+                        @endphp
+        
+                        <div style="background: grey;">
+                            Positive: {{$totalPositive}}
+                            Neutral: {{$totalNeutral}}
+                            Negative: {{$totalNegative}}
+                        </div>
+                    @endif
 
                         <a href="#review">
                             <div class="review-link">
@@ -236,54 +261,69 @@
             <h1>Reviews</h1>
             <div class="review-con">
                 <div class="review-container">
-                    <div class="review">
+
+
+            <form method="POST" action="/review/store/">
+                @csrf
+                <select name="rating">
+                        <option value="1">Positive</option>
+                        <option value="2" selected>Neutral</option>
+                        <option value="3">Negative</option>
+                </select>
+
+                <input type="text" placeholder="Headline" name="headline" />
+                <textarea cols="30" rows="10" name="content" placeholder="Content..."></textarea>
+                
+                <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+
+                <button type="submit">Add review</button>
+            </form>
+
+
+ 
+            @if(isset($reviews))
+                @foreach($reviews as $review)
+                <div class="review">
+                    <form method="POST" action="/reviews/{{ $review['id'] }}/delete">
+                        @csrf
+                    
                         <div class="review-header">
-                            <div class="rew-star">
-                                <i class="fas fa-star yellowstar"></i>
-                                <i class="fas fa-star yellowstar"></i>
-                                <i class="fas fa-star yellowstar"></i>
-                                <i class="fas fa-star yellowstar"></i>
-                                <i class="fas fa-star yellowstar"></i>
-                            </div>
+                            <ul>
+                                <li>
+                                    @if($review['rating'] == 1)
+                                    Positive
+                                    @endif
+                                    @if($review['rating'] == 2)
+                                    Neutral
+                                    @endif
+                                    @if($review['rating'] == 3)
+                                    Negative
+                                    @endif
+                                </li>
+                            </ul>
+                        
                             <div class="review-header">
-                                <h3>Best movie ever!</h3>
+                                @if (Auth::user() && (Auth::user()->id == $review->user_id))
+                                    <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
+                                @endif
+                                <h5>{{ $review['headline'] }}</h5>
+                                <b>{{ $review['created_at'] }}</b>
                             </div>
                         </div>
+
                         <div class="review-content">
-                            <h4>Lorem Ipsum</h4>
-                        </div>
+                            <h6>{{ $review->user()->get("email")[0]["email"]}}</h6>
+                        </div>  
+
                         <div class="review-content">
-                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
+                            <p>{{ $review['content'] }}</p>
                         </div>
+                        
                         <div style="width: 40vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
-                    </div>
-
-
-                    <div class="review">
-                        <div class="review-header">
-                            <div class="rew-star">
-                                <i class="fas fa-star yellowstar"></i>
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
-                                <i class="fas fa-star "></i>
-                            </div>
-                            <div class="review-header">
-                                <h3>Ok</h3>
-                            </div>
-                        </div>
-                        <div class="review-content">
-                            <h4>Anonym User</h4>
-                        </div>
-                        <div class="review-content">
-                            <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
-                        </div>
-                        <div style="width: 40vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
-                    </div>
-
+                    </form>
                 </div>
-            </div>
-        </div>
+                @endforeach
+            @endif
 
     </div>
 
@@ -365,4 +405,4 @@
     @endif
 </div>
     
-@endsection
+@endsection 

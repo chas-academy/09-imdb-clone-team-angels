@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class ReviewsController extends Controller
 {
@@ -35,7 +37,20 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->session()->flash('message', 'Comment Added!');
+        $tmdb_id = $request['tmdb_id'];
+        $headline = $request['headline'];
+        $content = $request['content'];
+        $rating = $request['rating'];
+        Auth::user()->reviews()->create(Input::all());
+
+        $redirectTo = $request['redirect_to'];
+        if (isset($redirectTo)) {
+            return redirect($redirectTo);
+        } else {
+            return redirect()->back();
+        }
+        
     }
 
     /**
@@ -46,7 +61,7 @@ class ReviewsController extends Controller
      */
     public function show(Review $review)
     {
-        //
+      //
     }
 
     /**
@@ -78,8 +93,12 @@ class ReviewsController extends Controller
      * @param  \App\Review  $review
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Review $review)
+    public function destroy(int $id)
     {
-        //
+        $review = Auth::user()->reviews()->findOrFail($id);
+
+        $review->delete();
+
+        return redirect()->back();
     }
 }

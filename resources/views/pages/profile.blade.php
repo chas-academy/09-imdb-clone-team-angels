@@ -43,6 +43,18 @@
                     <button type="submit">Submit</button>
                 </form>
             </div>
+
+            <h4>Reviews</h4>
+            @foreach($reviews as $review)
+            <form method="POST" action="/profile/{{ $review['id'] }}/delete">
+                @csrf
+                <h5>{{ $review['headline'] }}</h5>
+                <p>{{ $review['content'] }}</p>
+                <b>{{ $review['created_at'] }}</b>
+                <button class="waves-effect waves-teal btn-flat" type="submit">X</button>
+            </form>
+            @endforeach
+             
         </div>
     </div>
 </div>
