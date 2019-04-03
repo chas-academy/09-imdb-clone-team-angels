@@ -17,7 +17,7 @@
         @if($loop->index < 5)
         @if(isset($value['poster_path']))
             <a href='{{ url('details/' . $value['id']) }}'>
-                <div class="container-background mov1" style="background: url('https://image.tmdb.org/t/p/w1280/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
+                <div class="container-background mov1" style="background: url('https://image.tmdb.org/t/p/original/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
                
                     <div class="desc-top"
                         @if(isset($value['title']))

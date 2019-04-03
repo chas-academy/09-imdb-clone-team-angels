@@ -377,7 +377,7 @@ footer{
 .soi-footer{
     color: white;
     font-size: 20px;
-    text-decoration: underline;
+
 }
 .soi-footer:hover{
     color: gray;
@@ -778,7 +778,7 @@ select#search-input{
     width: 200px;
     background: #ffffff;
     border-radius: 100px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 80px auto;
 }
 .profile-body {
     width: 100vw;
@@ -835,7 +835,8 @@ select#search-input{
     width: 45px;
 } 
 .user-detail {
-    width: 20vw;
+    /* width: 20vw; */
+    width: 250px;
     text-align: start;
     margin: auto;
 }
@@ -860,14 +861,63 @@ select#search-input{
     overflow-x: scroll;
 }
 
+
+
+
+/*______Watchlist___*/
+
+.watchlist-page{
+    width: 100vw;
+    height: 100vh;
+}
+.watchlist-card{
+    width: 90vw;
+    margin: auto;
+    min-height: 300px;
+    display: flex;
+}
+
+.watchlist-items-card{
+    width: 80vw;
+    height: fit-content;
+    background: #aaaaaa;
+    border-radius: 9px;
+    margin: auto;
+}
+
+.watch-items {
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.watch-item > a{
+    color: black;
+}
+
+.watch-item {
+    padding: 10px;
+    width: 70vw;
+    background: white;
+    margin: 10px auto 10px auto;
+    border-radius: 20px;
+}
+.title-new {   
+    margin: 20px auto;
+    width: 70vw;
+    display: flex;
+    justify-content: start;
+}
+
+.title-new > form >input{
+    font-size: 30px;
+    border: none;
+    background: none;
+    width: 290px;
+    text-decoration: underline;
+}
+
 /*______end___*/
-
-
-
-
-
-
-
 
 
 
@@ -944,20 +994,7 @@ select#search-input{
     
 }
 
-    .title-new {
-       
-        margin: 0 auto;
-     
-    }
-
-
-    .title-new > form >input{
-        font-size: 30px;
-        border: none;
-        background: none;
-        width: 290px;
-        text-decoration: underline;
-    }
+   
 
     /* .profile-card > div > h4 {
     font-size: 11px;
@@ -974,31 +1011,6 @@ select#search-input{
     margin-top: 150px;
 }
 
-.watch-item > a{
-    color: black;
-}
-
-.container-list{
-    width: 100vw;
-    height: 100vh;;
-}
-
-.list{
-    width: 300px;
-    height: 400px;
-    background: #aaaaaa;
-    border-radius: 9px;
-    margin: auto;
-}
-
-.watch-items {
-    height: auto;
-    padding-top: 10px;
-}
-
-.watch-item {
-    padding: 20px;
-}
 
 .watchlists-container > form{
     display:flex;
