@@ -134,7 +134,7 @@ button.genreButton {
 .genre-results{
     overflow: unset !important;
     flex-wrap: wrap;
-    width: 1080px;
+    max-width: 1080px;
     margin: auto;
 }
 .s-genre-container{
