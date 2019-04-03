@@ -377,7 +377,7 @@ footer{
 .soi-footer{
     color: white;
     font-size: 20px;
-    text-decoration: underline;
+
 }
 .soi-footer:hover{
     color: gray;
@@ -758,6 +758,193 @@ select#search-input{
 }
 
 
+/*______Profile_blade___*/
+
+.profile-page {
+    width: 100vw;
+    height: 120vh;
+    background: #ececec;
+}
+.profile-header{
+    height: 28vw;
+    width: 100vw;
+    text-align: center;
+    font-size: 35px;
+    justify-content: flex-end;
+    background-image: radial-gradient( circle farthest-corner at 16.5% 37.3%,  rgba(10,37,64,1) 0.1%, rgba(2,18,39,1) 90% );
+}
+.profile-user-name{
+    height: 200px;
+    width: 200px;
+    background: #ffffff;
+    border-radius: 100px;
+    margin: 0 auto 80px auto;
+}
+.profile-body {
+    width: 100vw;
+    margin: 0 auto;
+    height: 100vh;
+    box-shadow: inset 0px 6px 5px #aaaaaa;
+    flex-wrap: wrap;
+}
+.profile-card {
+    /* width: 30vw; */
+    width: 335px;
+    margin: auto 0;
+    background: #ffffff;
+    border-radius: 10px;
+    min-height: 300px;
+    box-shadow: 0px 0px 6px #6d6d6d8f;
+    text-align: center;
+}
+.profile-card-title {
+    font-size: 25px;
+    margin: 20px 0 30px 0;
+    text-shadow: 0px 1px 1px #aaaaaa;
+}
+.del-list-btn {
+    background: none;
+    border: none;
+    padding: 0 3px;
+}
+.new-list {
+    margin: 0 auto;
+    /* border-radius: 5px; */
+    /* padding: 7px; */
+    background:#7b7b7bab;
+    /* width: 30vw; */
+    padding: 15px 0 15px 0px;
+    border-radius: 0 0 5px 5px;
+    width: 335px;
+}
+.new-list > form > input {
+    border: none;
+    border-radius: 20px 0px 0px 20px;
+    padding: 9px 0 9px 0;
+    /* width: 18vw; */
+    width: 220px;
+    text-indent: 10px;
+}
+.new-list > form > button {
+    border:none;
+    border-radius: 0px 20px 20px 0px;
+    padding: 7px 12px 7px 5px;
+    background: gray;
+    color: white;
+    text-indent: 3px;
+    width: 45px;
+} 
+.user-detail {
+    /* width: 20vw; */
+    width: 250px;
+    text-align: start;
+    margin: auto;
+}
+.user-detail-item{
+    text-transform: capitalize;
+}
+.user-detail-item > span{
+    text-decoration: underline;
+}
+.profile-form > form {
+    /* width: 20vw; */
+    width: 250px;
+    margin: 0 auto 15px auto;
+    padding: 7px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 5px #6d6d6d8f;
+}
+.profile-form > form > a{
+    color: #000;
+    font-size: 18px;
+    text-indent: 10px;
+    overflow-x: scroll;
+}
+
+
+
+
+/*______Watchlist___*/
+
+.watchlist-page{
+    width: 100vw;
+    height: 100vh;
+}
+.watchlist-card{
+    width: 90vw;
+    margin: auto;
+    min-height: 300px;
+    display: flex;
+}
+
+.watchlist-items-card{
+    width: 80vw;
+    height: fit-content;
+    background: #aaaaaa;
+    border-radius: 9px;
+    margin: auto;
+}
+
+.watch-items {
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.watch-item > a{
+    color: black;
+}
+
+.watch-item {
+    padding: 10px;
+    width: 70vw;
+    background: white;
+    margin: 10px auto 10px auto;
+    border-radius: 20px;
+}
+.title-new {   
+    margin: 20px auto;
+    width: 70vw;
+    display: flex;
+    justify-content: start;
+}
+
+.title-new > form >input{
+    font-size: 30px;
+    border: none;
+    background: none;
+    width: 290px;
+    text-decoration: underline;
+}
+
+/*______end___*/
+
+
+
+
+
+
+
+
+/* .profile-card > div > form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -779,90 +966,21 @@ select#search-input{
 }
 
 
-.profile-card {
-    width: 100vw;
-    height: 100vh;
-    background: #99a1a7;
-    text-align: left;
-}
-
-.container-profile {
-    width: 200px;
-    margin: 0 auto;
-}
-
-.profile-header{
-    text-align: center;
-    margin-top: 150px;
-    font-size: 35px;
- 
-}
-
-.watch-lists {
-    width: 200px;
-    margin: auto;
-    background: cadetblue;
-    padding: 24px;
-    border-radius: 10px;
-    height: 200px;
-    box-shadow: 0px 2px 3px #484848;
-}
-
-.watch-lists > div > h3 {
-    text-decoration: underline;
-    font-size: 25px;
-    margin-bottom: 10px;
-}
-
-.watch-lists > div > h4 {
-    font-size: 11px;
-    color: white;
-
-}
-
-.watch-lists > div > form > input {
-    border: none;
-    border-radius: 5px 0px 0px 5px;
-    padding: 2px;
-    width: 129px;
-    text-indent: 4px;
-}
-
-.watch-lists > div > form {
-display: flex;
-flex-direction: row;
-justify-content: center;
-
-}
 
 
-.watch-lists > div > form > button {
-    border:none;
-    border-radius: 0px 5px 5px 0px;
-    padding: 2px;
-    background: gray;
-    color: white;
-    text-indent: 3px;
 
-  
-  }
+
+
+
+
+
 
 
 .profile-status{
     text-align: center;
 }
-.list-del-btn {
-    background: none;
-    border: none;
-    padding: 0 3px;
-}
-.add-new {
 
-    margin: 0 auto;
-    border-radius: 5px;
-    padding: 7px;
-    background: #424242;
-}
+
 
 
 
@@ -876,21 +994,12 @@ justify-content: center;
     
 }
 
-    .title-new {
-       
-        margin: 0 auto;
-     
-    }
+   
 
-
-    .title-new > form >input{
-        font-size: 30px;
-        border: none;
-        background: none;;
-        width: 290px:
-        text-decoration: underline;
-    }
-
+    /* .profile-card > div > h4 {
+    font-size: 11px;
+    color: white;
+} */
 .list-container {
     width: 100vw;
     height: 100vw;
@@ -902,31 +1011,6 @@ justify-content: center;
     margin-top: 150px;
 }
 
-.watch-item > a{
-    color: black;
-}
-
-.container-list{
-    width: 100vw;
-    height: 100vh;;
-}
-
-.list{
-    width: 300px;
-    height: 400px;
-    background: #aaaaaa;
-    border-radius: 9px;
-    margin: auto;
-}
-
-.watch-items {
-    height: auto;
-    padding-top: 10px;
-}
-
-.watch-item {
-    padding: 20px;
-}
 
 .watchlists-container > form{
     display:flex;

@@ -154,7 +154,7 @@
                         &nbsp;Logout
                     </a>
                         
-                    <a class="soi-footer" href="/dashboard">
+                    <a class="soi-footer" href="/profile">
                     &nbsp;   <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                     </a>
                     
