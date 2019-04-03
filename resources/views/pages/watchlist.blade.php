@@ -2,20 +2,31 @@
 
 @section('content')
 
-<form method="POST" action="/watchlists/{{ $watchlist['id'] }}">
-@csrf
+<div class="container-list">
 
-<input name="title" type="text" value="{{ $watchlist['title'] }}">
-<button type="submit">Submit</button>
-</form>
+   
+        <div class="watch-list">
+            <div class="title-new"> 
+                <form method="POST" action="/watchlists/{{ $watchlist['id'] }}">
+                @csrf
 
-@foreach($watchlist->items()->get() as $item)
-<li>
-    <a href="/details/{{ $item['movie_id'] }}">
-    {{ $item['title'] }}
-    </a>
-</li>
-@endforeach
+                <input name="title" type="text" value="{{ $watchlist['title'] }}">
+                <!-- <button type="submit">Submit</button> -->
+                </form>
+            </div>
+            <div class="list">
+            <div class="watch-items">
+                @foreach($watchlist->items()->get() as $item)
+                <div class="watch-item">
+                    <a href="/details/{{ $item['movie_id'] }}">
+                    <span style="color: white">●</span> {{ $item['title'] }}
+                    </a>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @endsection

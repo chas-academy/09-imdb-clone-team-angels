@@ -3,7 +3,7 @@
 @section('content')
 
 
-     <div class="reg">
+     <div class="reg flex-col">
 
         <div class="reg-header">{{ __('Register') }}</div>
 
@@ -14,7 +14,7 @@
                 <div class="reg-form">
                     <label for="name" class="reg-label">{{ __('Name') }}</label>
 
-                    <div class="reg-form-line">
+                    <div class="reg-form-line flex-row">
                     <div class="fas fa-user icon-log"></div>
                         <input placeholder="Name" id="name" type="text" class="reg-form-control reg-reg{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
@@ -29,7 +29,7 @@
                 <div class="reg-form">
                     <label for="email" class="reg-label">{{ __('E-Mail Address') }}</label>
 
-                    <div class="reg-form-line">
+                    <div class="reg-form-line flex-row">
                     <div class="fas fa-envelope icon-log"></div>
                         <input placeholder="e-mail Address" id="email" type="email" class="reg-form-control reg-reg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
@@ -44,7 +44,7 @@
                 <div class="reg-form">
                     <label for="password" class="reg-label">{{ __('Password') }}</label>
 
-                    <div class="reg-form-line">
+                    <div class="reg-form-line flex-row">
                     <div class="fas fa-lock icon-log"></div>
                         <input placeholder="Password" id="password" type="password" class="reg-form-control reg-reg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
@@ -60,7 +60,7 @@
                 
                     <label for="password-confirm" class="reg-label">{{ __('Confirm Password') }}</label>
 
-                    <div class="reg-form-line">
+                    <div class="reg-form-line flex-row">
                     <div class="fas fa-lock icon-log"></div>
                         <input placeholder="Confirm Password "id="password-confirm" type="password" class="reg-form-control reg-reg" name="password_confirmation" required>
                     </div>

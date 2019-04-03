@@ -2,8 +2,8 @@
 
 @section('content')
 
-            <div class="reg">
-                <div class="reg-header">{{ __('User Login') }}</div>
+            <div class="reg flex-col">
+                <div class="reg-header">{{ __('Login') }}</div>
 
                 <div class="reg-body">
                     <form method="POST" action="{{ route('login') }}">
@@ -12,7 +12,7 @@
                         <div class="reg-form">
                             {{--<label for="email" class="reg-label">{{ __('E-Mail Address') }}</label>--}}
 
-                            <div class="reg-form-line">
+                            <div class="reg-form-line flex-row">
                             <div class="fas fa-user icon-log"></div>
                             <input placeholder="E-mail Address" id="email" type="email" class="reg-form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -27,7 +27,7 @@
                         <div class="reg-form">
                            {{-- <label for="password" class="reg-label">{{ __('Password') }}</label>--}}
 
-                           <div class="reg-form-line">
+                           <div class="reg-form-line flex-row">
                             <div class="fas fa-lock icon-log"></div>
                             <input placeholder="Password" id="password" type="password" class="reg-form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
@@ -39,16 +39,16 @@
                             </div>
                         </div>
 
-                        <div class="reg-form reg-line-form">
+                        <div class="reg-form reg-line-form flex-row sp-be">
                         
-                                <div class="reg-check">
+                                <div class="reg-check flex-row">
                                     <input class="reg-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="reg-check-label" for="remember">
+                                    <label class="reg-check-label flex-col sp-ar" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
                                 </div>
-                                <div class="reg-login-btn">
+                                <div class="reg-login-btn flex-col">
                                 <button type="submit" class="reg-btn">
                                     {{ __('Login') }}
                                 </button>
@@ -64,7 +64,7 @@
 
                         {{--
                         <div class="reg-form">
-                            <div class="reg-login-btn">
+                            <div class="reg-login-btn flex-col">
                                 <button type="submit" class="reg-btn">
                                     {{ __('Login') }}
                                 </button>
