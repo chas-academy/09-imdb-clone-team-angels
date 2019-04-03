@@ -160,6 +160,7 @@ button.genreButton {
     padding-top: 30px;
     box-shadow: 0px 2px 8px #aaaaaa;
     background: #ffffff;
+    border-radius: 5px;
 }
 .search-r-image{
     box-shadow: 1px 1px 10px #aaaaaa;

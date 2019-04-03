@@ -4,19 +4,21 @@
 
 
 
-<div class="page-content">
 
 
-    <div class="s-results-container">     
+<div class="s-genre-container">      
         @if(isset($data) && count($data) > 0)
-            <div class="search-results-container">
-                <div class="search-results-content">
+        <div class="genre-results-container">
                 @if(isset($searchTerm))
-                        <div style="color: white; text-align: start; float: left; font-size: 30px;" class="result-title">
+                        <div style="color: white; text-align: center; text-transform:capitalize;      width: 1080px; font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
                             {{ $searchTerm }}
                         </div>
                     @endif
-                    <div class="search-results">
+
+
+                    <div class="search-results-content genre-results-content">
+
+                    <div class="search-results genre-results">
 
 
                   
@@ -73,6 +75,6 @@
         @endif
         
     </div>
-</div>
+
     
 @endsection
