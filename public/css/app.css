@@ -703,11 +703,21 @@ margin-left: 3px;
 
 
 
-.trailer-container{
+/* .trailer-container{
     width: 65vw;
     height:300px;
     float: right;
     margin: auto;
+
+
+    
+} */
+
+.trailer-container>.flex-col>.sp-ce{
+    width: 100vw;
+    padding: 0 0 100px 0;
+    text-align: center;
+    height: 500px;
 }
 
 .icon-log {
