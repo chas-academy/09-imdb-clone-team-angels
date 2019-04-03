@@ -142,3 +142,12 @@
     height: 510px;
     box-shadow: none;
 }
+
+.desc-top {
+    width: 50vw;
+    float: right;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    justify-content: space-around;
+}

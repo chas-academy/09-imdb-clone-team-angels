@@ -19,19 +19,21 @@
             <a href='{{ url('details/' . $value['id']) }}'>
                 <div class="container-background mov1" style="background: url('https://image.tmdb.org/t/p/w1280/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
                
-                    @if(isset($value['title']))
-                    <h2>{{$value['title']}}</h2>
-                @endif
+                    <div class="desc-top"
+                        @if(isset($value['title']))
+                           <h1> {{ $value['title'] }}</h1>
+                        @endif
 
-                @if(strlen($value['release_date']) > 1)
-                    <p class="result-release">
-                        {{substr($value['release_date'], 0 ,-6)}}
-                    </p>
-                @endif
+                        @if(strlen($value['release_date']) > 1)
+                            <p style="text-align:right; width: auto;" class="result-release">
+                                {{substr($value['release_date'], 0 ,-6)}}
+                            </p>
+                        @endif
 
-            @if(isset($value['overview']))
-                <p>{{ $value['overview'] }}</p>
-            @endif
+                        @if(isset($value['overview']))
+                            <p>{{ $value['overview'] }}</p>
+                        @endif
+                    </div>
                
                 </div>
             </a> 
@@ -76,7 +78,9 @@
         @if(isset($trending) && count($trending) > 0)
             <div class="search-results-container">
                 <div class="search-results-content">
+                        <h3 style="text-align: left; width: 1080px;margin: auto;">Hottest now</h3>
                     <div class="search-results new">
+                       
                     @foreach(array_reverse($trending) as $value)
                         <!-- @if($loop->index < 5) -->
 
