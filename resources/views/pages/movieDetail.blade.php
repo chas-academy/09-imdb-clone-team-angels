@@ -101,8 +101,7 @@
                         if($review['rating'] == 3){
                             $totalNegative = $totalNegative+1;
                         }
-                    }
-                    
+                    }                 
                 @endphp
 
                 <div style="background: grey;">
