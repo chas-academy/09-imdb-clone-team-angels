@@ -3,11 +3,12 @@
 @section('content')
 
 
-<div class="s-genre-container">     
+<div class="s-results-container">     
     @if(isset($data) && count($data) > 0)
-    <div class="genre-results-container">
+
+    <div class="search-results-container">
     
-        <div class="result-title search-title">
+        <div class="search-title">
             @if(isset($searchGenre) && $searchGenre == 16 )
                 Animation
             @endif
@@ -54,8 +55,8 @@
                 Western
             @endif
         </div>
-        <div class="search-results-content genre-results-content">
-            <div class="search-results genre-results">
+        <div class="search-results-content">
+            <div class="search-results">
             @foreach($data as $value)
                 <div class="search-result-item">
                     <a href='{{ url('details/' . $value['id']) }}'>
@@ -69,12 +70,12 @@
                             <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
                         @endif
             
-                        <p class="result-title genre-title">
+                        <p class="search-r-title">
                             {{$value['title']}} 
                         </p>
                         
                         @if(strlen($value['release_date']) > 1)
-                            <p class="result-release genre-release">
+                            <p class="search-r-release">
                                 {{substr($value['release_date'], 0 ,-6)}}
                             </p>
                         @endif

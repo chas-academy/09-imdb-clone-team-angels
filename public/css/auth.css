@@ -1,0 +1,139 @@
+.reg {
+    width:100vw;
+    height: 100vh;
+    margin: auto;
+    background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,0,0,1) 0%, rgba(64,64,64,1) 90.2% ) !important;
+}
+.reg-header{
+    margin:250px auto 5px auto;
+    font-size: 30px;
+    text-align: start;
+    width: 400px;
+    color: #ffffff;
+}
+.reg-body{
+    justify-content: center;
+
+    margin: 0 auto 0 auto;
+    border-radius: 10px;
+    box-shadow: 0px 3px 8px #4e4d4d;
+    padding: 30px 15px 30px 15px;
+    background: #8e8e8e;
+}
+
+.reg-btn-cnt{
+    width: fit-content;
+    margin: 10px auto 10px auto;
+}
+.reg-btn {
+    background: #ececec;
+    border-radius: 15px;
+    padding: 5px;
+    font-size: 12px;
+    border: none;
+    margin-bottom: 4px;
+    letter-spacing: 2px;
+    box-shadow: 0px 1px 7px #616161;
+    width: 140px;
+}
+.reg-label{
+    padding-left: 14px;
+    text-transform: capitalize;
+    font-size: 13px;
+    margin: 10px 0 0 0;
+}
+.reg-form{
+    margin: 10px;
+}
+.reg-form-line{
+    padding: 0 0 20px 0;
+}
+
+.reg-form-line >.reg-form-control{
+    margin: 0;
+}
+.reg-form-control{
+    width: 350px;
+    height: 35px;
+    /* border-radius: 5px; */
+    border: none;
+    text-indent: 8px;
+    font-size: 15px;
+    margin: 10px 0 0 0;
+    /* border-radius: 0px 5px 5px 0; */
+    border-radius: 0px 20px 20px 0;
+}
+
+.icon-log {
+    /* background: #717171;; */
+    background: #ffffff;
+    /* padding: 9.5px; */
+    line-height: 16px;
+    vertical-align: middle;
+    /* border-radius: 5px 0 0 5px; */
+    border-radius: 20px 0 0 20px;
+    padding: 9.5px 9.5px 9.5px 13.5px;
+}
+
+
+
+
+
+
+
+
+.reg-login-btn {
+    float: right;
+
+}
+.reg-line-form{
+    margin-top: 15px;
+}
+.reg-reg{
+    margin:3px 0 0 0;
+}
+.reg-forgot{
+    font-size: 12px;
+    /* color: #484848; */
+    color: #000;
+}
+.reg-check{
+    /* margin: auto; */
+    /* display: flex;
+    flex-direction: row; */
+    float: left;
+    margin: 4px 0 0 2px;
+}
+.reg-check-label{
+ font-size: 12px;
+height: 20px;
+margin-left: 3px;
+
+}
+.reg-check-input{
+    -webkit-appearance: none;
+    background-color: #fafafa;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+    /* padding: 9px; */
+    height: 20px;
+    width: 20px;
+    border-radius: 3px;
+}
+
+.reg-check-input:checked {
+	background-color: #e9ecee;
+
+	color: #99a1a7;
+}
+.reg-check-input:checked:after {
+	content: '\2714';
+	font-size: 18px;
+	top: 0px;
+    left: 3px;
+    padding: 2px;
+	color: #99a1a7;
+}
+
+
+
+

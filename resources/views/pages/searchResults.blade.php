@@ -6,17 +6,18 @@
 
 
 
-<div class="s-genre-container">      
+<div class="s-results-container">      
     @if(isset($data) && count($data) > 0)
 
-        <div class="genre-results-container">
+        <div class="search-results-container">
+
             @if(isset($searchTerm))
                 <div style="color: white; text-align: center; text-transform:capitalize;      width: 1080px; font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
                     {{ $searchTerm }}
                 </div>
             @endif
-            <div class="search-results-content genre-results-content">
-                <div class="search-results genre-results">
+            <div class="search-results-content">
+                <div class="search-results">
                 @foreach($data as $value)
                 <div class="search-result-item">
                     <a href='{{ url('details/' . $value['id']) }}'>
@@ -30,12 +31,12 @@
                             <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
                         @endif
             
-                        <p class="result-title">
+                        <p class="search-r-title">
                             {{$value['title']}} 
                         </p>
                             
                         @if(strlen($value['release_date']) > 1)
-                            <p class="result-release">
+                            <p class="search-r-release">
                                 {{substr($value['release_date'], 0 ,-6)}}
                             </p>
                         @endif
