@@ -2,7 +2,7 @@
 
 @section('content')
 
-<header id="back" class="flex-col sp-ar overlay">
+<header class="flex-col sp-ar">
     <a href="#top5">
         <h1>Top 5 Movies</h1>
     </a>
@@ -10,18 +10,18 @@
 
 
 @if(isset($popular) && count($popular) > 0)
-<div id="top5" class="top-5-container ">
+<div id="top5">
     @foreach($popular as $value)
         @if($loop->index < 5)
         @if(isset($value['poster_path']))
             <a href='{{ url('details/' . $value['id']) }}'>
-                <div class="container-background mov1" style="background: url('https://image.tmdb.org/t/p/original/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
-                    <div class="desc-top"
+                <div class="top-5-container" style="background: url('https://image.tmdb.org/t/p/original/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="top-5-desc flex-col sp-ar"
                         @if(isset($value['title']))
                            <h1> {{ $value['title'] }}</h1>
                         @endif
                         @if(strlen($value['release_date']) > 1)
-                            <p style="text-align:right; width: auto;" class="result-release">
+                            <p class="top-5-release">
                                 {{substr($value['release_date'], 0 ,-6)}}
                             </p>
                         @endif
