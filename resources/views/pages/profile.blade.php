@@ -11,9 +11,8 @@
         </div>
     </div>
 
-
     <div class="profile-body flex-row sp-ev">
-            
+        
         <div class="profile-card flex-col sp-be">
             <div>
                 <h3 class="profile-card-title">
@@ -47,7 +46,6 @@
                     <div class="profile-form">
                         <form class="flex-row sp-be" method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
                             @csrf
-    
                             <a href="/watchlists/{{ $watchlist['id'] }}">
                                 {{ $watchlist['title'] }}
                             </a>
@@ -80,7 +78,7 @@
                                 <a href="/details/{{ $review['tmdb_id'] }}#review">
                                     <h5>{{ $review['headline'] }}</h5>
                                     {{-- <p>{{ $review['content'] }}</p> --}}
-                                    Created at: <b>{{ $review['created_at'] }}</b>
+                                    <i class="far fa-clock"></i>: <b>{{ $review['created_at'] }}</b>
                                 </a>
                                 <button class="del-list-btn" type="submit">✖</button>
                             </form>
@@ -94,5 +92,4 @@
 
 
 </div>
-
 @endsection
