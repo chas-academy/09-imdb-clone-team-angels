@@ -58,7 +58,7 @@
             <div class="new-list"> 
                 <form class="flex-row sp-ce"method="POST" action="/watchlists">
                     @csrf
-                    <input placeholder="Add new watchlist..." name="title" />
+                    <input placeholder="@if(Session::has('message')){{ Session::get('message') }}@else Add new watchlist...@endif" name="title" />
                     <button type="submit">Add</button>
                 </form>
             </div>

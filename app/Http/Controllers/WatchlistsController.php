@@ -41,6 +41,8 @@ class WatchlistsController extends Controller
         $watchlist = Watchlist::where('title', '=', Input::get('title'))->first();
         if ($watchlist === null) {
             Auth::user()->watchlists()->create(Input::all());
+        } else{
+            $request->session()->flash('message', 'Watchlist already exist!');
         }
 
         return redirect('/profile');
@@ -48,11 +50,14 @@ class WatchlistsController extends Controller
 
     public function storeItem(Request $request)
     {
-        $request->session()->flash('message', 'Added!');
+        
         $watchlist_id = $request['watchlist_id'];
         $watchlist_item = WatchlistItem::where('title', '=', Input::get('title'))->first();
         if ($watchlist_item === null){
             Auth::user()->watchlists()->findOrFail($watchlist_id)->items()->create(Input::all());
+            $request->session()->flash('message', 'Added!');
+        } else {
+            $request->session()->flash('message', 'Already added!');
         }
 
         $redirectTo = $request['redirect_to'];

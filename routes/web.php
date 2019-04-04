@@ -13,12 +13,12 @@
 
 Route::get('/', 'PagesController@index');
 Route::get('/home', 'PagesController@index');
+
 Route::post('/searchresults', 'PagesController@searchResults');
 Route::post('/searchresultsgenre', 'PagesController@searchResultsGenre');
 
 Route::get('/details/{id}', 'PagesController@movieDetail');
 Route::get('/actor/{id}', 'PagesController@actorDetail');
-Route::get('/topMovies', 'PagesController@topMovies');
 
 Auth::routes();
 
