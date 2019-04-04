@@ -20,9 +20,10 @@ Route::get('/details/{id}', 'PagesController@movieDetail');
 Route::get('/actor/{id}', 'PagesController@actorDetail');
 Route::get('/topMovies', 'PagesController@topMovies');
 
-
 Auth::routes();
+
 Route::get('/profile', 'PagesController@profile')->middleware('auth');
+
 Route::get('/watchlists/{id}', 'WatchlistsController@show')->middleware('auth');
 Route::post('/watchlists', 'WatchlistsController@store')->middleware('auth');
 Route::post('/watchlists/item', 'WatchlistsController@storeItem')->middleware('auth');
@@ -31,6 +32,4 @@ Route::post('/watchlists/{id}/delete', 'WatchlistsController@destroy')->middlewa
 Route::post('/watchlists/{id}/items/{watchlist_item_id}/delete', 'WatchlistsController@destroyItem')->middleware('auth');
 
 Route::post('/review/store', 'ReviewsController@store')->middleware('auth');
-Route::post('/reviews/{id}/delete', 'ReviewsController@destroy')->middleware('auth');
-Route::post('/profile/{id}/delete', 'ReviewsController@destroy')->middleware('auth');
-
+Route::post('/review/{id}/delete', 'ReviewsController@destroy')->middleware('auth');

@@ -73,10 +73,10 @@
                 <ul>
                     @foreach($reviews as $review)
                         <div class="profile-form">
-                            <form method="POST" action="/profile/{{ $review['id'] }}/delete">
+                            <form method="POST" action="/review/{{ $review['id'] }}/delete">
                                 @csrf
                                 <a href="/details/{{ $review['tmdb_id'] }}#review">
-                                    <h5>{{ $review['headline'] }}</h5>
+                                    <h4><u>{{ $review['headline'] }}</u></h4>
                                     {{-- <p>{{ $review['content'] }}</p> --}}
                                     <i class="far fa-clock"></i>: <b>{{ $review['created_at'] }}</b>
                                 </a>

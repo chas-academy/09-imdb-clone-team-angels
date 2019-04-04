@@ -245,7 +245,7 @@
                     @if(isset($reviews))
                         @foreach($reviews as $review)
                         <div class="review">
-                            <form method="POST" action="/reviews/{{ $review['id'] }}/delete">
+                            <form method="POST" action="/review/{{ $review['id'] }}/delete">
                             @csrf
                                 <div class="review-header">
                                     {{-- <ul>
