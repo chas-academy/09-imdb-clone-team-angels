@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Watchlist;
+use App\WatchlistItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
@@ -37,7 +38,10 @@ class WatchlistsController extends Controller
      */
     public function store(Request $request)
     {
-        Auth::user()->watchlists()->create(Input::all());
+        $watchlist = Watchlist::where('title', '=', Input::get('title'))->first();
+        if ($watchlist === null) {
+            Auth::user()->watchlists()->create(Input::all());
+        }
 
         return redirect('/profile');
     }
@@ -46,7 +50,10 @@ class WatchlistsController extends Controller
     {
         $request->session()->flash('message', 'Added!');
         $watchlist_id = $request['watchlist_id'];
-        Auth::user()->watchlists()->findOrFail($watchlist_id)->items()->create(Input::all());
+        $watchlist_item = WatchlistItem::where('title', '=', Input::get('title'))->first();
+        if ($watchlist_item === null){
+            Auth::user()->watchlists()->findOrFail($watchlist_id)->items()->create(Input::all());
+        }
 
         $redirectTo = $request['redirect_to'];
         if (isset($redirectTo)) {
@@ -110,5 +117,19 @@ class WatchlistsController extends Controller
         $watchlist->delete();
 
         return redirect('/profile');
+    }
+
+     /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\WatchList  $watchList
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyItem(int $id, int $watchlist_item_id)
+    {   
+        $watchlist = Auth::user()->watchlists()->findOrFail($id);
+        $watchlist_item = $watchlist->items()->findOrFail($watchlist_item_id)->delete();
+
+        return redirect('/watchlists/' . $watchlist['id']);
     }
 }

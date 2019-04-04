@@ -28,6 +28,7 @@ Route::post('/watchlists', 'WatchlistsController@store')->middleware('auth');
 Route::post('/watchlists/item', 'WatchlistsController@storeItem')->middleware('auth');
 Route::post('/watchlists/{id}', 'WatchlistsController@update')->middleware('auth');
 Route::post('/watchlists/{id}/delete', 'WatchlistsController@destroy')->middleware('auth');
+Route::post('/watchlists/{id}/items/{watchlist_item_id}/delete', 'WatchlistsController@destroyItem')->middleware('auth');
 
 Route::post('/review/store', 'ReviewsController@store')->middleware('auth');
 Route::post('/reviews/{id}/delete', 'ReviewsController@destroy')->middleware('auth');
