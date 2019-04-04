@@ -138,7 +138,7 @@
             </div>
         </main>
 
-        <footer class="flex-row">
+        <footer class="flex-row sp-ar">
             <div class="box flex-col">
                 <div>
                     @guest
@@ -178,7 +178,7 @@
                 </a>
             </div>
             <div class="box flex-col">
-                <div class="box-line flex-row">
+                <div class="box-line flex-row sp-be">
                     <a href="/">
                         <i class="fab fa-twitter"></i>
                     </a>

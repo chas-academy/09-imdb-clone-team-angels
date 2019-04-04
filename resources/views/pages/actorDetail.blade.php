@@ -91,7 +91,7 @@
         
     
     @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
-        <div class="similar-container flex-col">
+        <div class="similar-container flex-col sp-ar">
             <div class="similar-content">   
             <h1>Photos</h1>
                 <div class="similar-flex flex-row">
