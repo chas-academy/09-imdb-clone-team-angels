@@ -19,7 +19,7 @@
                     <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/items/{{ $item['id'] }}/delete">
                         @csrf
                         <a href="/details/{{ $item['movie_id'] }}">
-                        <span style="color: white">●</span> {{ $item['title'] }}
+                            <span style="color: grey">●</span><span style="color: black">{{ $item['title'] }}</span>
                         </a>
                         <button class="del-list-btn" type="submit">✖</button>
                     </form>
