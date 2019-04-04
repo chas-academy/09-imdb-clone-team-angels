@@ -108,9 +108,9 @@
                                 {{-- @if(Session::has('message'))
                                     <option value="" disabled selected>{{ Session::get('message') }}</option>
                                 @else
-                                <option value="" disabled selected>My watch lists</option>
+                                <option value="" disabled selected>My watchlists</option>
                                 @endif --}}
-                                <option value="" disabled selected>My watch lists</option>
+                                <option value="" disabled selected>My watchlists</option>
 
                                 @foreach($watchlists as $watchlist)
                                 <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
