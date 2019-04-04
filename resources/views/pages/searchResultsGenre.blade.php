@@ -11,96 +11,151 @@
         @if(isset($data) && count($data) > 0)
             <div class="genre-results-container">
 
-                    @if(isset($searchGenre) && $searchGenre == 16 )
-                    <div style="color: white; text-align: start;     width: 1080px;  font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                        {{-- {{ $searchGenre }}  --}}
+                    {{-- @if(isset($searchGenre) && $searchGenre == 16 )
+                    <div class="result-title search-title">
+                       
                         Animation
                     </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 28 )
-                <div style="color: white; text-align: start;     width: 1080px; font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                     Action
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 12 )
-                <div style="color: white; text-align: start;      width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                    Adventure
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 35 )
-                <div style="color: white; text-align: start;      width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                     Animation
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 80 )
-                <div style="color: white; text-align: start;      width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                     Crime
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 99 )
-                <div style="color: white; text-align: start;      width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                     Documentary
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 18 )
-                <div style="color: white; text-align: start;      width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                     Drama
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 10751 )
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                     Family
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 14 )
-                <div style="color: white; text-align: start;    width: 1080px; font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
-                Fantasy
+                <div class="result-title search-title">
+                    Fantasy
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 36 )
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
-                History
+                <div class="result-title search-title">
+                   
+                    History
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 27 )
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
-                Horror
+                <div class="result-title search-title">
+                   
+                    Horror
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 9640 )
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
-                Mystery
+                <div class="result-title search-title">
+                   
+                    Mystery
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 878)
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                 Science Fiction
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 10752 )
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                 War
                 </div>
                 @endif
                 @if(isset($searchGenre) && $searchGenre == 37 )
-                <div style="color: white; text-align: start;     width: 1080px;font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
-                    {{-- {{ $searchGenre }}  --}}
+                <div class="result-title search-title">
+                   
                 Western
                 </div>
+                @endif --}}
+
+
+            
+            <div class="result-title search-title">
+                @if(isset($searchGenre) && $searchGenre == 16 )
+                    Animation
                 @endif
+                @if(isset($searchGenre) && $searchGenre == 28 )
+                    Action
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 12 )
+                Adventure
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 35 )
+                    Animation
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 80 )
+                    Crime
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 99 )
+                    Documentary
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 18 )
+                    Drama
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 10751 )
+                    Family
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 14 )
+                    Fantasy
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 36 )
+                    History
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 27 )
+                    Horror
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 9640 )
+                    Mystery
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 878)
+                    Science Fiction
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 10752 )
+                    War
+                @endif
+                @if(isset($searchGenre) && $searchGenre == 37 )
+                    Western
+                @endif
+            </div>
+           
+           
+          
+
+
+
                 <div class="search-results-content genre-results-content">
 
 
