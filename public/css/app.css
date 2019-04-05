@@ -22,7 +22,19 @@ a {
     display: none;
 } 
 */
-
+/* @media only screen and (max-device-width: 414px) {
+    .s-up-in {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+    .search {
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+    .top-overview
+} */
 
 
 /*__________NAV__________*/
@@ -174,8 +186,7 @@ header > a > h1:hover {
     text-align:right;
     width: auto;
 }
-.top-overview{
-    /* visibility: hidden; */
+.top-5-overview {
 }
 /*__________Footer__________*/
 footer {

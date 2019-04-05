@@ -29,7 +29,7 @@
                             </p>
                         @endif
                         @if(isset($value['overview']))
-                            <p class="top-overview">{{ $value['overview'] }}</p>
+                            <p class="top-5-overview">{{ $value['overview'] }}</p>
                         @endif
                     </div>
                 </div>

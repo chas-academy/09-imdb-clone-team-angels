@@ -57,10 +57,96 @@ button.genreButton {
 
 
 @media only screen and (max-device-width: 414px) {
-    .s-up-in {
+  
+    .top-5-overview{
         visibility: hidden;
         height: 0;
         width: 0;
+    }
+    .top-5-desc > h1 {
+        font-size: 6.5vw;
+    }
+    .top-5-num > h1{
+        height: 40px;
+        width: 40px;
+        line-height: 1.3;
+    }
+    .mov-detail{
+        background-size: 200vw !important;
+        height: 160vh !important;
+    }
+    .mov-flex-1{
+        width: unset;
+        height: 90vh;
+    }
+    .mov-flex-2{
+        width: unset;
+        height: 65vh;
+        justify-content: start !important;
+    }
+    .mov-flex-cast{
+        width: 100vw;
+    }
+    .mov-flex-2 > p {
+        width: 90vw;
+        text-align: center;
+        margin: 20px auto 0 auto;
+    }
+    .mov-flex-2 > h5 {
+        width: 95vw;
+      
+        margin: 0 auto 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .mov-flex-2 > h1 {
+        font-size: 8vw;
+        width: 88vw;
+        text-align: center;
+        margin: 0 auto 0 auto;
+    }    
+    .mov-content{
+        flex-direction: column !important;
+    }
+    .mov-poster{
+        height: 44vh;
+    }
+    nav{
+        flex-wrap: wrap-reverse !important;
+    }
+    .nav-flex-1{
+        width: 100vw;
+        margin-top: 15px;
+    }
+    }
+    .nav-flex-2{
+        /* width: 100vw; */
+    }
+    .nav-flex-3{
+        width: 50vw;
+    }
+    .mov-star{
+        width: unset;
+        margin: unset;
+    }
+    iframe{
+        margin: 0 auto 150px auto;
+        width: 90vw !important;
+        height: auto !important;
+    }
+    .similar-container{
+        height: 60vh !important;
+    }
+    .trailer-container{
+        height: 35vh !important;
+        padding: unset;
+    }
+    .review{
+        width: 80vw;
+    }
+    .review-header{
+        width: 80vw;
     }
 }
 
