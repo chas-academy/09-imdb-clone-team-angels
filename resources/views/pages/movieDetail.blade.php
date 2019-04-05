@@ -68,6 +68,34 @@
                             </div>
                         </div>
                         @endif
+                        <div class="add-review">
+                                <form method="POST" action="/review/store/">
+                                    @csrf
+                                    {{-- <div>
+                                        <h4>Add review</h4>
+                                    </div> --}}
+                                    <div>
+                                        <input type="text" placeholder="Headline" name="headline" required />
+                                        <select name="rating" required>
+                                            <option value="" disabled selected>Rating</option> 
+                                            <option value="1">Positive</option>
+                                            <option value="2">Neutral</option>
+                                            <option value="3">Negative</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
+                                    </div>
+                                    <div>
+                                        @if(Session::has('message'))
+                                            <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                                        @else
+                                            <button type="submit">Add review</button>
+                                        @endif
+                                    </div>
+                                    <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+                                </form>
+                            </div>
                         
                         <div class="watchlists-container">
                             <a href="#review">
@@ -219,12 +247,12 @@
             <h1>Reviews</h1>
             <div class="review-con">
                 <div class="review-container">
-                    <div class="add-review">
+                    {{-- <div class="add-review">
                         <form method="POST" action="/review/store/">
                             @csrf
                             {{-- <div>
                                 <h4>Add review</h4>
-                            </div> --}}
+                            </div>
                             <div>
                                 <select name="rating">
                                     <option value="1">Positive</option>
@@ -241,7 +269,7 @@
                             </div>
                             <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
                         </form>
-                    </div>
+                    </div> --}}
                     @if(isset($reviews))
                         @foreach($reviews as $review)
                         <div class="review">
