@@ -15,8 +15,11 @@
         @if($loop->index < 5)
         @if(isset($value['poster_path']))
             <a href='{{ url('details/' . $value['id']) }}'>
-                <div class="top-5-container" style="background: url('https://image.tmdb.org/t/p/original/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
-                    <div class="top-5-desc flex-col sp-ar"
+                <div class="top-5-container flex-row" style="background: url('https://image.tmdb.org/t/p/original/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
+                    <div class="top-5-num flex-col">
+                        <h1> 1</h1>
+                    </div>
+                    <div class="top-5-desc flex-col sp-ce">
                         @if(isset($value['title']))
                            <h1> {{ $value['title'] }}</h1>
                         @endif
@@ -26,7 +29,7 @@
                             </p>
                         @endif
                         @if(isset($value['overview']))
-                            <p>{{ $value['overview'] }}</p>
+                            <p class="top-overview">{{ $value['overview'] }}</p>
                         @endif
                     </div>
                 </div>

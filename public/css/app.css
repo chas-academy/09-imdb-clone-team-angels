@@ -143,15 +143,40 @@ header > a > h1:hover {
     height: 35vw;
 }
 .top-5-desc {
-    width: 50vw;
+    width: 60vw;
     float: right;
     text-align: right;
+    height: 30vw;
+    margin: auto;
+}
+.top-5-desc > h1 {
+    font-size: 50px;
+}
+.top-5-num {
+    width: 25vw;
+    float: left;
+    text-align: left;
+    height: 30vw;
+    margin: auto;
+    justify-content: start;
+}
+
+.top-5-num > h1{
+    height: 55px;
+    width: 55px;
+    border: 4px solid white;
+    line-height: 1.7;
+    text-align: center;
+    border-radius: 55px;
+    background: #6d6d6d8f;
 }
 .top-5-release {
     text-align:right;
     width: auto;
 }
-
+.top-overview{
+    /* visibility: hidden; */
+}
 /*__________Footer__________*/
 footer {
     height: 350px;
