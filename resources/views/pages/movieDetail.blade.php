@@ -30,7 +30,7 @@
                             <img src='{{ asset('images/posterPlaceholder.png') }}' />
                         @endif
 
-                        @if(isset($reviews) && count($reviews) > 0)
+                        
                         <div class="mov-star flex-row">
                             @php
                                 $totalPositive = 0;
@@ -67,35 +67,32 @@
                                 @endif
                             </div>
                         </div>
-                        @endif
-                        <div class="add-review">
-                                <form method="POST" action="/review/store/">
-                                    @csrf
-                                    {{-- <div>
-                                        <h4>Add review</h4>
-                                    </div> --}}
-                                    <div>
-                                        <input type="text" placeholder="Headline" name="headline" required />
-                                        <select name="rating" required>
-                                            <option value="" disabled selected>Rating</option> 
-                                            <option value="1">Positive</option>
-                                            <option value="2">Neutral</option>
-                                            <option value="3">Negative</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
-                                    </div>
-                                    <div>
-                                        @if(Session::has('message'))
-                                            <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
-                                        @else
-                                            <button type="submit">Add review</button>
-                                        @endif
-                                    </div>
-                                    <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
-                                </form>
-                            </div>
+                        {{-- <div class="add-review">
+                            <form method="POST" action="/review/store/">
+                                @csrf
+                                <div>
+                                    <input type="text" placeholder="Headline" name="headline" required />
+                                    <select name="rating" required>
+                                        <option value="" disabled selected>Rating</option> 
+                                        <option value="1">Positive</option>
+                                        <option value="2">Neutral</option>
+                                        <option value="3">Negative</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
+                                </div>
+                                <div>
+                                    @if(Session::has('reviewMessage'))
+                                        <button type="submit" style="color: green;">{{ Session::get('reviewMessage') }}</button>
+                                    @else
+                                        <button type="submit">Add review</button>
+                                    @endif
+                                </div>
+                                <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+                            </form>
+                        </div> --}}
+                  
                         
                         <div class="watchlists-container">
                             <a href="#review">
@@ -105,17 +102,12 @@
                             </a>
                         </div>
 
-                        @if(isset($watchlists) && count($watchlists) > 0)
+                        {{-- @if(isset($watchlists) && count($watchlists) > 0)
                         <div class="watchlists-container">
                             <form method="POST" action="/watchlists/item">
                                 @csrf
                                 <div class="list-select">
                                     <select size=1 name="watchlist_id" required>
-                                            {{-- @if(Session::has('message'))
-                                                <option value="" disabled selected>{{ Session::get('message') }}</option>
-                                            @else
-                                            <option value="" disabled selected>My watch lists</option>
-                                            @endif --}}
                                             <option value="" disabled selected>My watch lists</option>
 
                                         @foreach($watchlists as $watchlist)
@@ -133,7 +125,7 @@
                                 @endif
                             </form>
                         </div> 
-                        @endif 
+                        @endif  --}}
                     </div>
 
                 </div>
@@ -204,7 +196,69 @@
 
                 </div>
             </div>
+            <div class="user-options">
+                <div class="flex-col" style="width: 30vw;">
+                    @if(isset($watchlists) && count($watchlists) > 0)
+                    <div class="watchlists-container">
+                        <form method="POST" action="/watchlists/item">
+                            @csrf
+                            <div class="list-select">
+                                <select size=1 name="watchlist_id" required>
+                                        {{-- @if(Session::has('message'))
+                                            <option value="" disabled selected>{{ Session::get('message') }}</option>
+                                        @else
+                                        <option value="" disabled selected>My watch lists</option>
+                                        @endif --}}
+                                        <option value="" disabled selected>My watch lists</option>
+
+                                    @foreach($watchlists as $watchlist)
+                                        <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
+                            <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
+                            <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
+                            @if(Session::has('message'))
+                                <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                            @else
+                                <button type="submit">Add to watchlist</button>
+                            @endif
+                        </form>
+                    </div> 
+                    @endif 
+                    <div class="add-review">
+                        <form method="POST" action="/review/store/">
+                        @csrf
+                            <div>
+                                <input type="text" placeholder="Headline" name="headline" required />
+                                <select name="rating" required>
+                                    <option value="" disabled selected>Rating</option> 
+                                    <option value="1">Positive</option>
+                                    <option value="2">Neutral</option>
+                                    <option value="3">Negative</option>
+                                </select>
+                            </div>
+                            <div>
+                                <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
+                            </div>
+                            <div>
+                                @if(Session::has('reviewMessage'))
+                                    <button type="submit" style="color: green;">{{ Session::get('reviewMessage') }}</button>
+                                @else
+                                    <button type="submit">Add review</button>
+                                @endif
+                            </div>
+                            <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
+
+    </div>
 
 
 

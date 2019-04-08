@@ -51,7 +51,7 @@
                         <form class="searchform" action="{{url('/searchresults')}}" method="POST">
                             @csrf
                             <div class="search-input-field">
-                                <input id="search-input"  style="width: 200px !important; border-radius: 10px; padding: 3px; border: none;  "name="movieName" type="text" placeholder="Search" required>
+                                <input id="search-input"  style="width: 200px; border-radius: 10px; padding: 3px; border: none;  "name="movieName" type="text" placeholder="Search" required>
                                 <button class="item1" type="submit" name="action">
                                     <i class="fas fa-search"></i>
                                 </button>

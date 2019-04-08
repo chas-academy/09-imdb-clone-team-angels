@@ -37,7 +37,7 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->session()->flash('message', 'Comment Added!');
+        $request->session()->flash('reviewMessage', 'Comment Added!');
         $tmdb_id = $request['tmdb_id'];
         $headline = $request['headline'];
         $content = $request['content'];

@@ -110,7 +110,7 @@ button.genreButton {
         flex-direction: column !important;
     }
     .mov-poster{
-        height: 44vh;
+        /* height: 44vh; */
     }
     nav{
         flex-wrap: wrap-reverse !important;
@@ -119,7 +119,7 @@ button.genreButton {
         width: 100vw;
         margin-top: 15px;
     }
-    }
+    
     .nav-flex-2{
         /* width: 100vw; */
     }
@@ -151,6 +151,38 @@ button.genreButton {
 }
 
 
+@media only screen and (max-device-width: 320px) {
+    nav {
+        width: 93vw;
+        padding: 15px 3.5vw 0 3.5vw;
+    }
+    .search-input-field > input{
+        width: 160px !important;
+    }
+    .mov-flex-2 {
+        width: unset;
+        justify-content: center;
+    }
+    .mov-content{
+        height: auto;
+    }
+    .mov-flex-1 {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        justify-content: center;
+    }
+    .mov-flex-2 {
+        height: 100vh;
+    }
+    .similar-container {
+        height: 75vh;
+    }
+    .mov-poster > img{
+        margin-top: 0 !important;
+    }
+}
 
 /*___________________*/
 
