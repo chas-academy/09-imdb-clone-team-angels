@@ -84,7 +84,7 @@
                                 <a href="/details/{{ $review['tmdb_id'] }}#review">
                                     <h4><u>{{ $review['headline'] }}</u></h4>
                                     {{-- <p>{{ $review['content'] }}</p> --}}
-                                    <i class="far fa-clock"></i>: <b>{{ $review['created_at'] }}</b>
+                                   <span style="font-size: 12px;" <i class="far fa-clock"></i>: <b>{{ $review['created_at'] }}</b> </span>
                                 </a>
                                 <button class="del-list-btn" type="submit">✖</button>
                             </form>

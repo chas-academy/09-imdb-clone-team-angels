@@ -430,7 +430,7 @@ footer {
     width: 200px;
     background: #ffffff;
     border-radius: 100px;
-    margin: 0 auto 80px auto;
+    margin: 90px auto 60px auto;
 }
 .profile-body {
     width: 100vw;
@@ -438,7 +438,7 @@ footer {
     /* height: 100vh; */
     box-shadow: inset 0px 6px 5px #aaaaaa;
     flex-wrap: wrap;
-    padding-bottom: 30px;
+    padding: 20px 0 30px 0;
 }
 .profile-card {
     width: 335px;
@@ -576,6 +576,7 @@ footer {
     border: none;
     background: none;
     width: 70vw;
+    font-weight: bolder;
     /* text-decoration: underline; */
 }
 

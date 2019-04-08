@@ -188,6 +188,19 @@ button.genreButton {
     .mov-poster > img{
         margin-top: 0 !important;
     }
+    .profile-card{
+        width: 90vw;
+    }
+    .new-list{
+        width: 90vw;
+    }
+    .profile-form > form {
+        width: 75vw;
+    }
+    .user-detail-item {
+        width: 70vw;
+        margin: auto;
+    }
 }
 
 /*___________________*/
