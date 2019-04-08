@@ -33,3 +33,7 @@ Route::post('/watchlists/{id}/items/{watchlist_item_id}/delete', 'WatchlistsCont
 
 Route::post('/review/store', 'ReviewsController@store')->middleware('auth');
 Route::post('/review/{id}/delete', 'ReviewsController@destroy')->middleware('auth');
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
