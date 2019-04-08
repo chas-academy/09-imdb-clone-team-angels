@@ -1,28 +1,3 @@
-.flex-col{
-    display: flex;
-    flex-direction: column;
-}
-
-.flex-row{
-    display: flex;
-    flex-direction: row;
-}
-
-.sp-ar{
-    justify-content: space-around;
-}
-.sp-be{
-    justify-content: space-between;
-}
-.sp-ev{
-    justify-content: space-evenly;
-}
-
-.sp-ce{
-    justify-content: center;
-}
-
-
 select#search-input {
     -webkit-appearance: none;
     border: none;
@@ -200,6 +175,38 @@ button.genreButton {
     .user-detail-item {
         width: 70vw;
         margin: auto;
+    }
+    .profile-user-name{
+        margin: 110px auto 60px auto;
+    }
+    .watchlist-items-card {
+        width: 90vw;
+    }
+    .watchlist-page{
+        height: auto;
+        padding: 60px 0 25px 0;
+    }
+    .watch-item{
+        width: 75vw;
+    }
+    .watch-item > form{
+        width: 75vw;
+    }
+
+   
+}
+
+
+@media only screen and (max-device-width: 414px) {
+    .reg-header {
+        width: 90vw;
+        margin: 150px auto 5px auto;
+    }
+    .reg-form-control {
+        width: 75vw;
+    }
+    .reg-body {
+        margin: unset;
     }
 }
 
