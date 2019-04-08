@@ -286,12 +286,12 @@
     </div>
 
 
-
+        @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
         <div class="similar-container flex-col  sp-ar">
             <div class="similar-content">
                 <h1>Similar Movies</h1>
                 <div class="similar-flex flex-row">
-                    @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
+                
                         @foreach($data['similar']['results'] as $related)
                         <div class="similar-mov">
                             <a href='{{ url('details/' . $related['id']) }}'>
@@ -301,11 +301,12 @@
                             <p>{{ substr($related['release_date'], 0 ,-6) }}</p>
                         </div>
                         @endforeach
-                    @endif
+                   
                 </div>
             </div>
         </div>
-
+        @endif
+        
         @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
         <div class="trailer-container flex-col sp-ce">
             <h3>Trailer</h3>

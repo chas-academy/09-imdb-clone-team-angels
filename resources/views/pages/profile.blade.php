@@ -7,7 +7,13 @@
 
     <div class="profile-header flex-col">
         <div class="profile-user-name flex-col sp-ce">
-            {{ Auth::user()->name }}
+            <p style="    width: 180px;
+            word-break: break-word;
+            height: auto;
+            max-height: 100px;
+            overflow-y: scroll;
+            text-align: center;
+            margin: auto;">{{ Auth::user()->name }}</p>
         </div>
     </div>
 
@@ -26,9 +32,9 @@
                         </h4>
                     </div>
                     <div class="user-detail-item">  
-                        <h4>
+                        <h4 >
                             <span>E-mail:</span>
-                            &nbsp;{{ Auth::user()->email }}
+                            <span style="text-transform: lowercase;">&nbsp;{{ Auth::user()->email }}</span>
                         </h4>
                     </div>  
                 </div>
@@ -65,7 +71,7 @@
         </div>
        
 
-        <div class="profile-card flex-col sp-be">
+        <div class="profile-card flex-col sp-be" style="padding-bottom: 25px;">
             <div>
                 <h3 class="profile-card-title">
                     Your Reviews

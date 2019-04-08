@@ -410,11 +410,11 @@ footer {
 /*__________Profile__________*/
 .profile-page {
     width: 100vw;
-    height: 120vh;
+    /* height: 120vh; */
     background: #ececec;
 }
 .profile-header {
-    height: 28vw;
+    /* height: 28vw; */
     width: 100vw;
     text-align: center;
     font-size: 35px;
@@ -435,13 +435,15 @@ footer {
 .profile-body {
     width: 100vw;
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100vh; */
     box-shadow: inset 0px 6px 5px #aaaaaa;
     flex-wrap: wrap;
+    padding-bottom: 30px;
 }
 .profile-card {
     width: 335px;
-    margin: auto 0;
+    /* margin: auto 0; */
+    margin: 20px auto auto auto;
     background: #ffffff;
     border-radius: 10px;
     min-height: 300px;
@@ -511,6 +513,11 @@ footer {
 .watchlist-page {
     width: 100vw;
     height: 100vh;
+    background-image: radial-gradient(
+        circle farthest-corner at 16.5% 37.3%,
+        rgba(10, 37, 64, 1) 0.1%,
+        rgba(2, 18, 39, 1) 90%
+    );
 }
 .watchlist-card {
     width: 90vw;
@@ -521,7 +528,7 @@ footer {
 .watchlist-items-card {
     width: 80vw;
     height: fit-content;
-    background: #aaaaaa;
+    background: #ffffff;
     border-radius: 9px;
     margin: auto;
 }
@@ -532,13 +539,26 @@ footer {
 }
 .watch-item > a {
     color: black;
+    overflow-y: scroll;
+    width: 66vw;
 }
 .watch-item {
+    margin: 0 auto 15px auto;
     padding: 10px;
     width: 70vw;
-    background: white;
+    background: #efefef;
+    box-shadow: 0px 1px 5px #6d6d6d8f;
+    box-shadow: 0px 0px 
     margin: 10px auto 10px auto;
     border-radius: 20px;
+    text-indent: 8px;
+    overflow-y: hidden;
+}
+
+.watch-item > form {
+    display: flex;
+    width: 70vw;
+    justify-content: space-between;
 }
 .watchlist-items  > a {
     color: black;
@@ -548,13 +568,15 @@ footer {
     width: 70vw;
     display: flex;
     justify-content: start;
+    font-size: 20px;
+    border-bottom: 2px solid black;
 }
 .title-new > form > input {
     font-size: 30px;
     border: none;
     background: none;
-    width: 290px;
-    text-decoration: underline;
+    width: 70vw;
+    /* text-decoration: underline; */
 }
 
 /*_____________Review_____________*/
