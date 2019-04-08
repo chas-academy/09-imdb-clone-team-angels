@@ -58,6 +58,7 @@ class PagesController extends Controller
         }
     }
 
+
     public function searchResults(Request $request){
         if(isset($request->movieName) && !empty($request->movieName)) {
             $searchedMovieName = $request->movieName;
@@ -71,6 +72,22 @@ class PagesController extends Controller
             return view('pages.searchResults')->with('data', $resultsResponse['results'])->with('searchTerm', $request->movieName);
         }
     }
+
+
+    public function searchResultsGenre(Request $request){
+        if(isset($request->movieGenre) && !empty($request->movieGenre)) {
+            $searchedMovieGenre = $request->movieGenre;
+            $resultsResponse = $this->apiCall("/discover/movie", "&with_genres={$searchedMovieGenre}");
+        } else {
+            $error_msg = "No data in input box";
+        }
+        if (isset($error_msg)) {
+            return view('pages.searchResultsGenre')->with('error_msg', $error_msg);
+        } else {
+            return view('pages.searchResultsGenre')->with('data', $resultsResponse['results'])->with('searchGenre', $request->movieGenre);
+        }
+    }
+
 
     public function movieDetail($id){
         if(isset($id) && !empty($id)) {
@@ -96,13 +113,6 @@ class PagesController extends Controller
 
     }
 
-    public function profile(){
-        $watchlists = Auth::user()->watchlists()->get();
-        $reviews = Auth::user()->reviews()->get();
-
-        return view('pages.profile')->with("watchlists", $watchlists)->with("reviews", $reviews);
-    }
-
 
     public function actorDetail($id){
         if(isset($id) && !empty($id)) {
@@ -117,6 +127,15 @@ class PagesController extends Controller
         }
     }
 
+
+    public function profile(){
+        $watchlists = Auth::user()->watchlists()->get();
+        $reviews = Auth::user()->reviews()->get();
+
+        return view('pages.profile')->with("watchlists", $watchlists)->with("reviews", $reviews);
+    }
+
+
     public function watchlist(){
         $watchlists = Auth::user()->watchlists()->get();
 
@@ -124,18 +143,11 @@ class PagesController extends Controller
     }
 
 
-    public function searchResultsGenre(Request $request){
-        if(isset($request->movieGenre) && !empty($request->movieGenre)) {
-            $searchedMovieGenre = $request->movieGenre;
-            $resultsResponse = $this->apiCall("/discover/movie", "&with_genres={$searchedMovieGenre}");
-        } else {
-            $error_msg = "No data in input box";
-        }
-        if (isset($error_msg)) {
-            return view('pages.searchResultsGenre')->with('error_msg', $error_msg);
-        } else {
-            return view('pages.searchResultsGenre')->with('data', $resultsResponse['results'])->with('searchGenre', $request->movieGenre);
-        }
+    public function pendingReviews(){
+        $reviews = Review::where('approved', 0)->get();
+
+        return view('pages.pendingReviews')->with("reviews", $reviews);
     }
+
 
 }

@@ -352,23 +352,11 @@
                     </div> --}}
                     @if(isset($reviews))
                         @foreach($reviews as $review)
+                        @if($review['approved'] == true)
                         <div class="review">
                             <form method="POST" action="/review/{{ $review['id'] }}/delete">
                             @csrf
                                 <div class="review-header">
-                                    {{-- <ul>
-                                        <li>
-                                            @if($review['rating'] == 1)
-                                            Positive
-                                            @endif
-                                            @if($review['rating'] == 2)
-                                            Neutral
-                                            @endif
-                                            @if($review['rating'] == 3)
-                                            Negative
-                                            @endif
-                                        </li>
-                                    </ul> --}}
 
                                     <div class="review-header">
                                         <h5> 
@@ -410,6 +398,13 @@
                                 <div style="width: 50vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
                             </form>
                         </div>
+                        @else
+                            <div class="review">
+                                <div class="review-content">
+                                    <h5>* Review pending approval</h5>
+                                </div>
+                            </div>
+                        @endif
                         @endforeach
                     @endif
                 </div>
