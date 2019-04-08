@@ -47,11 +47,11 @@
                     <button type="submit" class="reg-btn">
                         {{ __('Login') }}
                     </button>
-                    @if (Route::has('password.request'))
+                    {{-- @if (Route::has('password.request'))
                         <a class="reg-forgot" href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
                         </a>
-                    @endif
+                    @endif --}}
                 </div>   
             </div>
 

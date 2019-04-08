@@ -137,3 +137,15 @@ margin-left: 3px;
 
 
 
+@media only screen and (max-device-width: 414px) {
+    .reg-header{
+        width: 90vw;
+        margin: 150px auto 5px auto;
+    }
+    .reg-form-control {
+        width: 75vw;
+    }
+    .reg-body {
+        margin: unset;
+    }
+}
