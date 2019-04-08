@@ -12,7 +12,7 @@
         <div class="search-results-container">
 
             @if(isset($searchTerm))
-                <div style="color: white; text-align: center; text-transform:capitalize;      width: 1080px; font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
+                <div class="search-title">
                     {{ $searchTerm }}
                 </div>
             @endif

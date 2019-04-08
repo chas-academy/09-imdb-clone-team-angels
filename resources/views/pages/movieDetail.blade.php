@@ -20,56 +20,233 @@
             " />
         @endif
 
-            <div class="mov-content flex-row">
-                <div class="mov-flex-1">
+                <div class="mov-content flex-row">
+                    <div class="mov-flex-1">
+                        <div class="mov-poster">
+                            @if(isset($data['poster_path']))
+                                <img src='https://image.tmdb.org/t/p/w1280/{{$data['poster_path']}}' />
+                            @else
+                                <img src='{{ asset('images/posterPlaceholder.png') }}' />
+                            @endif
+    
+                            <div class="mov-star flex-row">
+                                @php
+                                    $totalPositive = 0;
+                                    $totalNeutral = 0;
+                                    $totalNegative = 0;
+                                    foreach ($reviews as $review)
+                                    {
+                                    if($review['rating'] == 1){
+                                        $totalPositive = $totalPositive+1;
+                                    }
+                                    if($review['rating'] == 2){
+                                        $totalNeutral = $totalNeutral+1;
+                                    }
+                                    if($review['rating'] == 3){
+                                        $totalNegative = $totalNegative+1;
+                                    }
+                                    }                
+                                @endphp
+                                <div class="emo"> 
+                                    <i class="fas fa-thumbs-up pos"></i>
+                                    <p>{{$totalPositive}}</p>
+                                </div>
+                                <div class="emo">
+                                    <i class="far fa-meh-blank neu"></i>  
+                                    <p>{{$totalNeutral}}</p>
+                                </div>
+                                <div class="emo">
+                                    <i class="fa fa-thumbs-down neg"></i>  
+                                    <p>{{$totalNegative}}</p>
+                                </div>
+                                <div style="font-size:15px;">
+                                    @if(isset($data['vote_average']))
+                                        &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;<b>/&nbsp;10</b>
+                                    @endif
+                                </div>
+                            </div>
+                            {{-- <div class="add-review">
+                                <form method="POST" action="/review/store/">
+                                    @csrf
+                                    <div>
+                                        <input type="text" placeholder="Headline" name="headline" required />
+                                        <select name="rating" required>
+                                            <option value="" disabled selected>Rating</option> 
+                                            <option value="1">Positive</option>
+                                            <option value="2">Neutral</option>
+                                            <option value="3">Negative</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
+                                    </div>
+                                    <div>
+                                        @if(Session::has('reviewMessage'))
+                                            <button type="submit" style="color: green;">{{ Session::get('reviewMessage') }}</button>
+                                        @else
+                                            <button type="submit">Add review</button>
+                                        @endif
+                                    </div>
+                                    <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+                                </form>
+                            </div> --}}
+                    
+                            <div class="watchlists-container">
+                                <a href="#review">
+                                    <div class="review-link">
+                                        Reviews
+                                    </div>
+                                </a>
+                            </div>
 
-                    <div class="mov-poster">
-                        @if(isset($data['poster_path']))
-                            <img src='https://image.tmdb.org/t/p/w1280/{{$data['poster_path']}}' />
-                        @else
-                            <img src='{{ asset('images/posterPlaceholder.png') }}' />
+                            {{-- @if(isset($watchlists) && count($watchlists) > 0)
+                            <div class="watchlists-container">
+                                <form method="POST" action="/watchlists/item">
+                                    @csrf
+                                    <div class="list-select">
+                                        <select size=1 name="watchlist_id" required>
+                                                <option value="" disabled selected>My watch lists</option>
+
+                                            @foreach($watchlists as $watchlist)
+                                                <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
+                                    <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
+                                    <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
+                                    @if(Session::has('message'))
+                                        <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                                    @else
+                                        <button type="submit">Add to watchlist</button>
+                                    @endif
+                                </form>
+                            </div> 
+                            @endif  --}}
+                        </div>
+
+                    </div>
+
+                    <div class="mov-flex-2 flex-col">
+
+                        <h1>{{$data['original_title']}}</h1>
+
+                        <h5 style="display: flex; flex-direction: row;">
+                            @if(strlen($data['release_date']) > 1)
+                                {{substr($data['release_date'], 0 ,-6)}} |
+                            @endif
+
+                            <div>
+                                <form action="{{url('/searchresultsgenre')}}" method="POST">
+                                    @csrf
+                                    @if(isset($data['genres']) && count($data['genres']) > 0)
+                                        @foreach($data['genres'] as $genre)
+                                        <button
+                                            style="color: white; text-shadow: 1px 1px 4px black; font-size:13px; background: none; border: none;"
+                                            class="genreButton" name="movieGenre" value="{{ $genre['id'] }}" type="submit">
+                                            {{ $genre['name'] }}
+                                        </button>
+                                        @if (!$loop->last),@endif
+                                        @endforeach
+                                    @endif
+                                </form>
+                            </div>
+
+                            @if(isset($data['runtime']))
+                                | {{ $data['runtime'] }} m
+                            @endif
+                        </h5>
+
+                        <h5>
+                            @if(isset($data['credits']['crew']) && count($data['credits']['crew']) > 0)
+                                @foreach($data['credits']['crew'] as $crew)
+                                    @if ($loop->first)
+                                        Director: {{ $crew['name'] }}
+                                    @endif
+                                @endforeach
+                            @endif
+                        </h5>
+
+                        @if(isset($data['overview']))
+                            <p>
+                                {{ $data['overview'] }}
+                            </p>
                         @endif
 
-                        
-                        <div class="mov-star flex-row">
-                            @php
-                                $totalPositive = 0;
-                                $totalNeutral = 0;
-                                $totalNegative = 0;
-                                foreach ($reviews as $review)
-                                {
-                                if($review['rating'] == 1){
-                                    $totalPositive = $totalPositive+1;
-                                }
-                                if($review['rating'] == 2){
-                                    $totalNeutral = $totalNeutral+1;
-                                }
-                                if($review['rating'] == 3){
-                                    $totalNegative = $totalNegative+1;
-                                }
-                                }                
-                            @endphp
-                            <div class="emo"> 
-                                <i class="fas fa-thumbs-up pos"></i>
-                                <p>{{$totalPositive}}</p>
-                            </div>
-                            <div class="emo">
-                                <i class="far fa-meh-blank neu"></i>  
-                                <p>{{$totalNeutral}}</p>
-                            </div>
-                            <div class="emo">
-                                <i class="fa fa-thumbs-down neg"></i>  
-                                <p>{{$totalNegative}}</p>
-                            </div>
-                            <div style="font-size:15px;">
-                                @if(isset($data['vote_average']))
-                                    &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;<b>/&nbsp;10</b>
-                                @endif
-                            </div>
+                        <div class="mov-flex-cast flex-row">
+                            @if(isset($data['credits']['cast']) && count($data['credits']['cast']) > 0)
+                                @foreach($data['credits']['cast'] as $cast)
+                                <div class="actor">
+                                    <a href='{{ url('actor/' . $cast['id']) }}'>
+                                        @if(isset($cast['profile_path']))
+                                            <img src='https://image.tmdb.org/t/p/w500/{{$cast['profile_path']}}' />
+                                        @else
+                                            <img src='{{ asset('images/castPlaceholder.png') }}' />
+                                        @endif
+                                    </a>
+                                    <p>{{ $cast['name'] }}</p>
+                                    <p style="height: 30px; overflow: hidden" class="cast-role">{{ $cast['character'] }}</p>
+                                </div>
+                                @endforeach
+                            @endif
                         </div>
-                        {{-- <div class="add-review">
+
+                    </div>
+                </div>
+          
+
+            </div>
+
+    </div>
+
+
+
+
+
+
+ 
+        @if (Auth::user())
+        <div class="mov-detail flex-col" style="width: 100vw; height: 300px;" >
+
+
+            <div class="mov-content flex-row" style="margin-top: unset;">
+
+                <div class="mov-flex-1">
+                    <div class="mov-poster"> 
+                        @if(isset($watchlists) && count($watchlists) > 0)
+                        <div>  
+                            <form method="POST" action="/watchlists/item">
+                            @csrf
+                                <div class="list-select">
+                                    <select size=1 name="watchlist_id" required>
+                                            {{-- @if(Session::has('message'))
+                                                <option value="" disabled selected>{{ Session::get('message') }}</option>
+                                            @else
+                                            <option value="" disabled selected>My watch lists</option>
+                                            @endif --}}
+                                            <option value="" disabled selected>My watch lists</option>
+    
+                                        @foreach($watchlists as $watchlist)
+                                            <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
+                                <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
+                                <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
+                                @if(Session::has('message'))
+                                    <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                                @else
+                                    <button type="submit">Add to watchlist</button>
+                                @endif
+                            </form>
+                        </div> 
+                        @endif 
+
+
+                        <div class="add-review">
                             <form method="POST" action="/review/store/">
-                                @csrf
+                            @csrf
                                 <div>
                                     <input type="text" placeholder="Headline" name="headline" required />
                                     <select name="rating" required>
@@ -91,172 +268,20 @@
                                 </div>
                                 <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
                             </form>
-                        </div> --}}
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="mov-flex-2 flex-col" style="height: 300px;">
+                </div>
                   
-                        
-                        <div class="watchlists-container">
-                            <a href="#review">
-                                <div class="review-link">
-                                    Reviews
-                                </div>
-                            </a>
-                        </div>
-
-                        {{-- @if(isset($watchlists) && count($watchlists) > 0)
-                        <div class="watchlists-container">
-                            <form method="POST" action="/watchlists/item">
-                                @csrf
-                                <div class="list-select">
-                                    <select size=1 name="watchlist_id" required>
-                                            <option value="" disabled selected>My watch lists</option>
-
-                                        @foreach($watchlists as $watchlist)
-                                            <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
-                                <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
-                                <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
-                                @if(Session::has('message'))
-                                    <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
-                                @else
-                                    <button type="submit">Add to watchlist</button>
-                                @endif
-                            </form>
-                        </div> 
-                        @endif  --}}
-                    </div>
-
-                </div>
-
-                <div class="mov-flex-2 flex-col">
-
-                    <h1>{{$data['original_title']}}</h1>
-
-                    <h5 style="display: flex; flex-direction: row;">
-                        @if(strlen($data['release_date']) > 1)
-                            {{substr($data['release_date'], 0 ,-6)}} |
-                        @endif
-
-                        <div>
-                            <form action="{{url('/searchresultsgenre')}}" method="POST">
-                                @csrf
-                                @if(isset($data['genres']) && count($data['genres']) > 0)
-                                    @foreach($data['genres'] as $genre)
-                                    <button
-                                        style="color: white; text-shadow: 1px 1px 4px black; font-size:13px; background: none; border: none;"
-                                        class="genreButton" name="movieGenre" value="{{ $genre['id'] }}" type="submit">
-                                        {{ $genre['name'] }}
-                                    </button>
-                                    @if (!$loop->last),@endif
-                                    @endforeach
-                                @endif
-                            </form>
-                        </div>
-
-                        @if(isset($data['runtime']))
-                            | {{ $data['runtime'] }} m
-                        @endif
-                    </h5>
-
-                    <h5>
-                        @if(isset($data['credits']['crew']) && count($data['credits']['crew']) > 0)
-                            @foreach($data['credits']['crew'] as $crew)
-                                @if ($loop->first)
-                                    Director: {{ $crew['name'] }}
-                                @endif
-                            @endforeach
-                        @endif
-                    </h5>
-
-                    @if(isset($data['overview']))
-                        <p>
-                            {{ $data['overview'] }}
-                        </p>
-                    @endif
-
-                    <div class="mov-flex-cast flex-row">
-                        @if(isset($data['credits']['cast']) && count($data['credits']['cast']) > 0)
-                            @foreach($data['credits']['cast'] as $cast)
-                            <div class="actor">
-                                <a href='{{ url('actor/' . $cast['id']) }}'>
-                                    @if(isset($cast['profile_path']))
-                                        <img src='https://image.tmdb.org/t/p/w500/{{$cast['profile_path']}}' />
-                                    @else
-                                        <img src='{{ asset('images/castPlaceholder.png') }}' />
-                                    @endif
-                                </a>
-                                <p>{{ $cast['name'] }}</p>
-                                <p style="height: 30px; overflow: hidden" class="cast-role">{{ $cast['character'] }}</p>
-                            </div>
-                            @endforeach
-                        @endif
-                    </div>
-
-                </div>
             </div>
-            <div class="user-options">
-                <div class="flex-col" style="width: 30vw;">
-                    @if(isset($watchlists) && count($watchlists) > 0)
-                    <div class="watchlists-container">
-                        <form method="POST" action="/watchlists/item">
-                            @csrf
-                            <div class="list-select">
-                                <select size=1 name="watchlist_id" required>
-                                        {{-- @if(Session::has('message'))
-                                            <option value="" disabled selected>{{ Session::get('message') }}</option>
-                                        @else
-                                        <option value="" disabled selected>My watch lists</option>
-                                        @endif --}}
-                                        <option value="" disabled selected>My watch lists</option>
-
-                                    @foreach($watchlists as $watchlist)
-                                        <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
-                            <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
-                            <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
-                            @if(Session::has('message'))
-                                <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
-                            @else
-                                <button type="submit">Add to watchlist</button>
-                            @endif
-                        </form>
-                    </div> 
-                    @endif 
-                    <div class="add-review">
-                        <form method="POST" action="/review/store/">
-                        @csrf
-                            <div>
-                                <input type="text" placeholder="Headline" name="headline" required />
-                                <select name="rating" required>
-                                    <option value="" disabled selected>Rating</option> 
-                                    <option value="1">Positive</option>
-                                    <option value="2">Neutral</option>
-                                    <option value="3">Negative</option>
-                                </select>
-                            </div>
-                            <div>
-                                <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
-                            </div>
-                            <div>
-                                @if(Session::has('reviewMessage'))
-                                    <button type="submit" style="color: green;">{{ Session::get('reviewMessage') }}</button>
-                                @else
-                                    <button type="submit">Add review</button>
-                                @endif
-                            </div>
-                            <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
-                        </form>
-                    </div>
-                </div>
-            </div>
-
 
         </div>
+        @endif
+               
+    </div>
+    </div>
 
     </div>
 

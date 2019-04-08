@@ -138,14 +138,14 @@
             </div>
         </main>
 
-        <footer class="flex-row sp-ar">
+        {{-- <footer class="flex-row sp-ar">
             <div class="box flex-col">
                 <div>
                     @guest
                         <button class="item1"><a class="soi-footer" href="{{ route('login') }}">Login</a></button>
-                        {{-- @if (Route::has('register')) --}}
+                  
                         <button class="item1"><a class="soi-footer" href="{{ route('register') }}">&nbsp;Register</a></button>
-                        {{-- @endif --}}
+                     
                     @else
                         <a class="" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -157,7 +157,7 @@
                         &nbsp;   <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                         </a>
                         <button class="item1">
-                            {{-- <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span> Dashboard on click --}}
+                            
                         </button>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -195,7 +195,7 @@
                 <p>23728 NW</p>
                 <p>NWAS</p>
             </div>              
-        </footer>
+        </footer> --}}
             
         {{-- </div> --}}
     </body>
