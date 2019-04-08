@@ -27,6 +27,7 @@ class CreateReviewsTable extends Migration
             $table->unsignedInteger('tmdb_id');
             $table->string('headline', 191);
             $table->string('content', 191);
+            $table->boolean('approved')->default('0');
             $table->unsignedTinyInteger('rating')->nullable()->default(null);
 
             $table->index(["user_id"], 'reviews_user_id_foreign');

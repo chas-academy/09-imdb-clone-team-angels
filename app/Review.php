@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Review extends Model
 {
-    protected $fillable = ['tmdb_id', 'headline', 'content', 'rating'];
+    protected $fillable = ['tmdb_id', 'headline', 'content', 'rating', 'approved'];
 
     public function user()
     {
