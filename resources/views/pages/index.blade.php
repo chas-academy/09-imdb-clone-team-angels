@@ -45,44 +45,76 @@
 
 
 
-<div class="s-results-container none">
 @if(isset($trending) && count($trending) > 0)
-    <div class="search-results-container">
-        <div class="search-results-content">
-            <h3 style="text-align: left; width: 1080px;margin: auto;">Hottest now</h3>
-            <div class="search-results new">
-                @foreach(array_reverse($trending) as $value)
-                <!-- @if($loop->index < 5) -->
-                    <div class="search-result-item">
-                        <a href='{{ url('details/' . $value['id']) }}'>
-                            @if(isset($value['poster_path']))
-                                <div class="search-r-image" style="background: url('https://image.tmdb.org/t/p/w1280/{{$value['poster_path']}}'); height: 300px; width: 200px; background-size: cover;">
-                                    @if(isset($value['overview']))
-                                        <p> <span style="font-weight: bold; font-size: 18px;"> {{$value['title']}} </span><br/><br/>{{ $value['overview'] }}</p>
-                                    @endif
-                                </div>
-                            @else
-                                <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
-                            @endif
+    
+    <div 
+        style="
+        display: flex;
+        justify-content: center;
+        flex-flow: column;
+        overflow-x: hidden;
+        width: 100vw;
+        padding: 40px 0 40px 0;
+        
+        "
+    >
+    <h3 style="text-align: left; margin: 0 auto 0 auto; width:80vw; padding-bottom: 3px;">Hottest now</h3>
+    <div 
+        style="
+            width: 80vw;
+            display: flex;
+            justify-content: space-between;
+            flex-flow: row nowrap;
+            overflow-x: scroll;
+            margin: 0 auto 0 auto;
+        "
+    >
+    @foreach(array_reverse($trending) as $value)
+    @if($loop->index < 5)
+        {{-- Item --}}
+        <div style="margin-right: 20px">
+            <a href='{{ url('details/' . $value['id']) }}'>
+                @if(isset($value['poster_path']))
+                    <div class="search-r-image" 
+                    style="
+                        background: url('https://image.tmdb.org/t/p/w1280/{{$value['poster_path']}}'); 
+                        height: 300px; 
+                        width: 200px; 
+                        background-size: cover;
+                    ">
 
-                            <p class="result-title">
-                                {{$value['title']}}
+                        @if(isset($value['overview']))
+                            <p>
+                                <span style="font-weight: bold; font-size: 18px;">
+                                    {{$value['title']}}
+                                </span>
+                                <br/>
+                                <br/>
+                                {{ $value['overview'] }}
                             </p>
-
-                            @if(strlen($value['release_date']) > 1)
-                                <p class="result-release">
-                                    {{substr($value['release_date'], 0 ,-6)}}
-                                </p>
-                            @endif
-                        </a>
+                        @endif
                     </div>
-                <!-- @endif -->
-                @endforeach
-            </div>
+                @else
+                    <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
+                @endif
+
+                <p class="result-title" style="color: black; max-width: 200px; text-align:center; padding-top: 4px;">
+                    {{$value['title']}}
+                </p>
+
+                @if(strlen($value['release_date']) > 1)
+                    <p class="result-release">
+                        {{substr($value['release_date'], 0 ,-6)}}
+                    </p>
+                @endif
+            </a>
         </div>
+    @endif
+    @endforeach
+    </div>
     </div>
 @endif
-</div>
+
 
 {{-- @if(isset($error_msg))
     <h3>
