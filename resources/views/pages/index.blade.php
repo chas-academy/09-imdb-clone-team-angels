@@ -11,13 +11,14 @@
 
 @if(isset($popular) && count($popular) > 0)
 <div id="top5">
+ 
     @foreach($popular as $value)
         @if($loop->index < 5)
         @if(isset($value['poster_path']))
             <a href='{{ url('details/' . $value['id']) }}'>
                 <div class="top-5-container flex-row" style="background: url('https://image.tmdb.org/t/p/original/{{$value['backdrop_path']}}'); background-repeat: no-repeat; background-size: cover;">
                     <div class="top-5-num flex-col">
-                        <h1> 1</h1>
+                    <h1>{{$loop->index + 1}}</h1>
                     </div>
                     <div class="top-5-desc flex-col sp-ce">
                         @if(isset($value['title']))
@@ -34,9 +35,11 @@
                     </div>
                 </div>
             </a> 
+          
         @endif
         @endif
     @endforeach
+
 </div>
 @endif
 
