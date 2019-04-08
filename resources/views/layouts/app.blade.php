@@ -114,12 +114,23 @@
                                     ">
                                     &nbsp;Logout
                                 </a>
+
                                 <a class="lo-inout" href="/profile">
                                     &nbsp; Profile
                                 </a>
+                                
                                 <button class="item1">
                                     <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                                 </button>
+
+                                @can('browse_admin')
+                                <a class="lo-inout" href="/admin">
+                                    <span>
+                                        <i class="fas fa-tachometer-alt"></i>&nbsp;<b>Dashboard</b>
+                                    </span>
+                                </a>
+                                @endcan
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                                 </form>
