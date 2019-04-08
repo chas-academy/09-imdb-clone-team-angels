@@ -86,11 +86,14 @@ button.genreButton {
     }
     .mov-flex-cast{
         width: 100vw;
+        height: inherit;
+        overflow-y: hidden;
     }
     .mov-flex-2 > p {
         width: 90vw;
         text-align: center;
-        margin: 20px auto 0 auto;
+        margin: 20px auto 30px auto;
+        height: 400px;
     }
     .mov-flex-2 > h5 {
         width: 95vw;
@@ -110,7 +113,7 @@ button.genreButton {
         flex-direction: column !important;
     }
     .mov-poster{
-        /* height: 44vh; */
+        height: auto;
     }
     nav{
         flex-wrap: wrap-reverse !important;
@@ -164,17 +167,20 @@ button.genreButton {
         justify-content: center;
     }
     .mov-content{
-        height: auto;
+        /* height: auto; */
+        height: inherit;
     }
     .mov-flex-1 {
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
+        /* height: 100vh; */
+        /* display: flex;
+        flex-direction: column; */
         /* justify-content: center; */
         justify-content: center;
     }
     .mov-flex-2 {
-        height: 100vh;
+        /* height: 100vh; */
+        height: auto;
+        justify-content: space-around;
     }
     .similar-container {
         height: 75vh;
