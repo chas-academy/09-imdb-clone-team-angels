@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+<head>
+    <link href="{{ asset('css/detail.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="{{ asset('css/reviews.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
 
 <div class="page-content">
     @if(isset($data) && count($data) > 0)
@@ -91,7 +94,7 @@
                                 </form>
                             </div> --}}
                     
-                            <div class="watchlists-container">
+                            <div class="flex-row sp-ce">
                                 <a href="#review">
                                     <div class="review-link">
                                         Reviews
@@ -100,7 +103,7 @@
                             </div>
 
                             {{-- @if(isset($watchlists) && count($watchlists) > 0)
-                            <div class="watchlists-container">
+                            <div class="flex-row sp-ce">
                                 <form method="POST" action="/watchlists/item">
                                     @csrf
                                     <div class="list-select">

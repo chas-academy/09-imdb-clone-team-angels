@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-
+<head>
+    <link href="{{ asset('css/profile.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
 
 <div class="profile-page flex-col">
 

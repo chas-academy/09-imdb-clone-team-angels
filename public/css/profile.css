@@ -1,0 +1,148 @@
+/*__________Profile__________*/
+@media only screen and (max-width: 320px) {
+    .profile-card{
+        width: 90vw;
+    }
+    .new-list{
+        width: 90vw;
+    }
+    .profile-form > form {
+        width: 75vw;
+    }
+    .user-detail-item {
+        width: 70vw;
+        margin: auto;
+    }
+    .profile-user-name{
+        margin: 110px auto 60px auto;
+    }
+}
+
+.profile-page {
+    width: 100vw;
+    background: #ececec;
+    /* height: 120vh; */
+}
+
+.profile-header {
+    /* height: 28vw; */
+    width: 100vw;
+    text-align: center;
+    font-size: 35px;
+    justify-content: flex-end;
+    background-image: radial-gradient(
+        circle farthest-corner at 16.5% 37.3%,
+        rgba(10, 37, 64, 1) 0.1%,
+        rgba(2, 18, 39, 1) 90%
+    );
+}
+
+.profile-user-name {
+    height: 200px;
+    width: 200px;
+    background: #ffffff;
+    border-radius: 100px;
+    margin: 90px auto 60px auto;
+}
+
+.profile-body {
+    width: 100vw;
+    margin: 0 auto;
+    /* height: 100vh; */
+    box-shadow: inset 0px 6px 5px #aaaaaa;
+    flex-wrap: wrap;
+    padding: 20px 0 30px 0;
+}
+
+.profile-card {
+    width: 335px;
+    /* margin: auto 0; */
+    margin: 20px auto auto auto;
+    background: #ffffff;
+    border-radius: 10px;
+    min-height: 300px;
+    box-shadow: 0px 0px 6px #6d6d6d8f;
+    text-align: center;
+}
+
+.profile-card-title {
+    font-size: 25px;
+    margin: 20px auto 30px auto;
+    text-shadow: 0px 1px 1px #aaaaaa;
+    overflow-wrap: break-word;
+}
+
+.user-detail {
+    width: 250px;
+    text-align: start;
+    margin: auto;
+}
+
+.user-detail-item {
+    text-transform: capitalize;
+}
+
+.user-detail-item > span {
+    text-decoration: underline;
+}
+
+.profile-form > form {
+    width: 250px;
+    margin: 0 auto 15px auto;
+    padding: 7px;
+    border-radius: 20px;
+    box-shadow: 0px 1px 5px #6d6d6d8f;
+}
+
+.profile-form > form > a {
+    color: #000;
+    font-size: 18px;
+    text-indent: 10px;
+    overflow-x: scroll;
+}
+
+.new-list {
+    margin: 0 auto;
+    background: #7b7b7bab;
+    padding: 15px 0 15px 0px;
+    border-radius: 0 0 5px 5px;
+    width: 335px;
+}
+
+.new-list > form > input {
+    border: none;
+    border-radius: 20px 0px 0px 20px;
+    padding: 9px 0 9px 0;
+    width: 220px;
+    text-indent: 10px;
+}
+
+.new-list > form > button {
+    border: none;
+    border-radius: 0px 20px 20px 0px;
+    padding: 7px 12px 7px 5px;
+    background: gray;
+    color: white;
+    text-indent: 3px;
+    width: 45px;
+}
+
+.del-list-btn {
+    background: none;
+    border: none;
+    padding: 0 3px;
+}
+
+
+/*___________________*/
+
+/* .profile-card > div > form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; 
+} */
+
+/* .profile-card > div > h4 {
+    font-size: 11px;
+    color: white;
+} */

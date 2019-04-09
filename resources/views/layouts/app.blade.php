@@ -20,8 +20,8 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
         <link href="{{ asset('css/appdetox.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="{{ asset('css/eschas.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="{{ asset('css/auth.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+        <link href="{{ asset('css/footer.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+        
 
 
         <!-- Compiled and minified Materialize CSS -->

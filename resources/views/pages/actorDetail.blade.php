@@ -2,6 +2,11 @@
 
 @section('content')
 
+<head>
+    <link href="{{ asset('css/detail.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="{{ asset('css/reviews.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
+
 
 <div class="page-content">
 @if(isset($data) && count($data) > 0)

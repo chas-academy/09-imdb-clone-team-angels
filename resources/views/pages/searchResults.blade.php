@@ -3,7 +3,9 @@
 @section('content')
 
 
-
+<head>
+    <link href="{{ asset('css/searchResults.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
 
 
 <div class="s-results-container">      

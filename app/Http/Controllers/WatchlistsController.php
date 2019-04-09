@@ -78,7 +78,7 @@ class WatchlistsController extends Controller
     {
         $watchlist = Auth::user()->watchlists()->findOrFail($id);
         
-        return view('pages.watchlist')->with("watchlist", $watchlist);
+        return view('pages.watchlistDetail')->with("watchlist", $watchlist);
     }
 
     /**

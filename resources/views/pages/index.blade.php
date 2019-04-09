@@ -2,6 +2,10 @@
 
 @section('content')
 
+<head>
+    <link href="{{ asset('css/index.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
+
 <header class="flex-col sp-ar">
     <a href="#top5">
         <h1>Top 5 Movies</h1>

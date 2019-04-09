@@ -2,6 +2,10 @@
 
 @section('content')
 
+<head>
+    <link href="{{ asset('css/loginRegister.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
+
 <div class="reg flex-col">
     <div class="reg-header">
         {{ __('Login') }}

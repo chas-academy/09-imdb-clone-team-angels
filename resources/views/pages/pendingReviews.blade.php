@@ -2,6 +2,10 @@
 
 @section('content')
 
+<head>
+    <link href="{{ asset('css/reviews.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
+
     @foreach ($reviews as $review)
         <div class="review">
             <form method="POST" action="/review/{{ $review['id'] }}/approve">

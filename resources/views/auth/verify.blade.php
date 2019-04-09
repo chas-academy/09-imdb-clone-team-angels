@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<head>
+    <link href="{{ asset('css/loginRegister.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

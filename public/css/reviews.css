@@ -1,0 +1,92 @@
+/*_____________Review_____________*/
+
+@media only screen and (max-width: 414px) {
+    .review{
+        width: 80vw;
+    }
+    .review-header{
+        width: 80vw;
+    }
+}
+
+.review-title > h1 {
+    font-size: 20px;
+    color: #232222;
+    text-align: left;
+    text-transform: capitalize;
+    border-bottom: 2px solid black;
+    width: 50vw;
+    margin: 0 auto 0 auto;
+    overflow-y: scroll;
+}
+
+.review-con {
+    overflow-y: scroll;
+    height: 400px;
+}
+
+.review-container {
+    width: 100vw;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.review-container > form {
+    width: 50vw;
+    margin: auto;
+    height: 13vw;
+    margin: auto;
+    box-shadow: inset 1px 0px 3px #aaaaaa;
+}
+
+.review {
+    width: 50vw;
+    margin: 10px auto 0 auto;
+    /* display: flex;
+    flex-direction: column; */
+    /* margin-top: 10vh; */
+    margin-top: 10px;
+}
+
+.review-header {
+    /* box-shadow: inset 0px 9px 30px 1px #aaaaaa; */
+    overflow: scroll;
+    height: auto;
+    padding-top: 2px;
+    width: 49vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-header > h5 {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.review-header > div > button {
+    padding: 0px 5px 4px 5px;
+    border: none;
+}
+
+.review-header > .result-title > p {
+    width: 120px;
+    font-size: 13px;
+    color: #000000;
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+}
+
+.review-content > h6 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.review-content > p {
+    /* padding-left: 10px; */
+    font-size: 13px;
+}
+
+.review-content > h4 {
+    padding-left: 10px;
+}

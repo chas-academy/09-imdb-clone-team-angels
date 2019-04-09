@@ -1,0 +1,99 @@
+/*_____________Watchlist_____________*/
+
+@media only screen and (max-width: 320px) {
+    .watchlist-items-card {
+        width: 90vw;
+    }
+    .watchlist-page{
+        height: auto;
+        padding: 60px 0 25px 0;
+    }
+    .watch-item{
+        width: 75vw;
+    }
+    .watch-item > form{
+        width: 75vw;
+    }
+   
+}
+
+.watchlist-page {
+    width: 100vw;
+    height: 100vh;
+    background-image: radial-gradient(
+        circle farthest-corner at 16.5% 37.3%,
+        rgba(10, 37, 64, 1) 0.1%,
+        rgba(2, 18, 39, 1) 90%
+    );
+}
+
+.watchlist-card {
+    width: 90vw;
+    margin: auto;
+    min-height: 300px;
+}
+
+.watchlist-items-card {
+    width: 80vw;
+    height: fit-content;
+    background: #ffffff;
+    border-radius: 9px;
+    margin: auto;
+}
+
+.title-new {
+    margin: 20px auto;
+    width: 70vw;
+    justify-content: start;
+    font-size: 20px;
+    border-bottom: 2px solid black;
+}
+
+.title-new > form > input {
+    font-size: 30px;
+    border: none;
+    background: none;
+    width: 70vw;
+    font-weight: bolder;
+}
+
+.watch-items {
+    height: fit-content;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.watch-item {
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    width: 70vw;
+    background: #efefef;
+    box-shadow: 0px 1px 5px #6d6d6d8f;
+    /* box-shadow: 0px 0px; */
+    margin: 10px auto 10px auto;
+    border-radius: 20px;
+    text-indent: 8px;
+    overflow-y: hidden;
+}
+
+.watch-item > form {
+    display: flex;
+    width: 70vw;
+    justify-content: space-between;
+}
+
+.watch-item > form > a{
+    color: #000000;
+}
+
+.watch-item > a {
+    color: black;
+    overflow-y: scroll;
+    width: 66vw;
+}
+
+.watchlist-none {
+    color: black;
+    text-align: center;
+    width: 70vw;
+}

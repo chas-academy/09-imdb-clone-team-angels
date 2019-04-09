@@ -139,7 +139,7 @@ class PagesController extends Controller
     public function watchlist(){
         $watchlists = Auth::user()->watchlists()->get();
 
-        return view('pages.watchlist')->with("watchlists", $watchlists);
+        return view('pages.watchlistDetail')->with("watchlists", $watchlists);
     }
 
 

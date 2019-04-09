@@ -2,6 +2,10 @@
 
 @section('content')
 
+<head>
+    <link href="{{ asset('css/watchlistDetail.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
+
 <div class="watchlist-page flex-col sp-ev">
     <div class="watchlist-card">
 
