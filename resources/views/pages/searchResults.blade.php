@@ -3,7 +3,9 @@
 @section('content')
 
 
-
+<head>
+    <link href="{{ asset('css/searchResults.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
 
 
 <div class="s-results-container">      
@@ -12,12 +14,12 @@
         <div class="search-results-container">
 
             @if(isset($searchTerm))
-                <div style="color: white; text-align: center; text-transform:capitalize;      width: 1080px; font-size: 30px; padding-top: 100px; margin-bottom: 15px;" class="result-title">
+                <div class="search-title">
                     {{ $searchTerm }}
                 </div>
             @endif
             <div class="search-results-content">
-                <div class="search-results">
+                <div class="search-results flex-row sp-ce">
                 @foreach($data as $value)
                 <div class="search-result-item">
                     <a href='{{ url('details/' . $value['id']) }}'>
@@ -30,11 +32,9 @@
                         @else
                             <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
                         @endif
-            
                         <p class="search-r-title">
                             {{$value['title']}} 
                         </p>
-                            
                         @if(strlen($value['release_date']) > 1)
                             <p class="search-r-release">
                                 {{substr($value['release_date'], 0 ,-6)}}
@@ -49,9 +49,11 @@
 
 
     @elseif(isset($error_msg))
+
         <h3>
             {{$error_msg}}
         </h3>
+
     @endif
 </div>    
 @endsection

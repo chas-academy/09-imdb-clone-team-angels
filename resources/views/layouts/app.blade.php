@@ -20,8 +20,8 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
         <link href="{{ asset('css/appdetox.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="{{ asset('css/eschas.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
-        <link href="{{ asset('css/auth.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+        <link href="{{ asset('css/footer.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+        
 
 
         <!-- Compiled and minified Materialize CSS -->
@@ -51,7 +51,7 @@
                         <form class="searchform" action="{{url('/searchresults')}}" method="POST">
                             @csrf
                             <div class="search-input-field">
-                                <input id="search-input"  style="width: 200px !important; border-radius: 10px; padding: 3px; border: none;  "name="movieName" type="text" placeholder="Search" required>
+                                <input id="search-input"  style="width: 200px; border-radius: 10px; padding: 3px; border: none;  "name="movieName" type="text" placeholder="Search" required>
                                 <button class="item1" type="submit" name="action">
                                     <i class="fas fa-search"></i>
                                 </button>
@@ -114,12 +114,23 @@
                                     ">
                                     &nbsp;Logout
                                 </a>
+
                                 <a class="lo-inout" href="/profile">
                                     &nbsp; Profile
                                 </a>
+                                
                                 <button class="item1">
                                     <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                                 </button>
+
+                                @can('browse_admin')
+                                <a class="lo-inout" href="/admin">
+                                    <span>
+                                        <i class="fas fa-tachometer-alt"></i>&nbsp;<b>Dashboard</b>
+                                    </span>
+                                </a>
+                                @endcan
+
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                                 </form>
@@ -138,14 +149,14 @@
             </div>
         </main>
 
-        <footer class="flex-row sp-ar">
+        {{-- <footer class="flex-row sp-ar">
             <div class="box flex-col">
                 <div>
                     @guest
                         <button class="item1"><a class="soi-footer" href="{{ route('login') }}">Login</a></button>
-                        {{-- @if (Route::has('register')) --}}
+                  
                         <button class="item1"><a class="soi-footer" href="{{ route('register') }}">&nbsp;Register</a></button>
-                        {{-- @endif --}}
+                     
                     @else
                         <a class="" href="{{ route('logout') }}"
                             onclick="event.preventDefault();
@@ -157,7 +168,7 @@
                         &nbsp;   <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                         </a>
                         <button class="item1">
-                            {{-- <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span> Dashboard on click --}}
+                            
                         </button>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
@@ -195,7 +206,7 @@
                 <p>23728 NW</p>
                 <p>NWAS</p>
             </div>              
-        </footer>
+        </footer> --}}
             
         {{-- </div> --}}
     </body>

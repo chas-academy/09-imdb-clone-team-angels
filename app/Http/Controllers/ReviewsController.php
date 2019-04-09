@@ -37,7 +37,7 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->session()->flash('message', 'Comment Added!');
+        $request->session()->flash('reviewMessage', 'Comment Added!');
         $tmdb_id = $request['tmdb_id'];
         $headline = $request['headline'];
         $content = $request['content'];
@@ -101,4 +101,13 @@ class ReviewsController extends Controller
 
         return redirect()->back();
     }
+
+
+    public function approve(int $id){
+        $review = Review::where('id', $id)->update(['approved' => 1]);
+
+        return redirect()->back();
+    }
+
+    
 }

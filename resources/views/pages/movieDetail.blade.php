@@ -1,37 +1,27 @@
 @extends('layouts.app')
 
 @section('content')
-
+<head>
+    <link href="{{ asset('css/detail.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+    <link href="{{ asset('css/reviews.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+</head>
 
 <div class="page-content">
     @if(isset($data) && count($data) > 0)
-
         @if(isset($data['backdrop_path']))
-            <div class="mov-detail flex-col" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}');   
-                width: 100vw;
-                background-size: 100vw;
-                background-repeat: no-repeat;
-            " />
+        <div class="mov-detail flex-col sp-ar" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}'); width: 100vw; background-size: 100vw;background-repeat: no-repeat;" />
         @else
-            <div class="mov-detail flex-col" style="background: url({{ asset('images/backdropPlaceholder.png') }});
-                width: 100vw;
-                background-size: 100vw;
-                background-repeat: no-repeat;
-            " />
+        <div class="mov-detail flex-col sp-ar" style="background: url({{ asset('images/backdropPlaceholder.png') }});width: 100vw;background-size: 100vw;background-repeat: no-repeat;" />
         @endif
-
-            <div class="mov-content flex-row">
+            <div class="mov-content flex-row sp-be">
                 <div class="mov-flex-1">
-
-                    <div class="mov-poster">
+                    <div class="mov-poster flex-col">
                         @if(isset($data['poster_path']))
                             <img src='https://image.tmdb.org/t/p/w1280/{{$data['poster_path']}}' />
                         @else
                             <img src='{{ asset('images/posterPlaceholder.png') }}' />
                         @endif
-
-                        @if(isset($reviews) && count($reviews) > 0)
-                        <div class="mov-star flex-row">
+                        <div class="mov-star flex-row sp-ar">
                             @php
                                 $totalPositive = 0;
                                 $totalNeutral = 0;
@@ -50,25 +40,23 @@
                                 }                
                             @endphp
                             <div class="emo"> 
-                                <i class="fas fa-thumbs-up pos"></i>
+                                <i class="fas fa-thumbs-up"></i>
                                 <p>{{$totalPositive}}</p>
                             </div>
                             <div class="emo">
-                                <i class="far fa-meh-blank neu"></i>  
+                                <i class="far fa-meh-blank"></i>  
                                 <p>{{$totalNeutral}}</p>
                             </div>
                             <div class="emo">
-                                <i class="fa fa-thumbs-down neg"></i>  
+                                <i class="fa fa-thumbs-down"></i>  
                                 <p>{{$totalNegative}}</p>
                             </div>
-                            <div style="font-size:15px;">
+                            <div style="font-size:15px; margin: 8px 0 auto 0;">
                                 @if(isset($data['vote_average']))
                                     &nbsp;&nbsp;{{ $data['vote_average'] }}&nbsp;<b>/&nbsp;10</b>
                                 @endif
                             </div>
                         </div>
-                        @endif
-                        
                         <div class="watchlists-container">
                             <a href="#review">
                                 <div class="review-link">
@@ -76,49 +64,14 @@
                                 </div>
                             </a>
                         </div>
-
-                        @if(isset($watchlists) && count($watchlists) > 0)
-                        <div class="watchlists-container">
-                            <form method="POST" action="/watchlists/item">
-                                @csrf
-                                <div class="list-select">
-                                    <select size=1 name="watchlist_id" required>
-                                            {{-- @if(Session::has('message'))
-                                                <option value="" disabled selected>{{ Session::get('message') }}</option>
-                                            @else
-                                            <option value="" disabled selected>My watch lists</option>
-                                            @endif --}}
-                                            <option value="" disabled selected>My watch lists</option>
-
-                                        @foreach($watchlists as $watchlist)
-                                            <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
-                                <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
-                                <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
-                                @if(Session::has('message'))
-                                    <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
-                                @else
-                                    <button type="submit">Add to watchlist</button>
-                                @endif
-                            </form>
-                        </div> 
-                        @endif 
                     </div>
-
                 </div>
-
                 <div class="mov-flex-2 flex-col">
-
                     <h1>{{$data['original_title']}}</h1>
-
                     <h5 style="display: flex; flex-direction: row;">
                         @if(strlen($data['release_date']) > 1)
                             {{substr($data['release_date'], 0 ,-6)}} |
                         @endif
-
                         <div>
                             <form action="{{url('/searchresultsgenre')}}" method="POST">
                                 @csrf
@@ -134,12 +87,10 @@
                                 @endif
                             </form>
                         </div>
-
                         @if(isset($data['runtime']))
                             | {{ $data['runtime'] }} m
                         @endif
                     </h5>
-
                     <h5>
                         @if(isset($data['credits']['crew']) && count($data['credits']['crew']) > 0)
                             @foreach($data['credits']['crew'] as $crew)
@@ -149,13 +100,11 @@
                             @endforeach
                         @endif
                     </h5>
-
                     @if(isset($data['overview']))
                         <p>
                             {{ $data['overview'] }}
                         </p>
                     @endif
-
                     <div class="mov-flex-cast flex-row">
                         @if(isset($data['credits']['cast']) && count($data['credits']['cast']) > 0)
                             @foreach($data['credits']['cast'] as $cast)
@@ -175,30 +124,105 @@
                     </div>
 
                 </div>
-            </div>
+            </div>  
         </div>
 
 
 
-        <div class="similar-container flex-col  sp-ar">
+
+    </div>
+
+
+
+
+        @if (Auth::user())
+        <div class="mov-detail flex-col sp-ar" style="width: 100vw; height: 250px;" >
+            <div class="mov-content flex-row" style="margin-top: unset;">
+                <div class="mov-flex-1">
+                    <div class="mov-poster flex-col"> 
+                        @if(isset($watchlists) && count($watchlists) > 0)
+                        <div>  
+                            <form style="display: flex; margin-bottom: 10px;" method="POST" action="/watchlists/item">
+                            @csrf
+                                <div class="list-select">
+                                    <select size=1 name="watchlist_id" required>
+                                        <option value="" disabled selected>My watch lists</option>
+                                        @foreach($watchlists as $watchlist)
+                                            <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <input type="hidden" name="movie_id" value="{{ $data['id'] }}" />
+                                <input type="hidden" name="title" value="{{ $data['original_title'] }}" />
+                                <input type="hidden" name="redirect_to" value="/details/{{ $data['id'] }}" />
+                                @if(Session::has('message'))
+                                    <button type="submit" style="color: green;">{{ Session::get('message') }}</button>
+                                @else
+                                    <button style="background: #dddddd; border: none; padding: 0 6px 0 6px; border-radius: 0 5px 5px 0;"type="submit">Add to watchlist</button>
+                                @endif
+                            </form>
+                        </div> 
+                        @endif 
+                        <div class="add-review flex-col">
+                            <form method="POST" action="/review/store/">
+                            @csrf
+                                <div>
+                                    <input type="text" placeholder="Headline" name="headline" required />
+                                    <select name="rating" required>
+                                        <option value="" disabled selected>Rating</option> 
+                                        <option value="1">Positive</option>
+                                        <option value="2">Neutral</option>
+                                        <option value="3">Negative</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <textarea cols="30" rows="10" name="content" placeholder="Content..." required></textarea>
+                                </div>
+                                <div>
+                                    @if(Session::has('reviewMessage'))
+                                        <button type="submit" style="color: green;">{{ Session::get('reviewMessage') }}</button>
+                                    @else
+                                        <button type="submit">Add review</button>
+                                    @endif
+                                </div>
+                                <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="mov-flex-2 flex-col" style="height: 300px;">
+                </div> 
+            </div>
+        </div>
+        @endif
+        
+        
+
+
+    </div>
+    </div>
+    </div>
+
+
+        @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
+        <div class="similar-container flex-col sp-ar">
             <div class="similar-content">
                 <h1>Similar Movies</h1>
                 <div class="similar-flex flex-row">
-                    @if(isset($data['similar']['results']) && count($data['similar']['results']) > 0)
-                        @foreach($data['similar']['results'] as $related)
-                        <div class="similar-mov">
-                            <a href='{{ url('details/' . $related['id']) }}'>
-                                <img src="https://image.tmdb.org/t/p/w500/{{ $related['poster_path'] }}">
-                            </a>
-                            <p>{{ $related['title'] }}</p>
-                            <p>{{ substr($related['release_date'], 0 ,-6) }}</p>
-                        </div>
-                        @endforeach
-                    @endif
+                    @foreach($data['similar']['results'] as $related)
+                    <div class="similar-mov">
+                        <a href='{{ url('details/' . $related['id']) }}'>
+                            <img src="https://image.tmdb.org/t/p/w500/{{ $related['poster_path'] }}">
+                        </a>
+                        <p>{{ $related['title'] }}</p>
+                        <p>{{ substr($related['release_date'], 0 ,-6) }}</p>
+                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
-
+        @endif
+        
         @if(isset($data['videos']['results']) && count($data['videos']['results']) > 0)
         <div class="trailer-container flex-col sp-ce">
             <h3>Trailer</h3>
@@ -214,53 +238,17 @@
         </div>
         @endif
 
-
         <div class="review-title" id="review">
             <h1>Reviews</h1>
             <div class="review-con">
                 <div class="review-container">
-                    <div class="add-review">
-                        <form method="POST" action="/review/store/">
-                            @csrf
-                            {{-- <div>
-                                <h4>Add review</h4>
-                            </div> --}}
-                            <div>
-                                <select name="rating">
-                                    <option value="1">Positive</option>
-                                    <option value="2" selected>Neutral</option>
-                                    <option value="3">Negative</option>
-                                </select>
-                                <input type="text" placeholder="Headline" name="headline" />
-                            </div>
-                            <div>
-                                <textarea cols="30" rows="10" name="content" placeholder="Content..."></textarea>
-                            </div>
-                            <div>
-                                <button type="submit">Add review</button>
-                            </div>
-                            <input type="hidden" name="tmdb_id" value="{{ $data['id'] }}" />
-                        </form>
-                    </div>
                     @if(isset($reviews))
                         @foreach($reviews as $review)
-                        <div class="review">
+                        @if($review['approved'] == true)
+                        <div class="review flex-col">
                             <form method="POST" action="/review/{{ $review['id'] }}/delete">
                             @csrf
                                 <div class="review-header">
-                                    {{-- <ul>
-                                        <li>
-                                            @if($review['rating'] == 1)
-                                            Positive
-                                            @endif
-                                            @if($review['rating'] == 2)
-                                            Neutral
-                                            @endif
-                                            @if($review['rating'] == 3)
-                                            Negative
-                                            @endif
-                                        </li>
-                                    </ul> --}}
 
                                     <div class="review-header">
                                         <h5> 
@@ -276,9 +264,7 @@
                                             <i class="fa fa-thumbs-down neg"></i>  
                                             &nbsp;&nbsp;{{ $review['headline'] }}
                                             @endif
-                                            
                                         </h5>
-                                        {{-- <h5>{{ $review['headline'] }}</h5> --}}
                                         <div>
                                             <b>{{ $review['created_at'] }}</b>
                                             @if (Auth::user() && (Auth::user()->id == $review->user_id))
@@ -286,7 +272,6 @@
                                             @endif
                                         </div>
                                     </div>
-
                                 </div>
                                 <div>
                                     <div class="review-content">
@@ -302,6 +287,13 @@
                                 <div style="width: 50vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
                             </form>
                         </div>
+                        @else
+                            <div class="review">
+                                <div class="review-content">
+                                    <h5>* Review pending approval</h5>
+                                </div>
+                            </div>
+                        @endif
                         @endforeach
                     @endif
                 </div>
