@@ -7,19 +7,15 @@
 
     <div class="profile-header flex-col">
         <div class="profile-user-name flex-col sp-ce">
-            <p style="    width: 180px;
-            word-break: break-word;
-            height: auto;
-            max-height: 100px;
-            overflow-y: scroll;
-            text-align: center;
-            margin: auto;">{{ Auth::user()->name }}</p>
+            <p style="width: 180px; word-break: break-word; height: auto; max-height: 100px; overflow-y: scroll; text-align: center; margin: auto;">
+                {{ Auth::user()->name }}
+            </p>
         </div>
     </div>
 
     <div class="profile-body flex-row sp-ev">
         
-        <div class="profile-card flex-col sp-be">
+        <div class="profile-card flex-col sp-be" style="min-height:150px; padding-bottom: 30px;">
             <div>
                 <h3 class="profile-card-title">
                     Welcome {{ Auth::user()->name }}!
