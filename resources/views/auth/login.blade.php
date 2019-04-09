@@ -10,7 +10,7 @@
     <div class="reg-header">
         {{ __('Login') }}
     </div>
-    <div class="reg-body">
+    <div class="reg-body sp-ce">
         <form method="POST" action="{{ route('login') }}">
         @csrf
 
@@ -55,24 +55,10 @@
                         <a class="reg-forgot" href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
                         </a>
-                    @endif --}}
+                        @endif 
+                    --}}
                 </div>   
             </div>
-
-            {{--
-            <div class="reg-form">
-                <div class="reg-login-btn flex-col">
-                    <button type="submit" class="reg-btn">
-                        {{ __('Login') }}
-                    </button>
-                    @if (Route::has('password.request'))
-                        <a class="reg-forgot" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif
-                </div>
-            </div>
-            --}}
         </form>
     </div>
 </div>

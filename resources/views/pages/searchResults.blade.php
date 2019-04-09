@@ -19,7 +19,7 @@
                 </div>
             @endif
             <div class="search-results-content">
-                <div class="search-results">
+                <div class="search-results flex-row sp-ce">
                 @foreach($data as $value)
                 <div class="search-result-item">
                     <a href='{{ url('details/' . $value['id']) }}'>
@@ -32,11 +32,9 @@
                         @else
                             <img src='{{ asset('images/movPlaceholder.png') }}' style='height: 300px;'/>
                         @endif
-            
                         <p class="search-r-title">
                             {{$value['title']}} 
                         </p>
-                            
                         @if(strlen($value['release_date']) > 1)
                             <p class="search-r-release">
                                 {{substr($value['release_date'], 0 ,-6)}}
@@ -51,9 +49,11 @@
 
 
     @elseif(isset($error_msg))
+
         <h3>
             {{$error_msg}}
         </h3>
+
     @endif
 </div>    
 @endsection
