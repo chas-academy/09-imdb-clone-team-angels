@@ -244,19 +244,12 @@
                 <div class="review-container">
                     @if(isset($reviews))
                         @foreach($reviews as $review)
-<<<<<<< HEAD
                         @if($review['approved'] == true)
-                        <div class="review">
-                            <form method="POST" action="/review/{{ $review['id'] }}/delete">
-                            @csrf
-                                <div class="review-header">
-
-=======
                         <div class="review flex-col">
                             <form method="POST" action="/review/{{ $review['id'] }}/delete">
                             @csrf
                                 <div class="review-header">
->>>>>>> eschas
+
                                     <div class="review-header">
                                         <h5> 
                                             @if($review['rating'] == 1)
