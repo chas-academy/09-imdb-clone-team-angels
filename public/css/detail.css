@@ -31,6 +31,7 @@
         width: 100vw;
         height: inherit;
         overflow-y: hidden;
+        overflow-x: scroll;
     }
     .mov-flex-2 > p {
         width: 90vw;
@@ -204,7 +205,7 @@
     /* width: 55vw; */
     color: black;
     height: 80px;
-    overflow-y: scroll;
+    overflow-y: overlay;
     /* margin: auto; */
     width: 50vw;
 }
@@ -213,7 +214,7 @@
     /* display: flex; */
     margin-top: 18px;
     /* width: 58vw; */
-    overflow: scroll;
+    overflow: overlay;
     width: 50vw;
 }
 
@@ -325,7 +326,7 @@
 
 .similar-flex {
     width: 90vw;
-    overflow: scroll;
+    overflow-x: scroll;
     height: auto;
     padding-top: 2px;
     border-radius: 5px;

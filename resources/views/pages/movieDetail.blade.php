@@ -3,7 +3,6 @@
 @section('content')
 <head>
     <link href="{{ asset('css/detail.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
-    <link href="{{ asset('css/reviews.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
 </head>
 
 <div class="page-content">
@@ -134,7 +133,6 @@
 
 
 
-
         @if (Auth::user())
         <div class="mov-detail flex-col sp-ar" style="width: 100vw; height: 250px;" >
             <div class="mov-content flex-row" style="margin-top: unset;">
@@ -238,68 +236,7 @@
         </div>
         @endif
 
-        <div class="review-title" id="review">
-            <h1>Reviews</h1>
-            <div class="review-con">
-                <div class="review-container">
-                    @if(isset($reviews))
-                        @foreach($reviews as $review)
-                        @if($review['approved'] == true)
-                        <div class="review flex-col">
-                            <form method="POST" action="/review/{{ $review['id'] }}/delete">
-                            @csrf
-                                <div class="review-header">
-
-                                    <div class="review-header">
-                                        <h5> 
-                                            @if($review['rating'] == 1)
-                                            <i class="fas fa-thumbs-up pos"></i>
-                                            &nbsp;&nbsp;{{ $review['headline'] }}
-                                            @endif
-                                            @if($review['rating'] == 2)
-                                            <i class="far fa-meh-blank neu"></i>  
-                                            &nbsp;&nbsp;{{ $review['headline'] }}
-                                            @endif
-                                            @if($review['rating'] == 3)
-                                            <i class="fa fa-thumbs-down neg"></i>  
-                                            &nbsp;&nbsp;{{ $review['headline'] }}
-                                            @endif
-                                        </h5>
-                                        <div>
-                                            <b>{{ $review['created_at'] }}</b>
-                                            @if (Auth::user() && (Auth::user()->id == $review->user_id))
-                                                <button class="waves-effect waves-teal btn-flat" type="submit">✖</button>
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="review-content">
-                                        {{-- <h6>{{ $review->user()->get("email")[0]["email"]}}</h6> --}}
-                                        <h6>{{ $review->user()->get("name")[0]["name"]}}</h6>
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="review-content">
-                                        <p>{{ $review['content'] }}</p>
-                                    </div>
-                                </div>
-                                <div style="width: 50vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
-                            </form>
-                        </div>
-                        @else
-                            <div class="review">
-                                <div class="review-content">
-                                    <h5>* Review pending approval</h5>
-                                </div>
-                            </div>
-                        @endif
-                        @endforeach
-                    @endif
-                </div>
-            </div>
-        </div>
-
+        @include('components.reviewsPartial')
 
     @elseif(isset($error_msg))
         <h3>

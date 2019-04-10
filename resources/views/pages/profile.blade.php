@@ -9,7 +9,7 @@
 
     <div class="profile-header flex-col">
         <div class="profile-user-name flex-col sp-ce">
-            <p style="width: 180px; word-break: break-word; height: auto; max-height: 100px; overflow-y: scroll; text-align: center; margin: auto;">
+            <p style="width: 180px; word-break: break-word; height: auto; max-height: 100px; overflow-y: overlay; text-align: center; margin: auto;">
                 {{ Auth::user()->name }}
             </p>
         </div>
@@ -30,7 +30,7 @@
                         </h4>
                     </div>
                     <div class="user-detail-item">  
-                        <h4 >
+                        <h4>
                             <span>E-mail:</span>
                             <span style="text-transform: lowercase;">&nbsp;{{ Auth::user()->email }}</span>
                         </h4>
@@ -82,7 +82,7 @@
                                 <a href="/details/{{ $review['tmdb_id'] }}#review">
                                     <h4><u>{{ $review['headline'] }}</u></h4>
                                     {{-- <p>{{ $review['content'] }}</p> --}}
-                                   <span style="font-size: 12px;" <i class="far fa-clock"></i>: <b>{{ $review['created_at'] }}</b> </span>
+                                   <span style="font-size: 12px;"><i class="far fa-clock"></i>: <b>{{ $review['created_at'] }}</b> </span>
                                 </a>
                                 <button class="del-list-btn" type="submit">✖</button>
                             </form>

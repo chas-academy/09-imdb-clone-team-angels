@@ -88,7 +88,7 @@
 
 .watch-item > a {
     color: black;
-    overflow-y: scroll;
+    overflow-y: overlay;
     width: 66vw;
 }
 

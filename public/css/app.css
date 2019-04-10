@@ -50,7 +50,7 @@ a {
 
 
 /*__________NAV__________*/
-
+/* 
 @media only screen and (max-width: 414px) {
     nav{
         flex-wrap: wrap-reverse !important;
@@ -60,9 +60,6 @@ a {
         margin-top: 15px;
     }
     
-    .nav-flex-2{
-        /* width: 100vw; */
-    }
     .nav-flex-3{
         width: 50vw;
     }
@@ -129,7 +126,7 @@ input > #search-input {
     border-radius: 30px;
     text-indent: 5px;
     border: none;
-    /* padding:5px; */
+  
 }
 
 button.item1 {
@@ -167,15 +164,11 @@ button.item1 {
 }
 
 .lo-inout:hover {
-    /* background: gray;
-    border-radius: 20px;
-    padding: 5px;   */
     color: #808080;
 }
 
 .lo-inout {
     font-size: 12px;
-    /* margin: 0px 0px 0px 5px; */
 }
 
 select#search-input {
@@ -209,7 +202,7 @@ button.genreButton {
     text-shadow: 1px 1px 4px black;
     font-size: 13px;
 }
-
+ */
 
 /*__________Header__________*/
 header {
