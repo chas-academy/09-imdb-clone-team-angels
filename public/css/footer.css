@@ -1,0 +1,34 @@
+/*__________Footer__________*/
+footer {
+    height: 350px;
+    background: #000000;
+    color: #ffffff;
+    height: 350px;
+    position: relative;
+    width: 100vw;
+    display: block;
+    bottom: 0;
+}
+
+.box {
+    margin: auto;
+    text-align: start;
+}
+
+.box-line {
+    font-size: 20px;
+}
+
+.box-line > p {
+    font-size: 25px;
+}
+
+.soi-footer {
+    color: #ffffff;
+    font-size: 20px;
+}
+
+.soi-footer:hover {
+    color: #808080;
+    font-size: 20px;
+}

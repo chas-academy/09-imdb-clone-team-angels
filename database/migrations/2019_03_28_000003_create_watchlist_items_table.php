@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWatchlistsTable extends Migration
+class CreateWatchlistItemsTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'watchlists';
+    public $tableName = 'watchlist_items';
 
     /**
      * Run the migrations.
-     * @table watchlists
+     * @table watchlist_items
      *
      * @return void
      */
@@ -23,17 +23,18 @@ class CreateWatchlistsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('watchlist_id');
+            $table->integer('movie_id');
             $table->string('title', 191);
 
-            $table->index(["user_id"], 'watchlists_user_id_foreign');
+            $table->index(["watchlist_id"], 'fk_watchlist_items_watchlists1_idx');
             $table->nullableTimestamps();
 
 
-            $table->foreign('user_id', 'watchlists_user_id_foreign')
-                ->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('restrict');
+            $table->foreign('watchlist_id', 'fk_watchlist_items_watchlists1_idx')
+                ->references('id')->on('watchlists')
+                ->onDelete('no action')
+                ->onUpdate('no action');
         });
     }
 

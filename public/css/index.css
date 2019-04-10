@@ -1,0 +1,73 @@
+/*__________Top 5 Movies__________*/
+.top-5-container {
+    height: 32vw;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35vw;
+}
+
+.top-5-num {
+    width: 25vw;
+    float: left;
+    text-align: left;
+    height: 30vw;
+    margin: auto;
+    justify-content: start;
+}
+
+.top-5-num > h1{
+    height: 55px;
+    width: 55px;
+    border: 4px solid #ffffff;
+    box-shadow: 0px 0px 12px #aaa;
+    line-height: 1.7;
+    text-align: center;
+    border-radius: 55px;
+    background: #6d6d6d8f;
+}
+
+.top-5-desc {
+    width: 60vw;
+    float: right;
+    text-align: right;
+    height: 30vw;
+    margin: auto;
+    text-shadow: 0px 1px 4px #444;
+}
+
+.top-5-desc > h1 {
+    /* font-size: 50px; */
+    font-size: 5vw;
+}
+
+.top-5-release {
+    text-align:right;
+    width: auto;
+}
+
+.top-5-overview {
+}
+
+@media only screen and (max-width: 890px) {
+    .top-5-overview{
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+}
+@media only screen and (max-width: 414px) {
+    .top-5-overview{
+        visibility: hidden;
+        height: 0;
+        width: 0;
+    }
+    .top-5-desc > h1 {
+        font-size: 6.5vw;
+    }
+    .top-5-num > h1{
+        height: 40px;
+        width: 40px;
+        line-height: 1.3;
+    }
+}

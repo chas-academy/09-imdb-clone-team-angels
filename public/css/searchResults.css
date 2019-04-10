@@ -1,0 +1,108 @@
+/*__________Search-results__________*/
+.s-results-container {
+    width: 100vw;
+    /* height: 215vh; */
+    background: url("https://images.unsplash.com/photo-1507924267304-e51febff7b1c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80");
+    box-shadow: none !important;
+    padding-bottom: 50px;
+}
+
+.search-results-container {
+    /* height: 100vh !important; */
+    justify-content: unset !important;
+    width: 100vw !important;
+    margin: auto;
+}
+
+.search-title {
+    color: white;
+    text-align: center;
+    width: 100vw;
+    font-size: 30px;
+    padding-top: 110px;
+    padding-bottom: 10px;
+    /* margin-bottom: 15px; */
+    text-shadow: none;
+    margin: auto;
+    font-weight: bold;
+}
+
+.search-results-content {
+    width: 90vw;
+    margin: auto;
+    max-width: 1150px;
+    padding-top: 30px;
+    box-shadow: 0px 2px 8px #aaaaaa;
+    background: #ffffff;
+    border-radius: 5px;
+}
+
+.search-results-content > h1 {
+    font-size: 20px;
+    color: #232222;
+    text-transform: capitalize;
+}
+
+.search-results {
+    width: 90vw;
+    overflow: scroll;
+    height: auto;
+    padding-top: 2px;
+    border-radius: 5px;
+    overflow: unset !important;
+    flex-wrap: wrap;
+    max-width: 1080px;
+    margin: auto;
+    /* display: flex; */
+    /* justify-content: center; */
+}
+
+.search-results > a {
+    width: 420px;
+    display: flex;
+    flex-direction: column-reverse;
+    margin: 8px;
+}
+
+.search-results > a > img {
+    width: auto;
+    height: 300px !important;
+    box-shadow: 3px 3px 2px black;
+}
+
+.search-results > a > h4 {
+    height: 20px;
+    color: #ffffff;
+    text-align: center;
+    font-family: helvetica "neue";
+    font-weight: 200;
+    margin: 4px;
+}
+
+.search-result-item {
+    margin: 8px;
+}
+
+.search-result-item > a > img {
+    /* width: 150px;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 220.88px; */
+    width: auto;
+    box-shadow: 1px 1px 10px #aaaaaa;
+    height: 300px;
+}
+
+.search-result-item > a > img:hover {
+    box-shadow: 1px 1px 10px #000000;
+}
+
+.search-result-item > p {
+    width: 120px;
+    font-size: 13px;
+    /* color: #000000; */
+    text-shadow: none;
+    text-align: center;
+    margin: auto;
+    color: #ffffff;
+}
+

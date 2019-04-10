@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWatchlistsTable extends Migration
+class CreateUsersTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $tableName = 'watchlists';
+    public $tableName = 'users';
 
     /**
      * Run the migrations.
-     * @table watchlists
+     * @table users
      *
      * @return void
      */
@@ -23,17 +23,14 @@ class CreateWatchlistsTable extends Migration
         Schema::create($this->tableName, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->string('title', 191);
+            $table->string('name', 191);
+            $table->string('email', 191);
+            $table->timestamp('email_verified_at')->nullable()->default(null);
+            $table->string('password', 191);
+            $table->rememberToken();
 
-            $table->index(["user_id"], 'watchlists_user_id_foreign');
+            $table->unique(["email"], 'users_email_unique');
             $table->nullableTimestamps();
-
-
-            $table->foreign('user_id', 'watchlists_user_id_foreign')
-                ->references('id')->on('users')
-                ->onDelete('cascade')
-                ->onUpdate('restrict');
         });
     }
 

@@ -1,141 +1,202 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Cineo') }}</title>
+        <!-- CSRF Token -->
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+        <title>{{ config('app.name', 'Cineo') }}</title>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
 
-    <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+        <!-- Fonts -->
+        <link rel="dns-prefetch" href="//fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
 
-    <!-- Compiled and minified Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+        <!-- <link href="{{ asset('css/footer.css') }}?v=<?php echo time(); ?>" rel="stylesheet"> -->
 
-    <!-- Compiled and minified Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    </head>
 
-    <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <body>
+        <div id="app">
+            {{-- <nav class="flex-row sp-be">
 
+                    <div class="nav-flex-1 flex-row sp-ev">
+                        <div class="search">
+                            <form class="searchform" action="{{url('/searchresults')}}" method="POST">
+                                @csrf
+                                <div class="search-input-field">
+                                    <input id="search-input"  style="width: 200px; border-radius: 10px; padding: 3px; border: none;  "name="movieName" type="text" placeholder="Search" required>
+                                    <button class="item1" type="submit" name="action">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    &nbsp;
+                                </div>
+                            </form>
+                        </div>
+                        <div class="search">
+                            <form class="searchform" action="{{url('/searchresultsgenre')}}" method="POST">
+                                @csrf
+                                <div class="search-input-field style-selected">
+                                    <select id="search-input" name="movieGenre" placeholder="See Movies By Genre" required>
+                                        <option value="" disabled selected>Movies By Genre</option> 
+                                        <option value="28">Action</option>
+                                        <option value="12">Adventure</option>
+                                        <option value="16">Animation</option>
+                                        <option value="35">Comedy</option>
+                                        <option value="80">Crime</option>
+                                        <option value="99">Documentary</option>
+                                        <option value="18">Drama</option>
+                                        <option value="10751">Family</option>
+                                        <option value="14">Fantasy</option>
+                                        <option value="36">History</option>
+                                        <option value="27">Horror</option>
+                                        <option value="9640">Mystery</option>
+                                        <option value="878">Science Fiction</option>
+                                        <option value="10752">War</option>
+                                        <option value="37">Western</option>
+                                    </select>
+                                    <button class="item1" type="submit" name="action">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                    &nbsp;
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-</head>
-<body>
-    <div id="app">
-        {{-- <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Cineo') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <div class="nav-flex-2">
+                        <div class="title-logo">
+                            <!-- <img src="{{ asset('images/cineoWhite.png') }}"> -->
+                            <a href="/">
+                                <h1 style="color:#ffffff;">cineo</h1>
+                            </a>
+                        </div>
+                    </div>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                    <div class="nav-flex-3 flex-col sp-ar">
+                        <div class="inline flex-row">
+                            <div class="s-up-in">
+                                @guest
+                                    <button class="item1"><a class="lo-inout" href="{{ route('login') }}">Login</a></button>
+                                    <button class="item1"><a class="lo-inout" href="{{ route('register') }}">Register</a></button>
+                                @else
+                                    <a class="lo-inout" href="{{ route('logout') }}"
+                                        onclick="
+                                            event.preventDefault();
+                                            document.getElementById('logout-form').submit();
+                                        "
+                                    >
+                                        &nbsp;Logout
                                     </a>
+
+                                    <a class="lo-inout" href="/profile">
+                                        &nbsp;Profile
+                                    </a>
+                                    
+                                    <a href="/profile">
+                                        <button class="item1">
+                                            <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
+                                        </button>
+                                    </a>
+
+                                    @can('browse_admin')
+                                        <a class="lo-inout" href="/admin">
+                                            <span>
+                                                <i class="fas fa-tachometer-alt"></i>&nbsp;<b>Dashboard</b>
+                                            </span>
+                                        </a>
+
+                                        <a class="lo-inout" href="/reviews/pending">
+                                            <span>
+                                                <i class="fas fa-thumbtack"></i>&nbsp;<b>Pending Reviews</b>
+                                            </span>
+                                        </a>
+                                    @endcan
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+                                @endguest
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div> --}}
+
+            @include('components.navbarPartial')
+
+            <main>
+                <div class="row">
+                    @yield('content')
                 </div>
-            </div>
-        </nav> --}}
+            </main>
 
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo center" style="display: inline-block; height: 100%; ">
-                    <img src="{{ asset('images/cineoWhite.png') }}" style="display: inline-block; height: 100%; padding: 0.25vw 0">
-                </a>
-
-                <ul id="nav-mobile" class="left">
-                    <li><a href="/">Home</a></li>
-                </ul>
-
-
-                <ul id="nav-mobile" class="right">
-
-                    @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        {{-- @if (Route::has('register')) --}}
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        {{-- @endif --}}
-                    @else
-                        <li>
-                            <a href="{{ route('logout') }}"
+            {{-- <footer class="flex-row sp-ar">
+                <div class="box flex-col">
+                    <div>
+                        @guest
+                            <button class="item1"><a class="soi-footer" href="{{ route('login') }}">Login</a></button>
+                    
+                            <button class="item1"><a class="soi-footer" href="{{ route('register') }}">&nbsp;Register</a></button>
+                        
+                        @else
+                            <a class="" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();
                                 ">
-                                Logout
+                                &nbsp;Logout
                             </a>
-                        </li>
-
-                        <li>
-                            <a href="/dashboard">
-                                Dashboard
+                            <a class="soi-footer" href="/profile">
+                            &nbsp;   <span><i class="fas fa-user"></i>&nbsp;<b>{{ Auth::user()->name }}</b></span>
                             </a>
-                        </li>
-
-                        <li>
-                            <span>Current User: <b>{{ Auth::user()->name }}</b>&nbsp;</span> {{-- Dashboard on click --}}
-                        </li>
-
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            <button class="item1">
+                                
+                            </button>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
-                        </form>
-                    @endguest
-                </ul>
-            </div>
-        </nav>
-
-        <main>
-            <div class="row">
-                <div class="col s12 m6 offset-m3 offset-l3">
-                    @yield('content')
-                </div>    
-            </div>
-        </main>
-    </div>
-</body>
+                            </form>
+                        @endguest
+                    </div>  
+                    <a href="/">
+                        <p>The cineo Group</p>
+                    </a>
+                    <a href="/">
+                        <p>Contact</p>
+                    </a>
+                    <a href="/">
+                        <p>Support</p>
+                    </a>
+                    <a href="/">
+                        <p>About us</p>
+                    </a>
+                </div>
+                <div class="box flex-col">
+                    <div class="box-line flex-row sp-be">
+                        <a href="/">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="/">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="/">
+                            <i class="fab fa-facebook-square"></i>
+                        </a>
+                    </div>
+                    <div style="height:10px;">
+                    </div>
+                    <p>Nowhere</p>
+                    <p>23728 NW</p>
+                    <p>NWAS</p>
+                </div>              
+            </footer> --}}
+            
+        </div>
+    </body>
 </html>
