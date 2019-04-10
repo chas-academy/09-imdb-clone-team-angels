@@ -1,12 +1,7 @@
 /*_____________Review_____________*/
 
-@media only screen and (max-width: 414px) {
-    .review{
-        width: 80vw;
-    }
-    .review-header{
-        width: 80vw;
-    }
+.review-title {
+    margin-top: 75px;
 }
 
 .review-title > h1 {
@@ -21,15 +16,15 @@
 }
 
 .review-con {
-    height: 400px;
+    max-height: 425px;
+    margin-bottom: 50px;
     overflow-y: scroll;
     overflow-x: hidden;
-    margin-bottom: 20px;
 }
 
 .review-container {
     width: 100vw;
-    height: 300px;
+    height: 230px;
 }
 
 .review-container > form {
@@ -90,4 +85,41 @@
 
 .review-content > h4 {
     padding-left: 10px;
+}
+
+@media only screen and (max-width: 990px) {
+    /* .review-title > h1{
+        width: 80vw;
+    }
+    .review-container{
+        width: 78vw;
+    }
+    .review{
+        width: 78vw;
+    }
+    .review-header{
+        width: 78vw;
+    } */
+    .mov-star{
+        width: -webkit-fill-available;
+    }
+}
+
+@media only screen and (max-width: 650px) {
+    /* .mov-star{
+   
+        width: 58vw;
+    } */
+}
+
+@media only screen and (max-width: 414px) {
+    .review{
+        width: 80vw;
+    }
+    .review-header{
+        width: 80vw;
+    }
+    .review-title > h1{
+        width: 85vw;
+    }
 }

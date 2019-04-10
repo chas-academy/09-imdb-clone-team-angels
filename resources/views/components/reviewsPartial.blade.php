@@ -8,22 +8,20 @@
         <div class="review-container">
         @if(isset($reviews))
             @foreach ($reviews as $review)
-            
 
                 @if($review['approved'] == false)
                     @cannot('browse_admin')
                         @auth
-                            @if(Auth::user()->hasRole('admin') || Auth::id()==$review['user_id'])
+                            @if(Auth::id()!=$review['user_id'])
                                 <div class="review">
                                     <div class="review-content">
                                         <h5>* A review pending approval</h5>
                                     </div>
                                     <div style="width: 50vw; margin: auto; height: 20px; border-bottom: 1px solid #aaaaaa;"></div>
                                 </div>
+                                @continue
                             @endif
                         @endauth
-
-                        @continue
                     @endcannot
                 @endif
                 
@@ -31,12 +29,10 @@
 
                     <div class="review-header">
                         <h5> 
-                            @can('browse_admin')
-                                @if($review['approved'] == false)
+                            @if($review['approved'] == false)
                                 <span style="color: orange;"><u>PENDING</u></span>
                                 <br>
-                                @endif
-                            @endcan
+                            @endif
                             <small style="opacity: 0.5;">Title:</small>&nbsp;&nbsp;{{ $review['headline'] }}
                             <br>
                             <small style="opacity: 0.5;">By:</small>&nbsp;&nbsp;{{ $review->user()->get("name")[0]["name"] }}&nbsp;<small style="opacity: 0.5;">[{{ $review->user()->get("email")[0]["email"] }}]</small>

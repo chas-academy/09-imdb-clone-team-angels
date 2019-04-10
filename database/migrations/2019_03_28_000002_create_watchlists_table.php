@@ -25,7 +25,6 @@ class CreateWatchlistsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->string('title', 191);
-            $table->string('list_items', 191);
 
             $table->index(["user_id"], 'watchlists_user_id_foreign');
             $table->nullableTimestamps();
@@ -33,7 +32,7 @@ class CreateWatchlistsTable extends Migration
 
             $table->foreign('user_id', 'watchlists_user_id_foreign')
                 ->references('id')->on('users')
-                ->onDelete('restrict')
+                ->onDelete('cascade')
                 ->onUpdate('restrict');
         });
     }

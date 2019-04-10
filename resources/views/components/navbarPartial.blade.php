@@ -53,7 +53,7 @@
         <li>
             <form action="{{url('/searchresults')}}" method="POST">
                 @csrf
-                <input list="genres" name="movieName" type="text" placeholder="Search" required/>
+                <input list="genres" name="movieName" type="text" placeholder="Search" autofocus required/>
             </form>
         </li>
     </ul>

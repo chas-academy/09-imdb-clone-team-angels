@@ -49,161 +49,6 @@ a {
 */
 
 
-/*__________NAV__________*/
-/* 
-@media only screen and (max-width: 414px) {
-    nav{
-        flex-wrap: wrap-reverse !important;
-    }
-    .nav-flex-1{
-        width: 100vw;
-        margin-top: 15px;
-    }
-    
-    .nav-flex-3{
-        width: 50vw;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    nav {
-        width: 93vw;
-        padding: 15px 3.5vw 0 3.5vw;
-    }
-    .search-input-field > input{
-        width: 160px !important;
-    }
-}
-
-nav {
-    width: 95vw;
-    top: 0;
-    align-self: auto;
-    position: fixed;
-    background-color: rgba(0, 0, 0, 0.633);
-    font-family: "Montserrat", sans-serif;
-    padding: 20px 2.5vw 20px 2.5vw;
-}
-
-.nav-flex-1 {
-    width: 40vw;
-}
-
-.search {
-    flex-flow: row;
-}
-
-.search > button {
-    border: none;
-    margin-right: 10px;
-    background: none;
-    color: #ffffff;
-}
-
-.search > button:hover {
-    color: #808080;
-}
-
-.search > input {
-    border: none;
-    width: 80px;
-    background-color: #ececec;
-    padding: 2px;
-    border-radius: 5px;
-    visibility: hidden;
-}
-
-select#search-input {
-    -webkit-appearance: none;
-    border: none;
-    text-align: center;
-    background: transparent;
-    color: #ffffff;
-    width: 92px;
-}
-
-input > #search-input {
-    border-radius: 30px;
-    text-indent: 5px;
-    border: none;
-  
-}
-
-button.item1 {
-    color: #ffffff;
-    background: none;
-    border: none;
-}
-
-.nav-flex-2 {
-    width: 20vw;
-    text-align: center;
-}
-
-.title-logo > img {
-    width: 10vw;
-    padding-top: 4px;
-}
-
-.nav-flex-3 {
-    width: 40vw;
-}
-
-.inline {
-    justify-content: flex-end;
-    flex-wrap: wrap;
-}
-
-.s-up-in > button {
-    padding: 3px 8px;
-    font-family: "Montserrat", sans-serif;
-    color: rgb(205, 205, 205);
-    font-size: 12px;
-    background: none;
-    border: none;
-}
-
-.lo-inout:hover {
-    color: #808080;
-}
-
-.lo-inout {
-    font-size: 12px;
-}
-
-select#search-input {
-    -webkit-appearance: none;
-    border: none;
-    text-align: center;
-    background: transparent;
-    color: white;
-    width: 92px;
-}
-.list-select > select {
-    -webkit-appearance: none;
-    border: none;
-    background: #ececec;
-    border-radius: 5px 0px 0px 5px;
-    width: 168px;
-    padding: 10px;
-}
-
-.new {
-    width: 1080px !important;
-    margin: auto;
-}
-.none {
-    background: none;
-    height: 510px;
-    box-shadow: none;
-}
-button.genreButton {
-    color: white;
-    text-shadow: 1px 1px 4px black;
-    font-size: 13px;
-}
- */
-
 /*__________Header__________*/
 header {
     height: 100vh;
@@ -263,4 +108,59 @@ header > a > h1:hover {
     text-shadow: none;
     text-align: center;
     margin: auto;
+}
+
+@media only screen and (max-width: 890px) {
+    .search-input-field > input{
+        width: 153px !important;
+    }
+}
+@media only screen and (max-width: 750px) {
+    nav{
+        flex-wrap: wrap-reverse !important;
+    }
+    .nav-flex-1{
+        width: 100vw;
+        margin-top: 15px;
+        justify-content: space-between;
+        margin-left: 40px;
+    }
+    
+    .nav-flex-2{
+        /* width: 100vw; */
+    }
+    .nav-flex-3{
+        width: 50vw;
+      
+    }
+    .search-input-field > input{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    nav{
+        flex-wrap: wrap-reverse !important;
+    }
+    .nav-flex-1{
+        width: 100vw;
+        margin-top: 15px;
+    }
+    
+    .nav-flex-2{
+        /* width: 100vw; */
+    }
+    .nav-flex-3{
+        width: 50vw;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    nav {
+        width: 93vw;
+        padding: 15px 3.5vw 0 3.5vw;
+    }
+    .search-input-field > input{
+        width: 160px !important;
+    }
 }

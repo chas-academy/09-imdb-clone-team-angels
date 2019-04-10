@@ -1,21 +1,6 @@
 /*_____________Watchlist_____________*/
 
-@media only screen and (max-width: 320px) {
-    .watchlist-items-card {
-        width: 90vw;
-    }
-    .watchlist-page{
-        height: auto;
-        padding: 60px 0 25px 0;
-    }
-    .watch-item{
-        width: 75vw;
-    }
-    .watch-item > form{
-        width: 75vw;
-    }
-   
-}
+
 
 .watchlist-page {
     width: 100vw;
@@ -96,4 +81,21 @@
     color: black;
     text-align: center;
     width: 70vw;
+}
+
+@media only screen and (max-width: 320px) {
+    .watchlist-items-card {
+        width: 90vw;
+    }
+    .watchlist-page{
+        height: auto;
+        padding: 60px 0 25px 0;
+    }
+    .watch-item{
+        width: 75vw;
+    }
+    .watch-item > form{
+        width: 75vw;
+    }
+   
 }

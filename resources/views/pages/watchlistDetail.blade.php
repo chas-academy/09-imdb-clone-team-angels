@@ -11,12 +11,14 @@
 
     <div class="watchlist-card flex-row">
         <div class="watchlist-items-card">
+
             <div class="title-new flex-row"> 
                 <form method="POST" action="/watchlists/{{ $watchlist['id'] }}">
                 @csrf
                     <input name="title" type="text" value="{{ $watchlist['title'] }}">
                 </form>
             </div>
+
             <div class="watch-items">
                 @if (count($watchlist->items()->get()) > 0)                
                     @foreach($watchlist->items()->get() as $item)
@@ -36,6 +38,7 @@
                     </div>
                 @endif
             </div>
+
         </div>
     </div>
 
@@ -45,16 +48,19 @@
             <div class="title-new"> 
                 Watchlists
             </div>
+
             @foreach($watchlist->get() as $watchlist)
-                <div class="watch-item flex-row sp-be">
-                    <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
-                        @csrf
-                        <a href="/watchlists/{{ $watchlist['id'] }}">
-                            {{ $watchlist['title'] }}
-                        </a>
-                        <button class="del-list-btn" type="submit">✖</button>
-                    </form>
-                </div>
+                @if($watchlist['user_id'] == Auth::id())
+                    <div class="watch-item flex-row sp-be">
+                        <form method="POST" action="/watchlists/{{ $watchlist['id'] }}/delete">
+                            @csrf
+                            <a href="/watchlists/{{ $watchlist['id'] }}">
+                                {{ $watchlist['title'] }}
+                            </a>
+                            <button class="del-list-btn" type="submit">✖</button>
+                        </form>
+                    </div>
+                @endif
             @endforeach
         </div>
     </div>

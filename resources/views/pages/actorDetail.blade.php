@@ -8,7 +8,7 @@
 </head>
 
 
-<div class="page-content">
+<div class="page-content" style="display: flex; flex-direction:column; width: 100vw; height:auto;">
     @if(isset($data) && count($data) > 0)
 
 
@@ -19,34 +19,36 @@
             @endif
         @endforeach
         @else
-        <div class="mov-detail flex-col" style="background: url({{ asset('images/backdropPlaceholder.png') }}); width: 100vw; background-size: 100vw; background-repeat: no-repeat;">
+        <div class="mov-detail flex-col" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-repeat: no-repeat; ">
         @endif
             <div class="mov-content flex-row">
                 <div class="mov-flex-1"> 
-                    <div class="mov-poster">
+                    <div class="mov-poster flex-col">
                         @if(isset($data['profile_path']))
                             <img src='https://image.tmdb.org/t/p/w1280/{{$data['profile_path']}}'/>
                         @else
                             <img src='{{ asset('images/posterPlaceholder.png') }}' />
                         @endif
                         <br/>
-                        <h4 style="margin: 10px auto 4px auto; justify-content: center; with:260px;display: flex; flex-flow: row; flex-wrap: wrap; width: 265px; text-align: center;">
-                            @if(isset($data['place_of_birth']))
-                                {{ $data['place_of_birth'] }}
-                            @endif   
-                        </h4>
-                        <br/>
-                        <h5>
-                            @if(strlen($data['birthday']) > 1)
-                                {{$data['birthday']}}
-                            @endif
-                        </h5>
-                        <br/>
-                        <h5>
-                            @if(strlen($data['deathday']) > 1)
-                                Died: {{$data['deathday']}}
-                            @endif
-                        </h5>                
+                        <div class="birth-details flex-col sp-ev">
+                            <h4 style=" with:260px; margin: 0 auto 0 auto;">
+                                @if(isset($data['place_of_birth']))
+                                    {{ $data['place_of_birth'] }}
+                                @endif   
+                            </h4>
+                            <br/>
+                            <h5>
+                                @if(strlen($data['birthday']) > 1)
+                                    {{$data['birthday']}}
+                                @endif
+                            </h5>
+                            <br/>
+                            <h5>
+                                @if(strlen($data['deathday']) > 1)
+                                    Died: {{$data['deathday']}}
+                                @endif
+                            </h5>   
+                        </div>             
                     </div>
                 </div>
                 <div class="mov-flex-2 flex-col">

@@ -37,7 +37,7 @@ class ReviewsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->session()->flash('reviewMessage', 'Comment Added!');
+        $request->session()->flash('reviewMessage', 'Review Added!');
         $tmdb_id = $request['tmdb_id'];
         $headline = $request['headline'];
         $content = $request['content'];
@@ -95,7 +95,12 @@ class ReviewsController extends Controller
      */
     public function destroy(int $id)
     {
-        $review = Auth::user()->reviews()->findOrFail($id);
+        
+        if (Auth::user()->hasRole('admin')) {
+            $review = Review::where('id', $id);
+        } else {
+            $review = Auth::user()->reviews()->findOrFail($id);
+        }
 
         $review->delete();
 

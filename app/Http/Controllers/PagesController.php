@@ -60,8 +60,11 @@ class PagesController extends Controller
 
 
     public function searchResults(Request $request){
+        // dd($request);
+        
+
         if(isset($request->movieName) && !empty($request->movieName)) {
-            $searchedMovieName = $request->movieName;
+            $searchedMovieName = preg_replace('/\s+/','-',$request->movieName);
             $resultsResponse = $this->apiCall("/search/movie", "&query={$searchedMovieName}");
         } else {
             $error_msg = "No data in input box";

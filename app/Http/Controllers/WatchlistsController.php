@@ -117,7 +117,15 @@ class WatchlistsController extends Controller
      */
     public function destroy(int $id)
     {
-        $watchlist = Auth::user()->watchlists()->findOrFail($id);
+
+        $watchlist = Watchlist::where('id', $id);
+
+        if (Auth::user()->hasRole('admin')) {
+            $watchlist = Watchlist::where('id', $id);
+        } else {
+            $watchlist = Auth::user()->watchlists()->findOrFail($id);
+        }
+
         $watchlist->items()->delete();
         $watchlist->delete();
 
