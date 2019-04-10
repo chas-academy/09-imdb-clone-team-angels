@@ -51,32 +51,6 @@ a {
 
 /*__________NAV__________*/
 
-@media only screen and (max-width: 414px) {
-    nav{
-        flex-wrap: wrap-reverse !important;
-    }
-    .nav-flex-1{
-        width: 100vw;
-        margin-top: 15px;
-    }
-    
-    .nav-flex-2{
-        /* width: 100vw; */
-    }
-    .nav-flex-3{
-        width: 50vw;
-    }
-}
-
-@media only screen and (max-width: 320px) {
-    nav {
-        width: 93vw;
-        padding: 15px 3.5vw 0 3.5vw;
-    }
-    .search-input-field > input{
-        width: 160px !important;
-    }
-}
 
 nav {
     width: 95vw;
@@ -211,6 +185,7 @@ button.genreButton {
 }
 
 
+
 /*__________Header__________*/
 header {
     height: 100vh;
@@ -270,4 +245,59 @@ header > a > h1:hover {
     text-shadow: none;
     text-align: center;
     margin: auto;
+}
+
+@media only screen and (max-width: 890px) {
+    .search-input-field > input{
+        width: 153px !important;
+    }
+}
+@media only screen and (max-width: 750px) {
+    nav{
+        flex-wrap: wrap-reverse !important;
+    }
+    .nav-flex-1{
+        width: 100vw;
+        margin-top: 15px;
+        justify-content: space-between;
+        margin-left: 40px;
+    }
+    
+    .nav-flex-2{
+        /* width: 100vw; */
+    }
+    .nav-flex-3{
+        width: 50vw;
+      
+    }
+    .search-input-field > input{
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    nav{
+        flex-wrap: wrap-reverse !important;
+    }
+    .nav-flex-1{
+        width: 100vw;
+        margin-top: 15px;
+    }
+    
+    .nav-flex-2{
+        /* width: 100vw; */
+    }
+    .nav-flex-3{
+        width: 50vw;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    nav {
+        width: 93vw;
+        padding: 15px 3.5vw 0 3.5vw;
+    }
+    .search-input-field > input{
+        width: 160px !important;
+    }
 }
