@@ -86,11 +86,11 @@
     </div>
 @endif
 
-
 {{-- @if(isset($error_msg))
     <h3>
         {{$error_msg}}
     </h3>
 @endif
 </div> --}}
+
 @endsection

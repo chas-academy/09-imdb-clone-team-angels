@@ -48,7 +48,7 @@
 .profile-body {
     width: 100vw;
     margin: 0 auto;
-    /* height: 100vh; */
+    height: 100vh;
     box-shadow: inset 0px 6px 5px #aaaaaa;
     flex-wrap: wrap;
     padding: 20px 0 30px 0;
@@ -98,7 +98,7 @@
     color: #000;
     font-size: 18px;
     text-indent: 10px;
-    overflow-x: scroll;
+    overflow-x: overlay;
 }
 
 .new-list {

@@ -17,18 +17,19 @@
     border-bottom: 2px solid black;
     width: 50vw;
     margin: 0 auto 0 auto;
-    overflow-y: scroll;
+    overflow-y: overlay;
 }
 
 .review-con {
-    overflow-y: scroll;
     height: 400px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-bottom: 20px;
 }
 
 .review-container {
     width: 100vw;
     height: 300px;
-    overflow-y: scroll;
 }
 
 .review-container > form {
@@ -50,7 +51,7 @@
 
 .review-header {
     /* box-shadow: inset 0px 9px 30px 1px #aaaaaa; */
-    overflow: scroll;
+    overflow: overlay;
     height: auto;
     padding-top: 2px;
     width: 49vw;
