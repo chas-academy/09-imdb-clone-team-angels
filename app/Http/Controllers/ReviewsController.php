@@ -38,10 +38,6 @@ class ReviewsController extends Controller
     public function store(Request $request)
     {
         $request->session()->flash('reviewMessage', 'Review Added!');
-        $tmdb_id = $request['tmdb_id'];
-        $headline = $request['headline'];
-        $content = $request['content'];
-        $rating = $request['rating'];
         Auth::user()->reviews()->create(Input::all());
 
         $redirectTo = $request['redirect_to'];

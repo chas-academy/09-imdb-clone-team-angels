@@ -8,15 +8,15 @@
 <div class="page-content flex-col">
 @if(isset($data) && count($data) > 0)
     @if(isset($data['backdrop_path']))
-    <div class="mov-detail flex-col sp-ar" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}'); background-size: 100vw; background-repeat: no-repeat;" />
+        <div class="mov-detail flex-col sp-ar" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}'); background-size: 100vw; background-repeat: no-repeat;" />
     @else
-    <div class="mov-detail flex-col sp-ar" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-size: 100vw; background-repeat: no-repeat;" />
+        <div class="mov-detail flex-col sp-ar" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-size: 100vw; background-repeat: no-repeat;" />
     @endif
         <div class="mov-content flex-row sp-be">
             <div class="mov-flex-1">
                 <div class="mov-poster flex-col">
                     @if(isset($data['poster_path']))
-                        <img src='https://image.tmdb.org/t/p/w1280/{{$data['poster_path']}}' />
+                        <img src='https://image.tmdb.org/t/p/w1280/{{ $data['poster_path'] }}' />
                     @else
                         <img src='{{ asset('images/posterPlaceholder.png') }}' />
                     @endif
@@ -188,8 +188,9 @@
 
     @if (Auth::user())
     <div class="add-review flex-col user-option-2">
-        <form method="POST" action="/review/store/">
+        <form method="POST" action="/review/store">
         @csrf
+        {{ method_field('POST') }}
             <div>
                 <input type="text" placeholder="Headline" name="headline" required />
                 <select name="rating" required>

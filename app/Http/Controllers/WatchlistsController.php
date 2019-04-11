@@ -53,11 +53,18 @@ class WatchlistsController extends Controller
         
         $watchlist_id = $request['watchlist_id'];
         $watchlist_item = WatchlistItem::where('title', '=', Input::get('title'))->first();
-        if ($watchlist_item === null){
-            Auth::user()->watchlists()->findOrFail($watchlist_id)->items()->create(Input::all());
-            $request->session()->flash('message', 'Added!');
-        } else {
+
+        $watchlist_item_movieids = Auth::user()->watchlists()->findOrFail($watchlist_id)->items()->get()->pluck('movie_id')->all();
+
+        if (in_array($request['movie_id'], $watchlist_item_movieids)) {
             $request->session()->flash('message', 'Already added!');
+        } else {
+            Auth::user()
+            ->watchlists()
+            ->findOrFail($watchlist_id)
+            ->items()
+            ->create(Input::all());
+            $request->session()->flash('message', 'Added!');
         }
 
         $redirectTo = $request['redirect_to'];
@@ -119,12 +126,7 @@ class WatchlistsController extends Controller
     {
 
         $watchlist = Watchlist::where('id', $id);
-
-        if (Auth::user()->hasRole('admin')) {
-            $watchlist = Watchlist::where('id', $id);
-        } else {
-            $watchlist = Auth::user()->watchlists()->findOrFail($id);
-        }
+        $watchlist = Auth::user()->watchlists()->findOrFail($id);
 
         $watchlist->items()->delete();
         $watchlist->delete();
