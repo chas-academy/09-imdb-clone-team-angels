@@ -1,17 +1,26 @@
 nav {
-    background-color:rgba(200,0,120,0.9);
+    background-color:rgba(0, 13, 29, 0.9);
     color: white;
     overflow: hidden;
     position: fixed;
     top: 0;
     width: 100%;
-    box-shadow: -2px -7px 47px 9px rgba(0, 0, 0, 0.35)
+    box-shadow: -2px -7px 47px 9px rgba(102, 0, 169, 0.35)
 }
 
 .logo-section {
     float: left;
-    padding: 18px;
+    padding: 14px;
     font-family: serif;
+}
+
+.logo > b {
+    font-size: 18px;
+    padding-left: 7px;
+}
+
+nav > ul > li > a > .fas {
+    color: #ff00c49e;
 }
 
 .hb-button {
@@ -26,13 +35,28 @@ nav {
     display: none;
 }
 
-nav a{
-    text-decoration: none;
-    font-size: 16px;
+nav a,select,input{
+    font-size: 13px;
 }
 
-nav select,input {
-    font-size: 16px;
+nav a{
+    text-decoration: none;
+    
+}
+
+input[type="text"] {
+    border-radius: 10px;
+    text-indent: 9px;
+    border: none;
+    padding: 3px 0;
+    background: #ffffffc4;
+}
+
+nav select {
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    color: darkorange;
 }
 
 nav ul {
@@ -82,7 +106,7 @@ nav li > a:hover:before {
     }
 
     nav ul{
-        background: rgb(200, 0, 120);
+        background: rgba(0, 13, 29, 0.95);
         max-height: 0;
         width: 100%;
     }

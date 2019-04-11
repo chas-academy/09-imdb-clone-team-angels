@@ -111,15 +111,3 @@
         width: 58vw;
     } */
 }
-
-@media only screen and (max-width: 414px) {
-    .review{
-        width: 80vw;
-    }
-    .review-header{
-        width: 80vw;
-    }
-    .review-title > h1{
-        width: 85vw;
-    }
-}
