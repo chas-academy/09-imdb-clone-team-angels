@@ -33,7 +33,7 @@ class CreateWatchlistsTable extends Migration
             $table->foreign('user_id', 'watchlists_user_id_foreign')
                 ->references('id')->on('users')
                 ->onDelete('cascade')
-                ->onUpdate('restrict');
+                ->onUpdate('no action');
         });
     }
 

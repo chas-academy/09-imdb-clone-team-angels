@@ -128,7 +128,7 @@ class WatchlistsController extends Controller
         $watchlist = Watchlist::where('id', $id);
         $watchlist = Auth::user()->watchlists()->findOrFail($id);
 
-        $watchlist->items()->delete();
+        // $watchlist->items()->delete();
         $watchlist->delete();
 
         return redirect('/profile');
