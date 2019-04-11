@@ -359,6 +359,23 @@
     .hej > form > button {
         width: 15vw;
     }
+
+    .add-review {
+        width: 80vw;
+    }
+    .add-review > form{
+        width: unset;
+    }
+  
+    .add-review > form > div {
+            width: 70vw;
+    }
+    .add-review > form > div > input {
+        width: 70vw;
+    }
+    .add-review > form > div > textarea {
+        width: 70vw;
+    }
 }
 @media only screen and (max-width: 414px) {
     .mov-detail{
