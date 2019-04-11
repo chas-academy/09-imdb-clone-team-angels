@@ -278,6 +278,14 @@
     width: 80px;
 }
 
+.genreButton {
+    color: white;
+    text-shadow: 1px 1px 4px black; 
+    font-size:13px; 
+    background: none; 
+    border: none;
+}
+
 
 
 /*__________Trailer__________*/
@@ -341,10 +349,14 @@
     .mov-flex-2 > h1{
         font-size: 7vw;
         margin: 0 auto;
+        color: black;
+        text-shadow: none;
     }
     .mov-flex-2 > h5{
         font-size: 3vw;
         margin: 0 auto;
+        color: black;
+        text-shadow: none;
     }
     .mov-flex-2 > p {
         font-size: 3vw;
@@ -391,6 +403,11 @@
     .add-review > form > div > select{
         width: 20vw;
         text-indent: unset;
+    }
+
+    .genreButton {
+        color: black;
+        text-shadow: none;
     }
 }
 @media only screen and (max-width: 414px) {

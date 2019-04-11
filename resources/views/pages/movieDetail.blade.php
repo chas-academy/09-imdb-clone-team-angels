@@ -101,7 +101,6 @@
                             @if(isset($data['genres']) && count($data['genres']) > 0)
                                 @foreach($data['genres'] as $genre)
                                 <button
-                                    style="color: white; text-shadow: 1px 1px 4px black; font-size:13px; background: none; border: none;"
                                     class="genreButton" name="movieGenre" value="{{ $genre['id'] }}" type="submit">
                                     {{ $genre['name'] }}
                                 </button>
