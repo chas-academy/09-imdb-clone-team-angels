@@ -44,7 +44,7 @@ nav a{
     
 }
 
-input[type="text"] {
+nav input[type="text"] {
     border-radius: 10px;
     text-indent: 9px;
     border: none;

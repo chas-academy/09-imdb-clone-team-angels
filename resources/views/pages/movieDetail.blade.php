@@ -69,7 +69,7 @@
                         @csrf
                             <div class="list-select">
                                 <select size=1 name="watchlist_id" required>
-                                    <option value="" disabled selected>My watch lists</option>
+                                    <option value="" disabled selected>My watchlists</option>
                                     @foreach($watchlists as $watchlist)
                                         <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
                                     @endforeach

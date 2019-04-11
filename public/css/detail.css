@@ -15,6 +15,7 @@
     width: 100vw; 
     /* background-size: 100vw;
      */
+     margin-bottom: 30px;
 }
 
 .mov-content {
@@ -269,12 +270,23 @@
     margin: auto;
 }
 
+.list-select > select {
+    width: 190px;
+}
+
+.list-select > button {
+    width: 80px;
+}
+
+
+
 /*__________Trailer__________*/
 .trailer-container {
     width: 100vw;
     padding: 0 0 100px 0;
     text-align: center;
     height: 500px;
+    margin-top: 50px;
 }
 .trailer-container > h3{
   text-align: center;

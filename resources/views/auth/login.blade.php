@@ -4,6 +4,7 @@
 
 <head>
     <link href="{{ asset('css/loginRegister.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </head>
 
 <div class="reg flex-col">
