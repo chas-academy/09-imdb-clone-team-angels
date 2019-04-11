@@ -33,7 +33,7 @@ class CreateWatchlistItemsTable extends Migration
 
             $table->foreign('watchlist_id', 'fk_watchlist_items_watchlists1_idx')
                 ->references('id')->on('watchlists')
-                ->onDelete('no action')
+                ->onDelete('cascade')
                 ->onUpdate('no action');
         });
     }
