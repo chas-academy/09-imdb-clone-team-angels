@@ -376,6 +376,10 @@
     .add-review > form > div > textarea {
         width: 70vw;
     }
+    .add-review > form > div > select{
+        width: 20vw;
+        text-indent: unset;
+    }
 }
 @media only screen and (max-width: 414px) {
     .mov-detail{
