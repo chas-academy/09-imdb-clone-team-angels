@@ -8,15 +8,15 @@
 <div class="page-content flex-col">
 @if(isset($data) && count($data) > 0)
     @if(isset($data['backdrop_path']))
-    <div class="mov-detail flex-col sp-ar" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}'); background-size: 100vw; background-repeat: no-repeat;" />
+        <div class="mov-detail flex-col sp-ar" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$data['backdrop_path']}}'); background-size: 100vw; background-repeat: no-repeat;" />
     @else
-    <div class="mov-detail flex-col sp-ar" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-size: 100vw; background-repeat: no-repeat;" />
+        <div class="mov-detail flex-col sp-ar" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-size: 100vw; background-repeat: no-repeat;" />
     @endif
-        <div class="mov-content flex-row sp-be">
+        <div class="mov-content flex-row sp-be" style="height: auto;">
             <div class="mov-flex-1">
                 <div class="mov-poster flex-col">
                     @if(isset($data['poster_path']))
-                        <img src='https://image.tmdb.org/t/p/w1280/{{$data['poster_path']}}' />
+                        <img src='https://image.tmdb.org/t/p/w1280/{{ $data['poster_path'] }}' />
                     @else
                         <img src='{{ asset('images/posterPlaceholder.png') }}' />
                     @endif
@@ -69,7 +69,7 @@
                         @csrf
                             <div class="list-select">
                                 <select size=1 name="watchlist_id" required>
-                                    <option value="" disabled selected>My watch lists</option>
+                                    <option value="" disabled selected>My watchlists</option>
                                     @foreach($watchlists as $watchlist)
                                         <option value="{{ $watchlist['id'] }}"> {{ $watchlist['title'] }}</option>
                                     @endforeach
@@ -101,7 +101,6 @@
                             @if(isset($data['genres']) && count($data['genres']) > 0)
                                 @foreach($data['genres'] as $genre)
                                 <button
-                                    style="color: white; text-shadow: 1px 1px 4px black; font-size:13px; background: none; border: none;"
                                     class="genreButton" name="movieGenre" value="{{ $genre['id'] }}" type="submit">
                                     {{ $genre['name'] }}
                                 </button>
@@ -188,8 +187,9 @@
 
     @if (Auth::user())
     <div class="add-review flex-col user-option-2">
-        <form method="POST" action="/review/store/">
+        <form method="POST" action="/review/store">
         @csrf
+        {{ method_field('POST') }}
             <div>
                 <input type="text" placeholder="Headline" name="headline" required />
                 <select name="rating" required>

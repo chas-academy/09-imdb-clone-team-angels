@@ -31,7 +31,7 @@
             <form action="{{url('/searchresultsgenre')}}" method="POST">
                 @csrf
                 <select name="movieGenre" onchange="this.form.submit()" required>
-                    <option value="" disabled selected>Movies by Genre&nbsp;&nbsp;</option> 
+                    <option value="" disabled selected>Movies by Genre&nbsp;▾&nbsp;</option> 
                     <option value="28">Action</option>
                     <option value="12">Adventure</option>
                     <option value="16">Animation</option>

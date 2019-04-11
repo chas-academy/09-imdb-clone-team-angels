@@ -15,11 +15,11 @@
         @if(isset($data['tagged_images']['results']) && count($data['tagged_images']['results']) > 0)
         @foreach($data['tagged_images']['results'] as $backdrop)
             @if ($loop->first)
-                <div class="mov-detail flex-col" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{$backdrop['media']['backdrop_path']}}');   width: 100vw;background-size: 100vw;background-repeat: no-repeat;display: flex;">
+                <div class="mov-detail flex-col" style="background: url('https://image.tmdb.org/t/p/w1400_and_h450_face/{{ $backdrop['media']['backdrop_path'] }}'); width: 100vw; background-size: 100vw; background-repeat: no-repeat; display: flex;">
             @endif
         @endforeach
         @else
-        <div class="mov-detail flex-col" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-repeat: no-repeat; ">
+        <div class="mov-detail flex-col" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-repeat: no-repeat; background-size: 100vw; background-repeat: no-repeat;">
         @endif
             <div class="mov-content flex-row">
                 <div class="mov-flex-1"> 

@@ -4,6 +4,7 @@
 
 <head>
     <link href="{{ asset('css/loginRegister.css') }}?v=<?php echo time(); ?>" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 </head>
 
 
@@ -33,7 +34,7 @@
                 <div class="reg-form-line flex-row">
                     <div class="fas fa-envelope icon-log">
                     </div>
-                    <input placeholder="e-mail Address" id="email" type="email" class="reg-form-control reg-reg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                    <input placeholder="E-Mail Address" id="email" type="email" class="reg-form-control reg-reg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
                     @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('email') }}</strong>

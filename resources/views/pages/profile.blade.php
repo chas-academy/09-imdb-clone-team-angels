@@ -43,7 +43,7 @@
         <div class="profile-card flex-col sp-be">
             <div>
                 <h3 class="profile-card-title">
-                    Your Watch Lists
+                    Your Watchlists
                 </h3>
                 <ul>
                     @foreach($watchlists as $watchlist)

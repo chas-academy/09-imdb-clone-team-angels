@@ -133,7 +133,7 @@
             @include('components.navbarPartial')
 
             <main>
-                <div class="row">
+                <div class="row" style="height: auto; width: 100vw;">
                     @yield('content')
                 </div>
             </main>

@@ -15,6 +15,7 @@
     width: 100vw; 
     /* background-size: 100vw;
      */
+     margin-bottom: 30px;
 }
 
 .mov-content {
@@ -269,12 +270,31 @@
     margin: auto;
 }
 
+.list-select > select {
+    width: 190px;
+}
+
+.list-select > button {
+    width: 80px;
+}
+
+.genreButton {
+    color: white;
+    text-shadow: 1px 1px 4px black; 
+    font-size:13px; 
+    background: none; 
+    border: none;
+}
+
+
+
 /*__________Trailer__________*/
 .trailer-container {
     width: 100vw;
     padding: 0 0 100px 0;
     text-align: center;
     height: 500px;
+    margin-top: 50px;
 }
 .trailer-container > h3{
   text-align: center;
@@ -329,10 +349,14 @@
     .mov-flex-2 > h1{
         font-size: 7vw;
         margin: 0 auto;
+        color: black;
+        text-shadow: none;
     }
     .mov-flex-2 > h5{
         font-size: 3vw;
         margin: 0 auto;
+        color: black;
+        text-shadow: none;
     }
     .mov-flex-2 > p {
         font-size: 3vw;
@@ -359,11 +383,39 @@
     .hej > form > button {
         width: 15vw;
     }
+
+    .add-review {
+        width: 80vw;
+    }
+    .add-review > form{
+        width: unset;
+    }
+  
+    .add-review > form > div {
+            width: 70vw;
+    }
+    .add-review > form > div > input {
+        width: 70vw;
+    }
+    .add-review > form > div > textarea {
+        width: 70vw;
+    }
+    .add-review > form > div > select{
+        width: 20vw;
+        text-indent: unset;
+    }
+
+    .genreButton {
+        color: black;
+        text-shadow: none;
+    }
 }
 @media only screen and (max-width: 414px) {
     .mov-detail{
         background-size: 270vw !important;
         /* height: 155vh; */
+        width: 100vw;
+        height: auto;
 
     }
     .mov-flex-1{
@@ -374,7 +426,7 @@
     .mov-flex-2{
         width: unset;
         /* height: 65vh; */
-        height: 55vh;
+        height: auto;
         justify-content: start !important;
     }
     .mov-flex-cast{
@@ -424,11 +476,13 @@
     }
     .similar-container{
         /* height: 40vh; */
+        height: auto;
         margin: 30px 0 30px 0;
     }
     .trailer-container{
         height: 35vh !important;
         padding: unset;
+        margin-top: 50px;
     }
     .user-option-1{
 
