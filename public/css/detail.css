@@ -364,6 +364,8 @@
     .mov-detail{
         background-size: 270vw !important;
         /* height: 155vh; */
+        width: 100vw;
+        height: auto;
 
     }
     .mov-flex-1{
@@ -374,7 +376,7 @@
     .mov-flex-2{
         width: unset;
         /* height: 65vh; */
-        height: 55vh;
+        height: auto;
         justify-content: start !important;
     }
     .mov-flex-cast{
@@ -424,6 +426,7 @@
     }
     .similar-container{
         /* height: 40vh; */
+        height: auto;
         margin: 30px 0 30px 0;
     }
     .trailer-container{

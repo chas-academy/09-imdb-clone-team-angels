@@ -12,7 +12,7 @@
     @else
         <div class="mov-detail flex-col sp-ar" style="background: url({{ asset('images/backdropPlaceholder.png') }}); background-size: 100vw; background-repeat: no-repeat;" />
     @endif
-        <div class="mov-content flex-row sp-be">
+        <div class="mov-content flex-row sp-be" style="height: auto;">
             <div class="mov-flex-1">
                 <div class="mov-poster flex-col">
                     @if(isset($data['poster_path']))
